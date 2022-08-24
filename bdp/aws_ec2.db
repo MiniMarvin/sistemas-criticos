@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/expand_src" old_decomp_dir="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/src">
+        <!-- Definition directory list -->
+        <definition_dir path="/Users/caiogomes/Documents/atelierb/aws_ec2" />
+        <!-- Proof mechanisms -->
+        <!-- Component file list -->
+        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2" name="clientManager" suffix="mch" user="caiogomes">
+            <component name="clientManager" type="specification" />
+        </component_file>
+        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2" name="ec2ManagerCtx" suffix="mch" user="caiogomes">
+            <component name="ec2ManagerCtx" type="specification" />
+        </component_file>
+        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2" name="machineResourceManager" suffix="mch" user="caiogomes">
+            <component name="machineResourceManager" type="specification" />
+        </component_file>
+        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2" name="machineResourceManagerCtx" suffix="mch" user="caiogomes">
+            <component name="machineResourceManagerCtx" type="specification" />
+        </component_file>
+        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2" name="userManager" suffix="mch" user="caiogomes">
+            <component name="userManager" type="specification" />
+        </component_file>
+        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2" name="userManagerCtx" suffix="mch" user="caiogomes">
+            <component name="userManagerCtx" type="specification" />
+        </component_file>
+        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2" name="virtualMachineManager" suffix="mch" user="caiogomes">
+            <component name="virtualMachineManager" type="specification" />
+        </component_file>
+        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2" name="virtualMachineManagerCtx" suffix="mch" user="caiogomes">
+            <component name="virtualMachineManagerCtx" type="specification" />
+        </component_file>
+    </project>
+</db_xml>

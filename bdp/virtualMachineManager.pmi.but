@@ -1,0 +1,1 @@
+﻿Flag(FileOn("virtualMachineManager.pmi.res")) & Set(toto | spotVirtualMachines\/(allocatedVirtualMachines\/{vm}) = spotVirtualMachines\/allocatedVirtualMachines\/{vm})

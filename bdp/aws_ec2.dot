@@ -1,0 +1,19 @@
+digraph {
+clientManager [ label=" clientManager " shape= box ]
+ec2ManagerCtx [ label=" ec2ManagerCtx " shape= box ]
+machineResourceManager [ label=" machineResourceManager " shape= box ]
+machineResourceManagerCtx [ label=" machineResourceManagerCtx " shape= box ]
+userManager [ label=" userManager " shape= box ]
+userManagerCtx [ label=" userManagerCtx " shape= box ]
+virtualMachineManager [ label=" virtualMachineManager " shape= box ]
+virtualMachineManagerCtx [ label=" virtualMachineManagerCtx " shape= box ]
+
+"machineResourceManager" -> "userManager" [style= dotted ]
+"machineResourceManager" -> "machineResourceManagerCtx" [style= dotted ]
+"userManager" -> "userManagerCtx" [style= dotted ]
+"virtualMachineManager" -> "virtualMachineManagerCtx" [style= dotted ]
+"virtualMachineManager" -> "userManagerCtx" [style= dotted ]
+"virtualMachineManager" -> "machineResourceManagerCtx" [style= dotted ]
+"virtualMachineManager" -> "machineResourceManager" [style= dotted ]
+"virtualMachineManager" -> "userManager" [style= dotted ]
+}

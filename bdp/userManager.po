@@ -1,0 +1,46 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(23) & _f(13) & Operation_removeClient.2,(_f(4) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(23) & _f(13) & Operation_removeClient.1,(_f(4) => _f(24));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(19) & _f(20) & _f(13) & Operation_removeAdmin.2,(_f(4) => _f(22));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(19) & _f(20) & _f(13) & Operation_removeAdmin.1,(_f(4) => _f(21));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & _f(12) & _f(13) & Operation_addAdmin.3,(_f(4) => _f(18));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & _f(12) & _f(13) & Operation_addAdmin.2,(_f(4) => _f(17));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & _f(12) & _f(13) & Operation_addAdmin.1,(_f(4) => _f(16));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & _f(12) & _f(13) & Operation_addClient.2,(_f(4) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & _f(12) & _f(13) & Operation_addClient.1,(_f(4) => _f(14));
+_f(1) & _f(2) & _f(3) & Initialisation.4,(_f(4) => _f(8));
+_f(1) & _f(2) & _f(3) & Initialisation.3,(_f(4) => _f(7));
+_f(1) & _f(2) & _f(3) & Initialisation.2,(_f(4) => _f(6));
+_f(1) & _f(2) & _f(3) & Initialisation.1,(_f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+USERS: FIN(INTEGER) & not(USERS = {});
+((admin) : (USERS));
+"Invariant is preserved";
+((USERS) : (FIN(USERS)));
+({admin}) : POW( USERS);
+((((({admin})) /\ ({}))) = ({}));
+not(((({admin})) = ({})));
+((USERS) : (FIN(USERS))) & admins : POW( USERS) & clients : POW( USERS) & ((((admins) /\ (clients))) = ({})) & not(((admins) = ({})));
+((user) : (USERS));
+not(((user) : (clients)));
+not(((user) : (admins)));
+((caller) : (admins));
+((clients) \/ (({user}))) : POW( USERS);
+((((admins) /\ (((clients) \/ (({user})))))) = ({}));
+((admins) \/ (({user}))) : POW( USERS);
+((((((admins) \/ (({user})))) /\ (clients))) = ({}));
+not(((((admins) \/ (({user})))) = ({})));
+((user) : (admins));
+not((((admins - ({user}))) = ({})));
+(admins - ({user})) : POW( USERS);
+(((((admins - ({user}))) /\ (clients))) = ({}));
+((user) : (clients));
+(clients - ({user})) : POW( USERS);
+((((admins) /\ ((clients - ({user}))))) = ({}))
+END
+&
+THEORY EnumerateX
+END

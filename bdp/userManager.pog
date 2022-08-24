@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Proof_Obligations xmlns="https://www.atelierb.eu/Formats/pog" version="1.0">
+    <Define name="B definitions" hash="14675746054373257956">
+        <Exp_Comparison op="=">
+            <Id value="NAT" typref="0"/>
+            <Binary_Exp op=".." typref="0">
+                <Integer_Literal value="0" typref="1"/>
+                <Id value="MAXINT" typref="1"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Id value="INT" typref="0"/>
+            <Binary_Exp op=".." typref="0">
+                <Id value="MININT" typref="1"/>
+                <Id value="MAXINT" typref="1"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+    </Define>
+    <Define name="ctx" hash="9171663041883024576">
+        <Set>
+            <Id value="USERS" typref="0"/>
+        </Set>
+    </Define>
+    <Define name="seext" hash="0"/>
+    <Define name="lprp" hash="6355358296135917318">
+        <Exp_Comparison op=":">
+            <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:4:1:1"/>
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:4:1:2"/>
+        </Exp_Comparison>
+    </Define>
+    <Define name="inprp" hash="0"/>
+    <Define name="inext" hash="0"/>
+    <Define name="inv" hash="10293548384801497800">
+        <Exp_Comparison op=":">
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:1:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:1:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:2:1"/>
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:2:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:3:1"/>
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:3:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Binary_Exp op="/\" typref="0">
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:1"/>
+                <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:2"/>
+            </Binary_Exp>
+            <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:2"/>
+        </Exp_Comparison>
+        <Unary_Pred op="not">
+            <Exp_Comparison op="=">
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:5:1"/>
+                <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:5:2"/>
+            </Exp_Comparison>
+        </Unary_Pred>
+    </Define>
+    <Define name="ass" hash="0"/>
+    <Define name="cst" hash="0"/>
+    <Define name="sets" hash="0"/>
+    <Proof_Obligation goalHash="1509192655380722915">
+        <Tag>Initialisation</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:1:1"/>
+                    <Unary_Exp op="FIN" typref="2">
+                        <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:1:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Nary_Exp op="{" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:2:1">
+                        <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:6:1:1:2:1:1"/>
+                    </Nary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Nary_Exp op="{" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:1">
+                            <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:6:1:1:2:1:1"/>
+                        </Nary_Exp>
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:2,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:6:1:2:2:1"/>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Unary_Pred op="not">
+                    <Exp_Comparison op="=">
+                        <Nary_Exp op="{" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:5:1">
+                            <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:6:1:1:2:1:1"/>
+                        </Nary_Exp>
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:5:2"/>
+                    </Exp_Comparison>
+                </Unary_Pred>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="3964257612393162722">
+        <Tag>Operation_addClient</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:2:1:1:1"/>
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:2:1:2:1"/>
+                    <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:2:1:2:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:2:1:3:1"/>
+                    <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:2:1:3:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:2:1:4:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:3:1">
+                        <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:3:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:3:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:1"/>
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:2">
+                            <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:1:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="11473018268472308119">
+        <Tag>Operation_addAdmin</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:2:1:1:1"/>
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:2:1:2:1"/>
+                    <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:2:1:2:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:2:1:3:1"/>
+                    <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:2:1:3:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:2:1:4:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:2:1">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:3:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:1">
+                            <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:2"/>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Unary_Pred op="not">
+                    <Exp_Comparison op="=">
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:5:1">
+                            <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:2:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:5:2"/>
+                    </Exp_Comparison>
+                </Unary_Pred>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="16608356064004353985">
+        <Tag>Operation_removeAdmin</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:1:1"/>
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:2:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="-s" typref="0">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:3:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:3:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:3:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:4:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:2:1">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:3:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:1">
+                            <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:3:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:2"/>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="4288828215942521602">
+        <Tag>Operation_removeClient</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:2:1:1:1"/>
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:2:1:2:1"/>
+                <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:2:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:2:1:3:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:3:1">
+                        <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:3:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:3:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:1"/>
+                        <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:1:2">
+                            <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:7:4:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <TypeInfos>
+        <Type id="0">
+            <Unary_Exp op="POW">
+                <Id value="INTEGER"/>
+            </Unary_Exp>
+        </Type>
+        <Type id="1">
+            <Id value="INTEGER"/>
+        </Type>
+        <Type id="2">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Id value="INTEGER"/>
+                </Unary_Exp>
+            </Unary_Exp>
+        </Type>
+    </TypeInfos>
+</Proof_Obligations>

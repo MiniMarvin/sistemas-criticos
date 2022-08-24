@@ -1,0 +1,33 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(7) & _f(12) & _f(17) & _f(11) & Operation_removeResource.2,(_f(4) => _f(19));
+_f(1) & _f(2) & _f(3) & _f(7) & _f(12) & _f(17) & _f(11) & Operation_removeResource.1,(_f(4) => _f(18));
+_f(1) & _f(2) & _f(3) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & Operation_addResource.2,(_f(12) & _f(13) & _f(14) & _f(4) => _f(16));
+_f(1) & _f(2) & _f(3) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & Operation_addResource.1,(_f(12) & _f(13) & _f(14) & _f(4) => _f(15));
+_f(1) & _f(2) & _f(3) & Initialisation.2,(_f(4) => _f(6));
+_f(1) & _f(2) & _f(3) & Initialisation.1,(_f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & ((admin) : (USERS));
+((USERS) : (FIN(USERS))) & admins : POW( USERS) & clients : POW( USERS) & ((((admins) /\ (clients))) = ({})) & not(((admins) = ({})));
+"Invariant is preserved";
+((MACHINE_RESOURCES) : (FIN(MACHINE_RESOURCES)));
+(({}) : ((({}) +-> (struct(cpu$8888 >> NAT,hdd$8888 >> NAT,mem$8888 >> NAT)))));
+((MACHINE_RESOURCES) : (FIN(MACHINE_RESOURCES))) & machineResources : POW( MACHINE_RESOURCES) & ((machineResourceProperties) : (((machineResources) +-> (struct(cpu$8888 >> NAT,hdd$8888 >> NAT,mem$8888 >> NAT)))));
+((cpu) : (NAT));
+((hdd) : (NAT));
+((mem) : (NAT));
+((caller) : (admins));
+((resource) : (MACHINE_RESOURCES));
+not(((resource) : (machineResources)));
+not(((resource) : (dom(machineResourceProperties))));
+((machineResources) \/ (({resource}))) : POW( MACHINE_RESOURCES);
+((((machineResourceProperties) <+ (({((resource) |-> (rec(cpu$8888 >> cpu,hdd$8888 >> hdd,mem$8888 >> mem)))})))) : (((((machineResources) \/ (({resource})))) +-> (struct(cpu$8888 >> NAT,hdd$8888 >> NAT,mem$8888 >> NAT)))));
+((resource) : (machineResources));
+(machineResources - ({resource})) : POW( MACHINE_RESOURCES);
+((((({resource})) <<| (machineResourceProperties))) : ((((machineResources - ({resource}))) +-> (struct(cpu$8888 >> NAT,hdd$8888 >> NAT,mem$8888 >> NAT)))))
+END
+&
+THEORY EnumerateX
+END

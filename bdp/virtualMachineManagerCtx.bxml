@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Machine xmlns='https://www.atelierb.eu/Formats/bxml' version='1.0' name='virtualMachineManagerCtx' type='abstraction' position='true' semantic='true' b0check='false'>
+<Sets>
+<Attr>
+<Pos l='8' c='1' s='4'/>
+</Attr>
+<Set>
+<Id value='VIRTUAL_MACHINES' typref='4'>
+<Attr>
+<Pos l='9' c='5' s='16'/>
+</Attr>
+</Id>
+</Set>
+<Set>
+<Id value='VM_CATEGORIES' typref='5'>
+<Attr>
+<Pos l='10' c='5' s='13'/>
+</Attr>
+</Id>
+</Set>
+</Sets>
+<Concrete_Constants>
+<Attr>
+<Pos l='12' c='1' s='18'/>
+</Attr>
+<Id value='allocated' typref='6'>
+<Attr>
+<Pos l='13' c='5' s='9'/>
+</Attr>
+</Id>
+<Id value='spot' typref='6'>
+<Attr>
+<Pos l='14' c='5' s='4'/>
+</Attr>
+</Id>
+</Concrete_Constants>
+<Properties>
+<Attr>
+<Pos l='16' c='1' s='10'/>
+</Attr>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='17' c='15' s='1'/>
+</Attr>
+<Id value='allocated' typref='6'>
+<Attr>
+<Pos l='17' c='5' s='9'/>
+</Attr>
+</Id>
+<Id value='VM_CATEGORIES' typref='5'>
+<Attr>
+<Pos l='17' c='17' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='18' c='12' s='1'/>
+</Attr>
+<Id value='spot' typref='6'>
+<Attr>
+<Pos l='18' c='7' s='4'/>
+</Attr>
+</Id>
+<Id value='VM_CATEGORIES' typref='5'>
+<Attr>
+<Pos l='18' c='14' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Properties>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<TypeInfos>
+<Type id='0'>
+<Id value='BOOL'/>
+</Type>
+<Type id='1'>
+<Id value='INTEGER'/>
+</Type>
+<Type id='2'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Type>
+<Type id='3'>
+<Unary_Exp op='POW'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id='4'>
+<Unary_Exp op='POW'>
+<Id value='VIRTUAL_MACHINES'/>
+</Unary_Exp>
+</Type>
+<Type id='5'>
+<Unary_Exp op='POW'>
+<Id value='VM_CATEGORIES'/>
+</Unary_Exp>
+</Type>
+<Type id='6'>
+<Id value='VM_CATEGORIES'/>
+</Type>
+</TypeInfos>
+
+</Machine>
