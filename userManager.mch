@@ -68,6 +68,14 @@ OPERATIONS
         & caller : admins
     THEN
         clients := clients - {user}
+    END;
+    
+    clientList <-- listClients(user, caller) =
+    PRE
+        user : USERS
+        & caller : admins
+    THEN
+        clientList := clients
     END
     
 END

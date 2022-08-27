@@ -1,1 +1,1 @@
-﻿Flag(FileOn("virtualMachineManager.pmi.res")) & Set(toto | spotVirtualMachines\/(allocatedVirtualMachines\/{vm}) = spotVirtualMachines\/allocatedVirtualMachines\/{vm})
+﻿Flag(FileOn("virtualMachineManager.pmi.res")) & Set(toto | struct(category$8888>>{allocated},cpu$8888>>NAT-{0},hdd$8888>>NAT-{0},mem$8888>>NAT-{0},owner$8888>>USERS,residentMachine$8888>>{machine})/\ran(virtualMachineProperties): FIN(struct(category$8888>>{allocated},cpu$8888>>NAT-{0},hdd$8888>>NAT-{0},mem$8888>>NAT-{0},owner$8888>>USERS,residentMachine$8888>>{machine})/\ran(virtualMachineProperties)))

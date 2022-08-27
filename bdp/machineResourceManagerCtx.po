@@ -1,8 +1,0 @@
-THEORY ProofList
-END
-&
-THEORY Formulas
-END
-&
-THEORY EnumerateX
-END

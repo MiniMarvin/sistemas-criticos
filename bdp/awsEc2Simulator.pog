@@ -1,0 +1,1867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Proof_Obligations xmlns="https://www.atelierb.eu/Formats/pog" version="1.0">
+    <Define name="B definitions" hash="14675746054373257956">
+        <Exp_Comparison op="=">
+            <Id value="NAT" typref="0"/>
+            <Binary_Exp op=".." typref="0">
+                <Integer_Literal value="0" typref="1"/>
+                <Id value="MAXINT" typref="1"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Id value="INT" typref="0"/>
+            <Binary_Exp op=".." typref="0">
+                <Id value="MININT" typref="1"/>
+                <Id value="MAXINT" typref="1"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+    </Define>
+    <Define name="ctx" hash="8479088464920588638">
+        <Set>
+            <Id value="USERS" typref="0"/>
+        </Set>
+        <Set>
+            <Id value="MACHINE_RESOURCES" typref="0"/>
+        </Set>
+        <Set>
+            <Id value="VIRTUAL_MACHINES" typref="0"/>
+        </Set>
+        <Set>
+            <Id value="VM_CATEGORIES" typref="0"/>
+        </Set>
+        <Exp_Comparison op=":">
+            <Id value="allocated" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:3:1:1:1"/>
+            <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:3:1:1:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="spot" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:3:1:2:1"/>
+            <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:3:1:2:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="vmLimit" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:3:1:3:1"/>
+            <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:3:1:3:2"/>
+        </Exp_Comparison>
+    </Define>
+    <Define name="seext" hash="6963533696621708183">
+        <Exp_Comparison op=":">
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:4:1:1:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:4:1:1:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:4:1:2:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:4:1:2:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:4:1:3:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//awsEc2SimulatorCtx.bxml:1:4:1:3:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+    </Define>
+    <Define name="lprp" hash="6355358296135917318">
+        <Exp_Comparison op=":">
+            <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:4:1:1"/>
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:4:1:2"/>
+        </Exp_Comparison>
+    </Define>
+    <Define name="inprp" hash="0"/>
+    <Define name="inext" hash="0"/>
+    <Define name="inv" hash="909253601732909683">
+        <Exp_Comparison op=":">
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:1:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:1:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:2:1"/>
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:2:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:3:1"/>
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:3:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Binary_Exp op="/\" typref="0">
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:1"/>
+                <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:2"/>
+            </Binary_Exp>
+            <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:2"/>
+        </Exp_Comparison>
+        <Unary_Pred op="not">
+            <Exp_Comparison op="=">
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:5:1"/>
+                <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:5:2"/>
+            </Exp_Comparison>
+        </Unary_Pred>
+        <Exp_Comparison op=":">
+            <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:6:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:6:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:7:1"/>
+            <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:7:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:1"/>
+            <Binary_Exp op="+-&gt;" typref="4">
+                <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:1"/>
+                <Struct typref="5">
+                    <Record_Item label="cpu">
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:1:1"/>
+                    </Record_Item>
+                    <Record_Item label="hdd">
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:2:1"/>
+                    </Record_Item>
+                    <Record_Item label="mem">
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:3:1"/>
+                    </Record_Item>
+                </Struct>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:9:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:9:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:10:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:10:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="vmCategories" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:11:1"/>
+            <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:11:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:12:1"/>
+            <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:12:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:1"/>
+            <Binary_Exp op="--&gt;" typref="7">
+                <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:1"/>
+                <Struct typref="8">
+                    <Record_Item label="category">
+                        <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:3:1"/>
+                    </Record_Item>
+                    <Record_Item label="cpu">
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:4:1"/>
+                    </Record_Item>
+                    <Record_Item label="hdd">
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:5:1"/>
+                    </Record_Item>
+                    <Record_Item label="mem">
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:6:1"/>
+                    </Record_Item>
+                    <Record_Item label="owner">
+                        <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:2:1"/>
+                    </Record_Item>
+                    <Record_Item label="residentMachine">
+                        <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:1:1"/>
+                    </Record_Item>
+                </Struct>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:14:1"/>
+            <Unary_Exp op="FIN" typref="7">
+                <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:14:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;i">
+            <Unary_Exp op="card" typref="1">
+                <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:15:1:1"/>
+            </Unary_Exp>
+            <Unary_Exp op="card" typref="1">
+                <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:15:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="spotVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:16:1"/>
+            <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:16:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;:">
+            <Id value="allocatedVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:17:1"/>
+            <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:17:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Binary_Exp op="\/" typref="0">
+                <Id value="spotVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:1:1"/>
+                <Id value="allocatedVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:1:2"/>
+            </Binary_Exp>
+            <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Binary_Exp op="/\" typref="0">
+                <Id value="spotVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:1:1"/>
+                <Id value="allocatedVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:1:2"/>
+            </Binary_Exp>
+            <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:2"/>
+        </Exp_Comparison>
+    </Define>
+    <Define name="ass" hash="0"/>
+    <Define name="cst" hash="0"/>
+    <Define name="sets" hash="0"/>
+    <Proof_Obligation goalHash="18190730602807465649">
+        <Tag>Initialisation</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Nary_Exp op="{" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:2:1">
+                        <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:1:2:1:1"/>
+                    </Nary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Nary_Exp op="{" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:1">
+                            <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:1:2:1:1"/>
+                        </Nary_Exp>
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:2,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:2:2:1"/>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Unary_Pred op="not">
+                    <Exp_Comparison op="=">
+                        <Nary_Exp op="{" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:5:1">
+                            <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:1:2:1:1"/>
+                        </Nary_Exp>
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:5:2"/>
+                    </Exp_Comparison>
+                </Unary_Pred>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:6:1"/>
+                    <Unary_Exp op="FIN" typref="2">
+                        <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:6:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <EmptySet typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:4:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="4">
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:3:2:1"/>
+                        <Struct typref="5">
+                            <Record_Item label="cpu">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:1:1"/>
+                            </Record_Item>
+                            <Record_Item label="hdd">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:2:1"/>
+                            </Record_Item>
+                            <Record_Item label="mem">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:3:1"/>
+                            </Record_Item>
+                        </Struct>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Nary_Exp op="{" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:11:1">
+                        <Id value="allocated" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:7:2:1:1"/>
+                        <Id value="spot" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:7:2:1:2"/>
+                    </Nary_Exp>
+                    <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:11:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <EmptySet typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:6:2:1"/>
+                    <Binary_Exp op="--&gt;" typref="7">
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:5:2:1"/>
+                        <Struct typref="8">
+                            <Record_Item label="category">
+                                <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:3:1"/>
+                            </Record_Item>
+                            <Record_Item label="cpu">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:4:1"/>
+                            </Record_Item>
+                            <Record_Item label="hdd">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:5:1"/>
+                            </Record_Item>
+                            <Record_Item label="mem">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:6:1"/>
+                            </Record_Item>
+                            <Record_Item label="owner">
+                                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:2:1"/>
+                            </Record_Item>
+                            <Record_Item label="residentMachine">
+                                <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:1:1"/>
+                            </Record_Item>
+                        </Struct>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <EmptySet typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:14:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:6:2:1"/>
+                    <Unary_Exp op="FIN" typref="7">
+                        <EmptySet typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:14:2:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:6:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;i">
+                    <Unary_Exp op="card" typref="1">
+                        <EmptySet typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:15:1:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:6:2:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="card" typref="1">
+                        <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:15:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="\/" typref="0">
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:1:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:8:2:1"/>
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:1:2,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:9:2:1"/>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:2,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:5:2:1"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:1:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:8:2:1"/>
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:1:2,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:6:1:9:2:1"/>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="16888623448640376660">
+        <Tag>Operation_addClient</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:2:1:1:1"/>
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:2:1:2:1"/>
+                    <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:2:1:2:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:2:1:3:1"/>
+                    <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:2:1:3:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:2:1:4:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:3:1">
+                        <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:3:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:3:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:1"/>
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:2">
+                            <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:1:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="18325856027553345199">
+        <Tag>Operation_addAdmin</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:2:1:1:1"/>
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:2:1:2:1"/>
+                    <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:2:1:2:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:2:1:3:1"/>
+                    <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:2:1:3:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:2:1:4:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:2:1">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:3:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:1">
+                            <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:2"/>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Unary_Pred op="not">
+                    <Exp_Comparison op="=">
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:5:1">
+                            <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:2:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:5:2"/>
+                    </Exp_Comparison>
+                </Unary_Pred>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="12477499859424076217">
+        <Tag>Operation_removeAdmin</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:1:1"/>
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:2:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Unary_Pred op="not">
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="-s" typref="0">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:3:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:3:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:3:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:4:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:2:1">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:3:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:1">
+                            <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:3:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:2"/>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="3876870425075047319">
+        <Tag>Operation_removeClient</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:2:1:1:1"/>
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:2:1:2:1"/>
+                <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:2:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:2:1:3:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:3:1">
+                        <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:3:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:3:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:1"/>
+                        <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:1:2">
+                            <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="user" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:4:3:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:4:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="15621948769751364292">
+        <Tag>Operation_addResource</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:2:1:2:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:2:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:2:1:3:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:2:1:4:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:2:1:1:1"/>
+                <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:2:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:2:1:2:1"/>
+                    <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:2:1:2:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:2:1:3:1"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:2:1:3:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:7:1">
+                        <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:7:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:1">
+                        <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:2:1:1:1"/>
+                        <Nary_Exp op="{" typref="3">
+                            <Binary_Exp op="|-&gt;" typref="9">
+                                <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:2:1:1:2"/>
+                                <Record typref="10">
+                                    <Record_Item label="cpu">
+                                        <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:2:2:1:1:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="hdd">
+                                        <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:2:2:1:2:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="mem">
+                                        <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:2:2:1:3:1"/>
+                                    </Record_Item>
+                                </Record>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="4">
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:1">
+                            <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:6:3:1:3:1:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Struct typref="5">
+                            <Record_Item label="cpu">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:1:1"/>
+                            </Record_Item>
+                            <Record_Item label="hdd">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:2:1"/>
+                            </Record_Item>
+                            <Record_Item label="mem">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:3:1"/>
+                            </Record_Item>
+                        </Struct>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="9739470270723342617">
+        <Tag>Operation_removeResource</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:2:1:1:1"/>
+                <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:2:1:2:1"/>
+                <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:2:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="caller" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:2:1:3:1"/>
+                <Id value="admins" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:7:1">
+                        <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:3:1:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:3:1:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:7:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;&lt;|" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:1">
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:3:1:2:2:1:1:1"/>
+                        </Nary_Exp>
+                        <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:3:1:2:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="4">
+                        <Binary_Exp op="-s" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:1">
+                            <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:3:1:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="resource" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:7:3:1:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Struct typref="5">
+                            <Record_Item label="cpu">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:1:1"/>
+                            </Record_Item>
+                            <Record_Item label="hdd">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:2:1"/>
+                            </Record_Item>
+                            <Record_Item label="mem">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:8:2:2:3:1"/>
+                            </Record_Item>
+                        </Struct>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="9645125742447547171">
+        <Tag>Operation_addAllocatedVirtualMachine</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:2:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:3:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="client" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:4:1"/>
+                <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op="&lt;i">
+                <Unary_Exp op="card" typref="1">
+                    <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:5:1:1"/>
+                </Unary_Exp>
+                <Id value="vmLimit" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:5:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:1:1"/>
+                <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:2:1"/>
+                    <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:2:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:3:1"/>
+                    <Id value="spotVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:3:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:4:1"/>
+                    <Id value="allocatedVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:4:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="5">
+            <Exp_Comparison op=":">
+                <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:5:1"/>
+                <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:5:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="6">
+            <Exp_Comparison op=":">
+                <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:6:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:6:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="7">
+            <Exp_Comparison op="&lt;=i">
+                <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:1"/>
+                <Record_Field_Access label="cpu" typref="1">
+                    <Binary_Exp op="(" typref="10">
+                        <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:2:1:1"/>
+                        <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:2:1:2"/>
+                    </Binary_Exp>
+                </Record_Field_Access>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="8">
+            <Exp_Comparison op="&lt;=i">
+                <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:1"/>
+                <Record_Field_Access label="hdd" typref="1">
+                    <Binary_Exp op="(" typref="10">
+                        <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:2:1:1"/>
+                        <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:2:1:2"/>
+                    </Binary_Exp>
+                </Record_Field_Access>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="9">
+            <Exp_Comparison op="&lt;=i">
+                <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:9:1"/>
+                <Record_Field_Access label="mem" typref="1">
+                    <Binary_Exp op="(" typref="10">
+                        <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:9:2:1:1"/>
+                        <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:9:2:1:2"/>
+                    </Binary_Exp>
+                </Record_Field_Access>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Ref_Hyp num="9"/>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:12:1">
+                        <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:12:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Ref_Hyp num="9"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:1">
+                        <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:1:1:1"/>
+                        <Nary_Exp op="{" typref="6">
+                            <Binary_Exp op="|-&gt;" typref="11">
+                                <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:1:1:2"/>
+                                <Record typref="12">
+                                    <Record_Item label="category">
+                                        <Id value="allocated" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:3:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="cpu">
+                                        <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:4:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="hdd">
+                                        <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:5:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="mem">
+                                        <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:6:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="owner">
+                                        <Id value="client" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:2:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="residentMachine">
+                                        <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:1:1"/>
+                                    </Record_Item>
+                                </Record>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="--&gt;" typref="7">
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:1">
+                            <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Struct typref="8">
+                            <Record_Item label="category">
+                                <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:3:1"/>
+                            </Record_Item>
+                            <Record_Item label="cpu">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:4:1"/>
+                            </Record_Item>
+                            <Record_Item label="hdd">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:5:1"/>
+                            </Record_Item>
+                            <Record_Item label="mem">
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:6:1"/>
+                            </Record_Item>
+                            <Record_Item label="owner">
+                                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:2:1"/>
+                            </Record_Item>
+                            <Record_Item label="residentMachine">
+                                <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:13:2:2:1:1"/>
+                            </Record_Item>
+                        </Struct>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Ref_Hyp num="9"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:14:1">
+                        <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:1:1:1"/>
+                        <Nary_Exp op="{" typref="6">
+                            <Binary_Exp op="|-&gt;" typref="11">
+                                <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:1:1:2"/>
+                                <Record typref="12">
+                                    <Record_Item label="category">
+                                        <Id value="allocated" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:3:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="cpu">
+                                        <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:4:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="hdd">
+                                        <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:5:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="mem">
+                                        <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:6:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="owner">
+                                        <Id value="client" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:2:1"/>
+                                    </Record_Item>
+                                    <Record_Item label="residentMachine">
+                                        <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:1:1"/>
+                                    </Record_Item>
+                                </Record>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Unary_Exp op="FIN" typref="7">
+                        <Binary_Exp op="&lt;+" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:14:2:1">
+                            <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:1:1:1"/>
+                            <Nary_Exp op="{" typref="6">
+                                <Binary_Exp op="|-&gt;" typref="11">
+                                    <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:1:1:2"/>
+                                    <Record typref="12">
+                                        <Record_Item label="category">
+                                            <Id value="allocated" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:3:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="cpu">
+                                            <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:4:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="hdd">
+                                            <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:5:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="mem">
+                                            <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:6:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="owner">
+                                            <Id value="client" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:2:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="residentMachine">
+                                            <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:1:1"/>
+                                        </Record_Item>
+                                    </Record>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Ref_Hyp num="9"/>
+            <Goal>
+                <Exp_Comparison op="&lt;i">
+                    <Unary_Exp op="card" typref="1">
+                        <Binary_Exp op="&lt;+" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:15:1:1">
+                            <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:1:1:1"/>
+                            <Nary_Exp op="{" typref="6">
+                                <Binary_Exp op="|-&gt;" typref="11">
+                                    <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:1:1:2"/>
+                                    <Record typref="12">
+                                        <Record_Item label="category">
+                                            <Id value="allocated" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:3:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="cpu">
+                                            <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:4:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="hdd">
+                                            <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:5:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="mem">
+                                            <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:6:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="owner">
+                                            <Id value="client" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:2:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="residentMachine">
+                                            <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:3:2:1:1:1"/>
+                                        </Record_Item>
+                                    </Record>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                    <Unary_Exp op="card" typref="1">
+                        <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:15:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Ref_Hyp num="9"/>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Id value="spotVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:16:1"/>
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:16:2">
+                        <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Ref_Hyp num="9"/>
+            <Goal>
+                <Exp_Comparison op="&lt;:">
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:17:1">
+                        <Id value="allocatedVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:2:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:2:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:17:2">
+                        <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Ref_Hyp num="9"/>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="\/" typref="0">
+                        <Id value="spotVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:1:1"/>
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:1:2">
+                            <Id value="allocatedVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:2:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:2:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:18:2">
+                        <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Ref_Hyp num="9"/>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="/\" typref="0">
+                        <Id value="spotVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:1:1"/>
+                        <Binary_Exp op="\/" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:1:2">
+                            <Id value="allocatedVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:2:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:3:1:2:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Binary_Exp>
+                    <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:5:1:19:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="11919823654615391737">
+        <Tag>WellDefinedness_addAllocatedVirtualMachine</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:2:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:3:1"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="client" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:4:1"/>
+                <Id value="clients" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op="&lt;i">
+                <Unary_Exp op="card" typref="1">
+                    <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:5:1:1"/>
+                </Unary_Exp>
+                <Id value="vmLimit" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:2:1:5:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:1:1"/>
+                <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:2:1"/>
+                    <Id value="virtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:2:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:3:1"/>
+                    <Id value="spotVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:3:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="vm" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:4:1"/>
+                    <Id value="allocatedVirtualMachines" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:4:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="5">
+            <Exp_Comparison op=":">
+                <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:5:1"/>
+                <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:5:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="6">
+            <Exp_Comparison op=":">
+                <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:6:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:6:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="7">
+            <Exp_Comparison op="&lt;=i">
+                <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:1"/>
+                <Record_Field_Access label="cpu" typref="1">
+                    <Binary_Exp op="(" typref="10">
+                        <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:2:1:1"/>
+                        <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:2:1:2"/>
+                    </Binary_Exp>
+                </Record_Field_Access>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="8">
+            <Exp_Comparison op="&lt;=i">
+                <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:1"/>
+                <Record_Field_Access label="hdd" typref="1">
+                    <Binary_Exp op="(" typref="10">
+                        <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:2:1:1"/>
+                        <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:2:1:2"/>
+                    </Binary_Exp>
+                </Record_Field_Access>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="4">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="5">
+                            <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:7:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="4">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="5">
+                            <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:8:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:9:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="4">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:9:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="5">
+                            <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:9:3:1:2:1:9:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="5440750656453135854">
+        <Tag>WellDefinedness_getAllocatedCpuOnMachine</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:3:1:1:1"/>
+                <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:3:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:3:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="machineResourceProperties" typref="3" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:3:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Quantified_Set typref="8">
+                        <Variables>
+                            <Id value="vm" typref="12"/>
+                        </Variables>
+                        <Body>
+                            <Exp_Comparison op=":">
+                                <Id value="vm" typref="12" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:1"/>
+                                <Binary_Exp op="/\" typref="8">
+                                    <Unary_Exp op="ran" typref="8">
+                                        <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:1:1"/>
+                                    </Unary_Exp>
+                                    <Struct typref="8">
+                                        <Record_Item label="category">
+                                            <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:3:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="cpu">
+                                            <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:4:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="hdd">
+                                            <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:5:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="mem">
+                                            <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:6:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="owner">
+                                            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:2:1"/>
+                                        </Record_Item>
+                                        <Record_Item label="residentMachine">
+                                            <Nary_Exp op="{" typref="0">
+                                                <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:1:1:1"/>
+                                            </Nary_Exp>
+                                        </Record_Item>
+                                    </Struct>
+                                </Binary_Exp>
+                            </Exp_Comparison>
+                        </Body>
+                    </Quantified_Set>
+                    <Unary_Exp op="FIN" typref="13">
+                        <Quantified_Set typref="8">
+                            <Variables>
+                                <Id value="vm" typref="12"/>
+                            </Variables>
+                            <Body>
+                                <Exp_Comparison op=":">
+                                    <Id value="vm" typref="12" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:1"/>
+                                    <Binary_Exp op="/\" typref="8">
+                                        <Unary_Exp op="ran" typref="8">
+                                            <Id value="virtualMachineProperties" typref="6" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:1:1"/>
+                                        </Unary_Exp>
+                                        <Struct typref="8">
+                                            <Record_Item label="category">
+                                                <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:3:1"/>
+                                            </Record_Item>
+                                            <Record_Item label="cpu">
+                                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:4:1"/>
+                                            </Record_Item>
+                                            <Record_Item label="hdd">
+                                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:5:1"/>
+                                            </Record_Item>
+                                            <Record_Item label="mem">
+                                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:6:1"/>
+                                            </Record_Item>
+                                            <Record_Item label="owner">
+                                                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:2:1"/>
+                                            </Record_Item>
+                                            <Record_Item label="residentMachine">
+                                                <Nary_Exp op="{" typref="0">
+                                                    <Id value="machine" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/awsEc2Simulator.bxml:1:7:11:4:1:2:1:2:1:2:2:1:1:1"/>
+                                                </Nary_Exp>
+                                            </Record_Item>
+                                        </Struct>
+                                    </Binary_Exp>
+                                </Exp_Comparison>
+                            </Body>
+                        </Quantified_Set>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <TypeInfos>
+        <Type id="0">
+            <Unary_Exp op="POW">
+                <Id value="INTEGER"/>
+            </Unary_Exp>
+        </Type>
+        <Type id="1">
+            <Id value="INTEGER"/>
+        </Type>
+        <Type id="2">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Id value="INTEGER"/>
+                </Unary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="3">
+            <Unary_Exp op="POW">
+                <Binary_Exp op="*">
+                    <Id value="INTEGER"/>
+                    <Struct>
+                        <Record_Item label="cpu">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="hdd">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="mem">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                    </Struct>
+                </Binary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="4">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Binary_Exp op="*">
+                        <Id value="INTEGER"/>
+                        <Struct>
+                            <Record_Item label="cpu">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                            <Record_Item label="hdd">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                            <Record_Item label="mem">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                        </Struct>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="5">
+            <Unary_Exp op="POW">
+                <Struct>
+                    <Record_Item label="cpu">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="hdd">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="mem">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                </Struct>
+            </Unary_Exp>
+        </Type>
+        <Type id="6">
+            <Unary_Exp op="POW">
+                <Binary_Exp op="*">
+                    <Id value="INTEGER"/>
+                    <Struct>
+                        <Record_Item label="category">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="cpu">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="hdd">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="mem">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="owner">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="residentMachine">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                    </Struct>
+                </Binary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="7">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Binary_Exp op="*">
+                        <Id value="INTEGER"/>
+                        <Struct>
+                            <Record_Item label="category">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                            <Record_Item label="cpu">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                            <Record_Item label="hdd">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                            <Record_Item label="mem">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                            <Record_Item label="owner">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                            <Record_Item label="residentMachine">
+                                <Id value="INTEGER"/>
+                            </Record_Item>
+                        </Struct>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="8">
+            <Unary_Exp op="POW">
+                <Struct>
+                    <Record_Item label="category">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="cpu">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="hdd">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="mem">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="owner">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="residentMachine">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                </Struct>
+            </Unary_Exp>
+        </Type>
+        <Type id="9">
+            <Binary_Exp op="*">
+                <Id value="INTEGER"/>
+                <Struct>
+                    <Record_Item label="cpu">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="hdd">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="mem">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                </Struct>
+            </Binary_Exp>
+        </Type>
+        <Type id="10">
+            <Struct>
+                <Record_Item label="cpu">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+                <Record_Item label="hdd">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+                <Record_Item label="mem">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+            </Struct>
+        </Type>
+        <Type id="11">
+            <Binary_Exp op="*">
+                <Id value="INTEGER"/>
+                <Struct>
+                    <Record_Item label="category">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="cpu">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="hdd">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="mem">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="owner">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                    <Record_Item label="residentMachine">
+                        <Id value="INTEGER"/>
+                    </Record_Item>
+                </Struct>
+            </Binary_Exp>
+        </Type>
+        <Type id="12">
+            <Struct>
+                <Record_Item label="category">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+                <Record_Item label="cpu">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+                <Record_Item label="hdd">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+                <Record_Item label="mem">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+                <Record_Item label="owner">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+                <Record_Item label="residentMachine">
+                    <Id value="INTEGER"/>
+                </Record_Item>
+            </Struct>
+        </Type>
+        <Type id="13">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Struct>
+                        <Record_Item label="category">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="cpu">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="hdd">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="mem">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="owner">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                        <Record_Item label="residentMachine">
+                            <Id value="INTEGER"/>
+                        </Record_Item>
+                    </Struct>
+                </Unary_Exp>
+            </Unary_Exp>
+        </Type>
+    </TypeInfos>
+</Proof_Obligations>

@@ -98,29 +98,29 @@
 <Attr>
 <Pos l='19' c='67' s='2'/>
 </Attr>
-<Id value='NAT' typref='2'>
+<Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='19' c='69' s='3'/>
+<Pos l='19' c='69' s='4'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='hdd'>
 <Attr>
-<Pos l='19' c='78' s='2'/>
+<Pos l='19' c='79' s='2'/>
 </Attr>
-<Id value='NAT' typref='2'>
+<Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='19' c='80' s='3'/>
+<Pos l='19' c='81' s='4'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='mem'>
 <Attr>
-<Pos l='19' c='89' s='2'/>
+<Pos l='19' c='91' s='2'/>
 </Attr>
-<Id value='NAT' typref='2'>
+<Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='19' c='91' s='3'/>
+<Pos l='19' c='93' s='4'/>
 </Attr>
 </Id>
 </Record_Item>
@@ -212,9 +212,9 @@
 <Pos l='28' c='9' s='3'/>
 </Attr>
 </Id>
-<Id value='NAT' typref='2'>
+<Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='28' c='15' s='3'/>
+<Pos l='28' c='15' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -227,9 +227,9 @@
 <Pos l='29' c='11' s='3'/>
 </Attr>
 </Id>
-<Id value='NAT' typref='2'>
+<Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='29' c='17' s='3'/>
+<Pos l='29' c='17' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -242,9 +242,9 @@
 <Pos l='30' c='11' s='3'/>
 </Attr>
 </Id>
-<Id value='NAT' typref='2'>
+<Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='30' c='17' s='3'/>
+<Pos l='30' c='17' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>

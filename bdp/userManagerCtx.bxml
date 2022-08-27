@@ -12,6 +12,31 @@
 </Id>
 </Set>
 </Sets>
+<Invariant>
+<Attr>
+<Pos l='11' c='1' s='9'/>
+</Attr>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='12' c='11' s='1'/>
+</Attr>
+<Id value='USERS' typref='4'>
+<Attr>
+<Pos l='12' c='5' s='5'/>
+</Attr>
+</Id>
+<Unary_Exp op='FIN' typref='5'>
+<Attr>
+<Pos l='12' c='13' s='3'/>
+</Attr>
+<Id value='USERS' typref='4'>
+<Attr>
+<Pos l='12' c='17' s='5'/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Invariant>
 <Initialisation>
 <Skip/>
 </Initialisation>
@@ -37,6 +62,13 @@
 <Type id='4'>
 <Unary_Exp op='POW'>
 <Id value='USERS'/>
+</Unary_Exp>
+</Type>
+<Type id='5'>
+<Unary_Exp op='POW'>
+<Unary_Exp op='POW'>
+<Id value='USERS'/>
+</Unary_Exp>
 </Unary_Exp>
 </Type>
 </TypeInfos>

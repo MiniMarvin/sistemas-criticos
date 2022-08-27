@@ -1,0 +1,110 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(51) & _f(52) & WellDefinedness_getAllocatedCpuOnMachine.1,(_f(64) => _f(66));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & WellDefinedness_addAllocatedVirtualMachine.3,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(64) => _f(65));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & WellDefinedness_addAllocatedVirtualMachine.2,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(64) => _f(65));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & WellDefinedness_addAllocatedVirtualMachine.1,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(64) => _f(65));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & Operation_addAllocatedVirtualMachine.8,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(55) & _f(5) => _f(63));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & Operation_addAllocatedVirtualMachine.7,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(55) & _f(5) => _f(62));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & Operation_addAllocatedVirtualMachine.6,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(55) & _f(5) => _f(61));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & Operation_addAllocatedVirtualMachine.5,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(55) & _f(5) => _f(60));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & Operation_addAllocatedVirtualMachine.4,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(55) & _f(5) => _f(59));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & Operation_addAllocatedVirtualMachine.3,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(55) & _f(5) => _f(58));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & Operation_addAllocatedVirtualMachine.2,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(55) & _f(5) => _f(57));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(45) & _f(46) & Operation_addAllocatedVirtualMachine.1,(_f(47) & _f(48) & _f(49) & _f(50) & _f(51) & _f(52) & _f(53) & _f(54) & _f(55) & _f(5) => _f(56));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(37) & _f(42) & _f(21) & Operation_removeResource.2,(_f(5) => _f(44));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(37) & _f(42) & _f(21) & Operation_removeResource.1,(_f(5) => _f(43));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(21) & Operation_addResource.2,(_f(37) & _f(38) & _f(39) & _f(5) => _f(41));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(34) & _f(35) & _f(36) & _f(21) & Operation_addResource.1,(_f(37) & _f(38) & _f(39) & _f(5) => _f(40));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(31) & _f(21) & Operation_removeClient.2,(_f(5) => _f(33));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(31) & _f(21) & Operation_removeClient.1,(_f(5) => _f(32));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(27) & _f(28) & _f(21) & Operation_removeAdmin.2,(_f(5) => _f(30));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(27) & _f(28) & _f(21) & Operation_removeAdmin.1,(_f(5) => _f(29));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(19) & _f(20) & _f(21) & Operation_addAdmin.3,(_f(5) => _f(26));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(19) & _f(20) & _f(21) & Operation_addAdmin.2,(_f(5) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(19) & _f(20) & _f(21) & Operation_addAdmin.1,(_f(5) => _f(24));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(19) & _f(20) & _f(21) & Operation_addClient.2,(_f(5) => _f(23));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(17) & _f(18) & _f(19) & _f(20) & _f(21) & Operation_addClient.1,(_f(5) => _f(22));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.11,(_f(5) => _f(16));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.10,(_f(5) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.9,(_f(5) => _f(14));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.8,(_f(5) => _f(13));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.7,(_f(5) => _f(12));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.6,(_f(5) => _f(11));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.5,(_f(5) => _f(10));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.4,(_f(5) => _f(9));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.3,(_f(5) => _f(8));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.2,(_f(5) => _f(7));
+_f(1) & _f(2) & _f(3) & _f(4) & Initialisation.1,(_f(5) => _f(6))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}) & ((allocated) : (VM_CATEGORIES)) & ((spot) : (VM_CATEGORIES)) & ((vmLimit) : ((NAT-{0})));
+((admin) : (USERS));
+((USERS) : (FIN(USERS))) & ((VM_CATEGORIES) : (FIN(VM_CATEGORIES))) & ((VIRTUAL_MACHINES) : (FIN(VIRTUAL_MACHINES)));
+"Invariant is preserved";
+({admin}) : POW( USERS);
+((((({admin})) /\ ({}))) = ({}));
+not(((({admin})) = ({})));
+((MACHINE_RESOURCES) : (FIN(MACHINE_RESOURCES)));
+(({}) : ((({}) +-> (struct(cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}))))));
+({allocated}\/{spot}) : POW( VM_CATEGORIES);
+(({}) : ((({}) --> (struct(category$8888 >> VM_CATEGORIES,cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}),owner$8888 >> USERS,residentMachine$8888 >> MACHINE_RESOURCES)))));
+(({}) : (FIN({})));
+(card({}) +1 <= card(VIRTUAL_MACHINES));
+(((({}) \/ ({}))) = ({}));
+(((({}) /\ ({}))) = ({}));
+((USERS) : (FIN(USERS))) & admins : POW( USERS) & clients : POW( USERS) & ((((admins) /\ (clients))) = ({})) & not(((admins) = ({}))) & ((MACHINE_RESOURCES) : (FIN(MACHINE_RESOURCES))) & machineResources : POW( MACHINE_RESOURCES) & ((machineResourceProperties) : (((machineResources) +-> (struct(cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0})))))) & ((VIRTUAL_MACHINES) : (FIN(VIRTUAL_MACHINES))) & ((VM_CATEGORIES) : (FIN(VM_CATEGORIES))) & vmCategories : POW( VM_CATEGORIES) & virtualMachines : POW( VIRTUAL_MACHINES) & virtualMachineProperties : virtualMachines +-> struct(category$8888 >> VM_CATEGORIES,cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}),owner$8888 >> USERS,residentMachine$8888 >> MACHINE_RESOURCES) & dom(virtualMachineProperties) = virtualMachines & ((virtualMachineProperties) : (((virtualMachines) --> (struct(category$8888 >> VM_CATEGORIES,cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}),owner$8888 >> USERS,residentMachine$8888 >> MACHINE_RESOURCES))))) & ((virtualMachineProperties) : (FIN(virtualMachineProperties))) & (card(virtualMachineProperties) +1 <= card(VIRTUAL_MACHINES)) & spotVirtualMachines : POW( virtualMachines) & allocatedVirtualMachines : POW( virtualMachines) & ((((spotVirtualMachines) \/ (allocatedVirtualMachines))) = (virtualMachines)) & ((((spotVirtualMachines) /\ (allocatedVirtualMachines))) = ({}));
+((user) : (USERS));
+not(((user) : (clients)));
+not(((user) : (admins)));
+((caller) : (admins));
+((clients) \/ (({user}))) : POW( USERS);
+((((admins) /\ (((clients) \/ (({user})))))) = ({}));
+((admins) \/ (({user}))) : POW( USERS);
+((((((admins) \/ (({user})))) /\ (clients))) = ({}));
+not(((((admins) \/ (({user})))) = ({})));
+((user) : (admins));
+not((((admins - ({user}))) = ({})));
+(admins - ({user})) : POW( USERS);
+(((((admins - ({user}))) /\ (clients))) = ({}));
+((user) : (clients));
+(clients - ({user})) : POW( USERS);
+((((admins) /\ ((clients - ({user}))))) = ({}));
+((cpu) : ((NAT-{0})));
+((hdd) : ((NAT-{0})));
+((mem) : ((NAT-{0})));
+((resource) : (MACHINE_RESOURCES));
+not(((resource) : (machineResources)));
+not(((resource) : (dom(machineResourceProperties))));
+((machineResources) \/ (({resource}))) : POW( MACHINE_RESOURCES);
+((((machineResourceProperties) <+ (({((resource) |-> (rec(cpu$8888 >> cpu,hdd$8888 >> hdd,mem$8888 >> mem)))})))) : (((((machineResources) \/ (({resource})))) +-> (struct(cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}))))));
+((resource) : (machineResources));
+(machineResources - ({resource})) : POW( MACHINE_RESOURCES);
+((((({resource})) <<| (machineResourceProperties))) : ((((machineResources - ({resource}))) +-> (struct(cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}))))));
+((client) : (clients));
+(card(virtualMachineProperties) +1 <= vmLimit);
+((vm) : (VIRTUAL_MACHINES));
+not(((vm) : (virtualMachines)));
+not(((vm) : (spotVirtualMachines)));
+not(((vm) : (allocatedVirtualMachines)));
+((machine) : (machineResources));
+((machine) : (dom(machineResourceProperties)));
+(cpu <= ((machineResourceProperties )(machine)'cpu));
+(hdd <= ((machineResourceProperties )(machine)'hdd));
+(mem <= ((machineResourceProperties )(machine)'mem));
+((virtualMachines) \/ (({vm}))) : POW( VIRTUAL_MACHINES);
+((((virtualMachineProperties) <+ (({((vm) |-> (rec(category$8888 >> allocated,cpu$8888 >> cpu,hdd$8888 >> hdd,mem$8888 >> mem,owner$8888 >> client,residentMachine$8888 >> machine)))})))) : (((((virtualMachines) \/ (({vm})))) --> (struct(category$8888 >> VM_CATEGORIES,cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}),owner$8888 >> USERS,residentMachine$8888 >> MACHINE_RESOURCES)))));
+((((virtualMachineProperties) <+ (({((vm) |-> (rec(category$8888 >> allocated,cpu$8888 >> cpu,hdd$8888 >> hdd,mem$8888 >> mem,owner$8888 >> client,residentMachine$8888 >> machine)))})))) : (FIN(((virtualMachineProperties) <+ (({((vm) |-> (rec(category$8888 >> allocated,cpu$8888 >> cpu,hdd$8888 >> hdd,mem$8888 >> mem,owner$8888 >> client,residentMachine$8888 >> machine)))}))))));
+(card(((virtualMachineProperties) <+ (({((vm) |-> (rec(category$8888 >> allocated,cpu$8888 >> cpu,hdd$8888 >> hdd,mem$8888 >> mem,owner$8888 >> client,residentMachine$8888 >> machine)))})))) +1 <= card(VIRTUAL_MACHINES));
+spotVirtualMachines : POW( ((virtualMachines) \/ (({vm}))));
+((allocatedVirtualMachines) \/ (({vm}))) : POW( ((virtualMachines) \/ (({vm}))));
+((((spotVirtualMachines) \/ (((allocatedVirtualMachines) \/ (({vm})))))) = (((virtualMachines) \/ (({vm})))));
+((((spotVirtualMachines) /\ (((allocatedVirtualMachines) \/ (({vm})))))) = ({}));
+"Operation is well defined";
+((machineResourceProperties) : (((dom(machineResourceProperties)) +-> (ran(machineResourceProperties)))));
+((SET(vm).(((vm) : (((ran(virtualMachineProperties)) /\ (struct(category$8888 >> VM_CATEGORIES,cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}),owner$8888 >> USERS,residentMachine$8888 >> ({machine})))))))) : (FIN(SET(vm).(((vm) : (((ran(virtualMachineProperties)) /\ (struct(category$8888 >> VM_CATEGORIES,cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}),owner$8888 >> USERS,residentMachine$8888 >> ({machine}))))))))))
+END
+&
+THEORY EnumerateX
+END

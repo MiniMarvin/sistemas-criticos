@@ -21,7 +21,14 @@
             <Id value="USERS" typref="0"/>
         </Set>
     </Define>
-    <Define name="seext" hash="0"/>
+    <Define name="seext" hash="11516500683264182964">
+        <Exp_Comparison op=":">
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//userManagerCtx.bxml:1:2:1:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp//userManagerCtx.bxml:1:2:1:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+    </Define>
     <Define name="lprp" hash="6355358296135917318">
         <Exp_Comparison op=":">
             <Id value="admin" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:4:1:1"/>
@@ -71,17 +78,6 @@
         <Definition name="inprp"/>
         <Definition name="inext"/>
         <Definition name="seext"/>
-        <Simple_Goal>
-            <Tag>Invariant is preserved</Tag>
-            <Goal>
-                <Exp_Comparison op=":">
-                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:1:1"/>
-                    <Unary_Exp op="FIN" typref="2">
-                        <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManager.bxml:1:5:1:1:2:1"/>
-                    </Unary_Exp>
-                </Exp_Comparison>
-            </Goal>
-        </Simple_Goal>
         <Simple_Goal>
             <Tag>Invariant is preserved</Tag>
             <Goal>

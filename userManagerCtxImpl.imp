@@ -1,0 +1,12 @@
+/* userManagerCtxImpl
+ * Author: 
+ * Creation date: 26/08/2022
+ */
+
+IMPLEMENTATION userManagerCtxImpl
+REFINES userManagerCtx
+
+VALUES
+    USERS = 1..100
+
+ END

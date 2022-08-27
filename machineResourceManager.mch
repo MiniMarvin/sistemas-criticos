@@ -16,7 +16,7 @@ VARIABLES
 INVARIANT
     MACHINE_RESOURCES: FIN(MACHINE_RESOURCES)
     & machineResources <: MACHINE_RESOURCES
-    & machineResourceProperties : machineResources +-> struct(cpu : NAT, hdd : NAT, mem : NAT)
+    & machineResourceProperties : machineResources +-> struct(cpu : NAT1, hdd : NAT1, mem : NAT1)
 
 INITIALISATION
     machineResources := {}
@@ -25,9 +25,9 @@ INITIALISATION
 OPERATIONS
     addResource(cpu, hdd, mem, caller) =
     PRE
-        cpu : NAT
-        & hdd : NAT
-        & mem : NAT
+        cpu : NAT1
+        & hdd : NAT1
+        & mem : NAT1
         & caller : admins
     THEN
         ANY resource

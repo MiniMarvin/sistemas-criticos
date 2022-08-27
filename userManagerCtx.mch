@@ -7,5 +7,8 @@ MACHINE
 
 SETS
     USERS
+
+INVARIANT
+    USERS : FIN(USERS)
     
 END

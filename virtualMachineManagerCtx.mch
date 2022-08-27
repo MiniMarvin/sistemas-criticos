@@ -11,10 +11,16 @@ SETS
 
 CONSTANTS
     allocated,
-    spot
+    spot,
+    vmLimit
 
 PROPERTIES
     allocated : VM_CATEGORIES
     & spot : VM_CATEGORIES
+    & vmLimit : NAT1
+
+INVARIANT
+    VM_CATEGORIES : FIN(VM_CATEGORIES)
+    & VIRTUAL_MACHINES : FIN(VIRTUAL_MACHINES)
 
 END

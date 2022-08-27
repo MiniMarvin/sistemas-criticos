@@ -18,7 +18,7 @@
     </Define>
     <Define name="ctx" hash="0"/>
     <Define name="seext" hash="0"/>
-    <Define name="lprp" hash="16043789219646943004">
+    <Define name="lprp" hash="1107856712592124477">
         <Set>
             <Id value="VIRTUAL_MACHINES" typref="0"/>
         </Set>
@@ -33,10 +33,27 @@
             <Id value="spot" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:3:1:2:1"/>
             <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:3:1:2:2"/>
         </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="vmLimit" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:3:1:3:1"/>
+            <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:3:1:3:2"/>
+        </Exp_Comparison>
     </Define>
     <Define name="inprp" hash="0"/>
     <Define name="inext" hash="0"/>
-    <Define name="inv" hash="0"/>
+    <Define name="inv" hash="3456044793931094770">
+        <Exp_Comparison op=":">
+            <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:4:1:1:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:4:1:1:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:4:1:2:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:4:1:2:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+    </Define>
     <Define name="ass" hash="0"/>
     <Define name="cst" hash="0"/>
     <Define name="sets" hash="16656330472499585912">
@@ -47,6 +64,38 @@
             <Id value="VM_CATEGORIES" typref="0"/>
         </Set>
     </Define>
+    <Proof_Obligation goalHash="4368505417754185529">
+        <Tag>Initialisation</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:4:1:1:1"/>
+                    <Unary_Exp op="FIN" typref="2">
+                        <Id value="VM_CATEGORIES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:4:1:1:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:4:1:2:1"/>
+                    <Unary_Exp op="FIN" typref="2">
+                        <Id value="VIRTUAL_MACHINES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/virtualMachineManagerCtx.bxml:1:4:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
     <TypeInfos>
         <Type id="0">
             <Unary_Exp op="POW">
@@ -55,6 +104,13 @@
         </Type>
         <Type id="1">
             <Id value="INTEGER"/>
+        </Type>
+        <Type id="2">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Id value="INTEGER"/>
+                </Unary_Exp>
+            </Unary_Exp>
         </Type>
     </TypeInfos>
 </Proof_Obligations>

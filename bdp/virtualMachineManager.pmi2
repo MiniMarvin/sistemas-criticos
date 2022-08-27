@@ -1,11 +1,13 @@
 THEORY BalanceX IS
-virtualMachineManager,15,1,0,14,0,0,0;
+virtualMachineManager,18,1,0,14,0,0,0;
 Initialisation,6,0,0,6,0,0,0;
-Operation_addAllocatedVirtualMachine,6,1,0,5,0,0,0;
-WellDefinedness_addAllocatedVirtualMachine,3,0,0,3,0,0,0
+Operation_addAllocatedVirtualMachine,8,1,0,5,0,0,0;
+WellDefinedness_addAllocatedVirtualMachine,3,0,0,3,0,0,0;
+WellDefinedness_getAllocatedCpuOnMachine,1,0,0,0,0,0,0
 END
 &
 THEORY ProofState IS
+Unproved;
 Proved(0);
 Proved(0);
 Proved(0);
@@ -13,6 +15,8 @@ Proved(0);
 Proved(Util);
 Proved(0);
 Proved(0);
+Unproved;
+Unproved;
 Proved(0);
 Proved(0);
 Proved(0);
@@ -24,6 +28,7 @@ Proved(0)
 END
 &
 THEORY MethodList IS
+?;
 pr;
 pr;
 pr;
@@ -31,6 +36,8 @@ pr;
 mp & pr & pp(rp.0 | 60);
 pr;
 pr;
+?;
+?;
 pr;
 pr;
 pr;
@@ -42,6 +49,7 @@ pr
 END
 &
 THEORY PassList IS
+Force(0),(?; 0);
 Force(0),?;
 Force(0),?;
 Force(0),?;
@@ -49,6 +57,8 @@ Force(0),?;
 Force(0),?;
 Force(0),?;
 Force(0),?;
+Force(0),(?; 0);
+Force(0),(?; 0);
 Force(0),?;
 Force(0),?;
 Force(0),?;
@@ -60,8 +70,9 @@ Force(0),?
 END
 &
 THEORY Status IS
-virtualMachineManager,15,1,14,0,0,0;
+virtualMachineManager,18,1,14,0,0,0;
 Initialisation,6,0,6,0,0,0;
-Operation_addAllocatedVirtualMachine,6,1,5,0,0,0;
-WellDefinedness_addAllocatedVirtualMachine,3,0,3,0,0,0
+Operation_addAllocatedVirtualMachine,8,1,5,0,0,0;
+WellDefinedness_addAllocatedVirtualMachine,3,0,3,0,0,0;
+WellDefinedness_getAllocatedCpuOnMachine,1,0,0,0,0,0
 END

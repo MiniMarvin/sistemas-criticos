@@ -25,7 +25,14 @@
     </Define>
     <Define name="inprp" hash="0"/>
     <Define name="inext" hash="0"/>
-    <Define name="inv" hash="0"/>
+    <Define name="inv" hash="11516500683264182964">
+        <Exp_Comparison op=":">
+            <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManagerCtx.bxml:1:2:1:1"/>
+            <Unary_Exp op="FIN" typref="2">
+                <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManagerCtx.bxml:1:2:1:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+    </Define>
     <Define name="ass" hash="0"/>
     <Define name="cst" hash="0"/>
     <Define name="sets" hash="9171663041883024576">
@@ -33,6 +40,27 @@
             <Id value="USERS" typref="0"/>
         </Set>
     </Define>
+    <Proof_Obligation goalHash="16341542524729963059">
+        <Tag>Initialisation</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManagerCtx.bxml:1:2:1:1"/>
+                    <Unary_Exp op="FIN" typref="2">
+                        <Id value="USERS" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/userManagerCtx.bxml:1:2:1:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
     <TypeInfos>
         <Type id="0">
             <Unary_Exp op="POW">
@@ -41,6 +69,13 @@
         </Type>
         <Type id="1">
             <Id value="INTEGER"/>
+        </Type>
+        <Type id="2">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Id value="INTEGER"/>
+                </Unary_Exp>
+            </Unary_Exp>
         </Type>
     </TypeInfos>
 </Proof_Obligations>

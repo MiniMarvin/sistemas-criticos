@@ -1,0 +1,17 @@
+THEORY ProofList IS
+_f(1) & _f(2) & Initialisation.3,(_f(3) => _f(6));
+_f(1) & _f(2) & Initialisation.2,(_f(3) => _f(5));
+_f(1) & _f(2) & Initialisation.1,(_f(3) => _f(4))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}) & ((allocated) : (VM_CATEGORIES)) & ((spot) : (VM_CATEGORIES)) & ((vmLimit) : ((NAT-{0})));
+"Invariant is preserved";
+((USERS) : (FIN(USERS)));
+((VM_CATEGORIES) : (FIN(VM_CATEGORIES)));
+((VIRTUAL_MACHINES) : (FIN(VIRTUAL_MACHINES)))
+END
+&
+THEORY EnumerateX
+END

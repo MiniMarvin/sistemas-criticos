@@ -1,0 +1,12 @@
+/* machineResourceManagerCtxImpl
+ * Author: 
+ * Creation date: 26/08/2022
+ */
+
+IMPLEMENTATION machineResourceManagerCtxImpl
+REFINES machineResourceManagerCtx
+
+VALUES
+    MACHINE_RESOURCES = 0..100
+
+ END

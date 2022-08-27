@@ -1,0 +1,25 @@
+/* virtualMachineManagerImpl
+ * Author: 
+ * Creation date: 26/08/2022
+ */
+
+IMPLEMENTATION virtualMachineManagerImpl
+REFINES virtualMachineManager
+
+SEES
+    virtualMachineManagerCtx,
+    userManagerCtx,
+    machineResourceManagerCtx,
+    userManager
+
+IMPORTS
+    machineResourceManager
+
+INITIALISATION
+    virtualMachines := {};
+    virtualMachineProperties := {};
+    vmCategories := {allocated, spot};
+    spotVirtualMachines := {};
+    allocatedVirtualMachines := {}
+
+ END

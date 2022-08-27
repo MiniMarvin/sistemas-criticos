@@ -57,7 +57,7 @@
     <Define name="lprp" hash="0"/>
     <Define name="inprp" hash="0"/>
     <Define name="inext" hash="0"/>
-    <Define name="inv" hash="7111273440820376021">
+    <Define name="inv" hash="12568919967417076134">
         <Exp_Comparison op=":">
             <Id value="MACHINE_RESOURCES" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:1:1"/>
             <Unary_Exp op="FIN" typref="2">
@@ -74,13 +74,13 @@
                 <Id value="machineResources" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:1"/>
                 <Struct typref="5">
                     <Record_Item label="cpu">
-                        <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:1:1"/>
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:1:1"/>
                     </Record_Item>
                     <Record_Item label="hdd">
-                        <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:2:1"/>
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:2:1"/>
                     </Record_Item>
                     <Record_Item label="mem">
-                        <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:3:1"/>
+                        <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:3:1"/>
                     </Record_Item>
                 </Struct>
             </Binary_Exp>
@@ -89,7 +89,7 @@
     <Define name="ass" hash="0"/>
     <Define name="cst" hash="0"/>
     <Define name="sets" hash="0"/>
-    <Proof_Obligation goalHash="14129021567560037604">
+    <Proof_Obligation goalHash="14127250907029756219">
         <Tag>Initialisation</Tag>
         <Definition name="B definitions"/>
         <Definition name="ctx"/>
@@ -118,13 +118,13 @@
                         <EmptySet typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:1,/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:4:1:1:2:1"/>
                         <Struct typref="5">
                             <Record_Item label="cpu">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:1:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:1:1"/>
                             </Record_Item>
                             <Record_Item label="hdd">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:2:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:2:1"/>
                             </Record_Item>
                             <Record_Item label="mem">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:3:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:3:1"/>
                             </Record_Item>
                         </Struct>
                     </Binary_Exp>
@@ -132,7 +132,7 @@
             </Goal>
         </Simple_Goal>
     </Proof_Obligation>
-    <Proof_Obligation goalHash="14675826451423458628">
+    <Proof_Obligation goalHash="5352747626775213864">
         <Tag>Operation_addResource</Tag>
         <Definition name="B definitions"/>
         <Definition name="ctx"/>
@@ -146,19 +146,19 @@
         <Hypothesis>
             <Exp_Comparison op=":">
                 <Id value="cpu" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:1:1"/>
-                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:1:2"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:1:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Hypothesis>
             <Exp_Comparison op=":">
                 <Id value="hdd" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:2:1"/>
-                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:2:2"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:2:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Hypothesis>
             <Exp_Comparison op=":">
                 <Id value="mem" typref="1" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:3:1"/>
-                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:3:2"/>
+                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:5:1:2:1:3:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Hypothesis>
@@ -243,13 +243,13 @@
                         </Binary_Exp>
                         <Struct typref="5">
                             <Record_Item label="cpu">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:1:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:1:1"/>
                             </Record_Item>
                             <Record_Item label="hdd">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:2:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:2:1"/>
                             </Record_Item>
                             <Record_Item label="mem">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:3:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:3:1"/>
                             </Record_Item>
                         </Struct>
                     </Binary_Exp>
@@ -257,7 +257,7 @@
             </Goal>
         </Simple_Goal>
     </Proof_Obligation>
-    <Proof_Obligation goalHash="13106740199265361448">
+    <Proof_Obligation goalHash="13169438300090959772">
         <Tag>Operation_removeResource</Tag>
         <Definition name="B definitions"/>
         <Definition name="ctx"/>
@@ -319,13 +319,13 @@
                         </Binary_Exp>
                         <Struct typref="5">
                             <Record_Item label="cpu">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:1:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:1:1"/>
                             </Record_Item>
                             <Record_Item label="hdd">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:2:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:2:1"/>
                             </Record_Item>
                             <Record_Item label="mem">
-                                <Id value="NAT" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:3:1"/>
+                                <Id value="NAT1" typref="0" tag="/Users/caiogomes/Documents/atelierb/aws_ec2/bdp/machineResourceManager.bxml:1:3:1:3:2:2:3:1"/>
                             </Record_Item>
                         </Struct>
                     </Binary_Exp>
