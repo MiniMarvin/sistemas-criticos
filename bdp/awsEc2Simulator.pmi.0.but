@@ -1,0 +1,1 @@
+﻿Flag(FileOn("awsEc2Simulator.pmi.0.res")) & Set(toto | spotVirtualMachines\/(allocatedVirtualMachines\/{vm}) = spotVirtualMachines\/allocatedVirtualMachines\/{vm})

@@ -23,7 +23,10 @@ VARIABLES
     virtualMachineProperties,
     vmCategories,
     spotVirtualMachines,
-    allocatedVirtualMachines
+    allocatedVirtualMachines,
+    currentTime,
+    vmHistory,
+    instanceRating
 
 INVARIANT
     USERS: FIN(USERS)
@@ -31,6 +34,7 @@ INVARIANT
     & clients <: USERS
     & admins /\ clients = {}
     & admins /= {}
+    & currentTime : NAT
     & MACHINE_RESOURCES: FIN(MACHINE_RESOURCES)
     & machineResources <: MACHINE_RESOURCES
     & machineResourceProperties : machineResources +-> struct(
@@ -42,20 +46,27 @@ INVARIANT
     & VM_CATEGORIES : FIN(VM_CATEGORIES)
     & vmCategories <: VM_CATEGORIES
     & virtualMachines <: VIRTUAL_MACHINES
+    & virtualMachines : FIN(virtualMachines)
     & virtualMachineProperties : virtualMachines --> struct(
             residentMachine: MACHINE_RESOURCES,
             owner: USERS,
             category: VM_CATEGORIES,
+            startTime: NAT,
             cpu: NAT1,
             hdd : NAT1,
             mem: NAT1
         )
     & virtualMachineProperties : FIN(virtualMachineProperties)
-    & card(virtualMachineProperties) < card(VIRTUAL_MACHINES)
     & spotVirtualMachines <: virtualMachines
     & allocatedVirtualMachines <: virtualMachines
     & spotVirtualMachines \/ allocatedVirtualMachines = virtualMachines
     & spotVirtualMachines /\ allocatedVirtualMachines = {}
+    & vmHistory : clients +-> struct(
+            category: VM_CATEGORIES, 
+            startTime: NAT, 
+            endTime: NAT
+        )
+    & instanceRating : {allocated, spot} <-> NAT
 
 
 INITIALISATION
@@ -68,6 +79,9 @@ INITIALISATION
     || vmCategories := {allocated, spot}
     || spotVirtualMachines := {}
     || allocatedVirtualMachines := {}
+    || currentTime := 0
+    || vmHistory := {}
+    || instanceRating := {allocated |-> 2, spot |-> 1}
 
 OPERATIONS
     addClient(user, caller) =
@@ -108,6 +122,7 @@ OPERATIONS
         & caller : admins
     THEN
         clients := clients - {user}
+        || vmHistory := {user} <<| vmHistory
     END;
     
     clientList <-- listClients(user, caller) =
@@ -116,6 +131,11 @@ OPERATIONS
         & caller : admins
     THEN
         clientList := clients
+    END;
+    
+    tickTimer = 
+    BEGIN
+        currentTime := (currentTime + 1) mod (MAXINT - 1)
     END;
     
     addResource(cpu, hdd, mem, caller) =
@@ -132,16 +152,19 @@ OPERATIONS
             & resource /: dom(machineResourceProperties)
         THEN
             machineResources := machineResources \/ {resource}
-            || machineResourceProperties(resource) := rec(cpu, hdd, mem)
+            || machineResourceProperties(resource) := rec(cpu: cpu, hdd: hdd, mem: mem)
         END
     END;
     
-    // TODO: ensure that the machine doesn't have any virtual machine on it
     removeResource(resource, caller) = 
     PRE
-        resource : MACHINE_RESOURCES
+        resource : machineResources
         & resource : machineResources
         & caller : admins
+        & {  vm | 
+                (vm : virtualMachines)
+                & ((virtualMachineProperties(vm))'residentMachine = resource) 
+            } = {}
     THEN
         machineResources := machineResources - {resource}
         || machineResourceProperties := {resource} <<| machineResourceProperties 
@@ -158,7 +181,6 @@ OPERATIONS
         & hdd : NAT1
         & mem : NAT1
         & client : clients
-        & card(virtualMachineProperties) < vmLimit
     THEN
         ANY machine, vm
         WHERE
@@ -170,36 +192,36 @@ OPERATIONS
             & machine : dom(machineResourceProperties)
             & cpu <= (
                 (machineResourceProperties(machine))'cpu
-//                - SIGMA vm . (vm : struct(
-//                    residentMachine: {machine},
-//                    owner:USERS,
-//                    category: {allocated},
-//                    cpu:NAT1,
-//                    hdd:NAT1,
-//                    mem:NAT1
-//                ) /\ ran(virtualMachineProperties) | vm'cpu)
+                    -  SIGMA virtualMachine . (
+                    (virtualMachine : 
+                        {  vm | 
+                            (vm : virtualMachines)
+                            & ((virtualMachineProperties(vm))'residentMachine = machine) 
+                            & ((virtualMachineProperties(vm))'category = allocated) 
+                        }
+                    ) | (virtualMachineProperties(virtualMachine))'cpu)
             )
             & hdd <= (
                 (machineResourceProperties(machine))'hdd
-//                - SIGMA vm . (vm : struct(
-//                    residentMachine: {machine},
-//                    owner:USERS,
-//                    category: {allocated},
-//                    cpu:NAT1,
-//                    hdd:NAT1,
-//                    mem:NAT1
-//                ) /\ ran(virtualMachineProperties) | vm'hdd)
+                    -  SIGMA virtualMachine . (
+                    (virtualMachine : 
+                        {  vm | 
+                            (vm : virtualMachines)
+                            & ((virtualMachineProperties(vm))'residentMachine = machine) 
+                            & ((virtualMachineProperties(vm))'category = allocated) 
+                        }
+                    ) | (virtualMachineProperties(virtualMachine))'hdd)
             )
             & mem <= (
                 (machineResourceProperties(machine))'mem
-//                - SIGMA vm . (vm : struct(
-//                    residentMachine: {machine},
-//                    owner:USERS,
-//                    category: {allocated},
-//                    cpu:NAT1,
-//                    hdd:NAT1,
-//                    mem:NAT1
-//                ) /\ ran(virtualMachineProperties) | vm'mem)
+                -  SIGMA virtualMachine . (
+                    (virtualMachine : 
+                        {  vm | 
+                            (vm : virtualMachines)
+                            & ((virtualMachineProperties(vm))'residentMachine = machine) 
+                            & ((virtualMachineProperties(vm))'category = allocated) 
+                        }
+                    ) | (virtualMachineProperties(virtualMachine))'mem)
             )
         THEN
             virtualMachines := virtualMachines \/ {vm}
@@ -208,6 +230,65 @@ OPERATIONS
                     residentMachine : machine,
                     owner : client,
                     category: allocated,
+                    startTime: currentTime,
+                    cpu : cpu,
+                    hdd : hdd,
+                    mem : mem
+                )
+            // || dealocate all the necessary Spot machines necessary
+        END
+    END;
+    
+    addSpotVirtualMachine(cpu, hdd, mem, client) = 
+    PRE
+        cpu : NAT1
+        & hdd : NAT1
+        & mem : NAT1
+        & client : clients
+    THEN
+        ANY machine, vm
+        WHERE
+            vm : VIRTUAL_MACHINES
+            & vm /: virtualMachines
+            & vm /: spotVirtualMachines
+            & vm /: allocatedVirtualMachines
+            & machine : machineResources
+            & machine : dom(machineResourceProperties)
+            & cpu <= (
+                (machineResourceProperties(machine))'cpu
+                -  SIGMA virtualMachine . (
+                    (    
+                            virtualMachine : virtualMachines
+                            & ((virtualMachineProperties(virtualMachine))'residentMachine = machine)) 
+                            | (virtualMachineProperties(virtualMachine))'cpu
+                        )
+            )
+            & hdd <= (
+                (machineResourceProperties(machine))'hdd
+                -  SIGMA virtualMachine . (
+                    (    
+                            virtualMachine : virtualMachines
+                            & ((virtualMachineProperties(virtualMachine))'residentMachine = machine)) 
+                            | (virtualMachineProperties(virtualMachine))'hdd
+                        )
+            )
+            & mem <= (
+                (machineResourceProperties(machine))'mem
+                -  SIGMA virtualMachine . (
+                    (    
+                            virtualMachine : virtualMachines
+                            & ((virtualMachineProperties(virtualMachine))'residentMachine = machine)) 
+                            | (virtualMachineProperties(virtualMachine))'mem
+                        )
+            )
+        THEN
+            virtualMachines := virtualMachines \/ {vm}
+            || allocatedVirtualMachines := allocatedVirtualMachines \/ {vm}
+            || virtualMachineProperties(vm) := rec(
+                    residentMachine : machine,
+                    owner : client,
+                    category: allocated,
+                    startTime: currentTime,
                     cpu : cpu,
                     hdd : hdd,
                     mem : mem
@@ -220,14 +301,10 @@ OPERATIONS
         machine : machineResources
         & machine : dom(machineResourceProperties)
     THEN
-        vms := struct(
-            residentMachine: {machine},
-            owner:USERS,
-            category: VM_CATEGORIES,
-            cpu:NAT1,
-            hdd:NAT1,
-            mem:NAT1
-        ) /\ ran(virtualMachineProperties)
+        vms := {  vm | 
+                        (vm : virtualMachines)
+                        & ((virtualMachineProperties(vm))'residentMachine = machine) 
+                    }
     END;
     
     totalCpu <-- getAllocatedCpuOnMachine(machine) =
@@ -235,16 +312,14 @@ OPERATIONS
         machine : machineResources
         & machine : dom(machineResourceProperties)
     THEN // TODO: proove it's a finite set
-        totalCpu := SIGMA vm . (
-            vm : ran(virtualMachineProperties) 
-            /\  struct(
-                residentMachine: {machine},
-                owner:USERS,
-                category: VM_CATEGORIES,
-                cpu:NAT1,
-                hdd:NAT1,
-                mem:NAT1
-            ) | vm'cpu)
+        // That's a finite set because it's a subset of ran(virtualMachineProperties)
+        // which is finite itself
+        totalCpu := SIGMA virtualMachine . (
+            (
+                virtualMachine : virtualMachines
+                & ((virtualMachineProperties(virtualMachine))'residentMachine = machine)) 
+                | (virtualMachineProperties(virtualMachine))'cpu
+            )
     END;
 
     vmList <-- listVmsForUser(resourceTypes, user, caller) =
@@ -254,14 +329,23 @@ OPERATIONS
         & caller : USERS
         & caller : admins \/ {user}
     THEN
-        vmList := struct(
-            residentMachine: MACHINE_RESOURCES,
-            owner: {user},
-            category: resourceTypes,
-            cpu:NAT1,
-            hdd:NAT1,
-            mem:NAT1
-        ) /\ ran(virtualMachineProperties)
+        vmList := {  vm | 
+                            (vm : virtualMachines)
+                            & ((virtualMachineProperties(vm))'owner = user) 
+                        }
     END
+    
+//    billing <-- getBillingForVM(vm, caller) =
+//    PRE
+//        vm : virtualMachines
+//        & caller : USERS
+//        & caller : admins \/ {(virtualMachineProperties(vm))'owner}
+//        & (virtualMachineProperties(vm))'owner : dom(vmHistory)
+//    THEN
+//        billing := SIGMA vmd . (
+//            vmd : vmHistory((virtualMachineProperties(vm))'owner)
+//            | instanceRating(vmd'category) //*(vmd'endTime - vmd'startTime)
+//        )
+//    END
 
 END
