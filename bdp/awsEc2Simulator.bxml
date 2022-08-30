@@ -75,14 +75,14 @@
 <Pos l='27' c='5' s='11'/>
 </Attr>
 </Id>
-<Id value='vmHistory' typref='11'>
+<Id value='instanceRating' typref='11'>
 <Attr>
-<Pos l='28' c='5' s='9'/>
+<Pos l='28' c='5' s='14'/>
 </Attr>
 </Id>
-<Id value='instanceRating' typref='12'>
+<Id value='finishedInstanceCost' typref='12'>
 <Attr>
-<Pos l='29' c='5' s='14'/>
+<Pos l='29' c='5' s='20'/>
 </Attr>
 </Id>
 </Abstract_Variables>
@@ -593,120 +593,120 @@
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='64' c='17' s='1'/>
+<Pos l='64' c='28' s='1'/>
 </Attr>
-<Id value='vmHistory' typref='11'>
+<Id value='finishedInstanceCost' typref='12'>
 <Attr>
-<Pos l='64' c='7' s='9'/>
+<Pos l='64' c='7' s='20'/>
 </Attr>
 </Id>
 <Binary_Exp op='+-&gt;' typref='21'>
 <Attr>
-<Pos l='64' c='27' s='3'/>
+<Pos l='64' c='36' s='3'/>
 </Attr>
-<Id value='clients' typref='7'>
+<Id value='USERS' typref='7'>
 <Attr>
-<Pos l='64' c='19' s='7'/>
-</Attr>
-</Id>
-<Struct typref='22'>
-<Attr>
-<Pos l='64' c='31' s='6'/>
-</Attr>
-<Record_Item label='category'>
-<Attr>
-<Pos l='65' c='21' s='2'/>
-</Attr>
-<Id value='VM_CATEGORIES' typref='10'>
-<Attr>
-<Pos l='65' c='23' s='13'/>
+<Pos l='64' c='30' s='5'/>
 </Attr>
 </Id>
-</Record_Item>
-<Record_Item label='startTime'>
+<Id value='NAT' typref='2'>
 <Attr>
-<Pos l='66' c='22' s='2'/>
+<Pos l='64' c='40' s='3'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='65' c='22' s='1'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='65' c='7' s='14'/>
+</Attr>
+</Id>
+<Binary_Exp op='+-&gt;' typref='22'>
+<Attr>
+<Pos l='65' c='42' s='3'/>
+</Attr>
+<Nary_Exp op='{' typref='10'>
+<Attr>
+<Pos l='65' c='24' s='1'/>
+</Attr>
+<Id value='allocated' typref='23'>
+<Attr>
+<Pos l='65' c='25' s='9'/>
+</Attr>
+</Id>
+<Id value='spot' typref='23'>
+<Attr>
+<Pos l='65' c='36' s='4'/>
+</Attr>
+</Id>
+</Nary_Exp>
+<Struct typref='16'>
+<Attr>
+<Pos l='65' c='46' s='6'/>
+</Attr>
+<Record_Item label='cpu'>
+<Attr>
+<Pos l='65' c='56' s='2'/>
 </Attr>
 <Id value='NAT' typref='2'>
 <Attr>
-<Pos l='66' c='24' s='3'/>
+<Pos l='65' c='58' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
-<Record_Item label='endTime'>
+<Record_Item label='hdd'>
 <Attr>
-<Pos l='67' c='20' s='2'/>
+<Pos l='65' c='66' s='2'/>
 </Attr>
 <Id value='NAT' typref='2'>
 <Attr>
-<Pos l='67' c='22' s='3'/>
+<Pos l='65' c='68' s='3'/>
+</Attr>
+</Id>
+</Record_Item>
+<Record_Item label='mem'>
+<Attr>
+<Pos l='65' c='76' s='2'/>
+</Attr>
+<Id value='NAT' typref='2'>
+<Attr>
+<Pos l='65' c='78' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
 </Struct>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=':'>
-<Attr>
-<Pos l='69' c='22' s='1'/>
-</Attr>
-<Id value='instanceRating' typref='12'>
-<Attr>
-<Pos l='69' c='7' s='14'/>
-</Attr>
-</Id>
-<Binary_Exp op='&lt;-&gt;' typref='23'>
-<Attr>
-<Pos l='69' c='42' s='3'/>
-</Attr>
-<Nary_Exp op='{' typref='10'>
-<Attr>
-<Pos l='69' c='24' s='1'/>
-</Attr>
-<Id value='allocated' typref='24'>
-<Attr>
-<Pos l='69' c='25' s='9'/>
-</Attr>
-</Id>
-<Id value='spot' typref='24'>
-<Attr>
-<Pos l='69' c='36' s='4'/>
-</Attr>
-</Id>
-</Nary_Exp>
-<Id value='NAT' typref='2'>
-<Attr>
-<Pos l='69' c='46' s='3'/>
-</Attr>
-</Id>
-</Binary_Exp>
-</Exp_Comparison>
 </Nary_Pred>
 </Invariant>
 <Initialisation>
 <Attr>
-<Pos l='72' c='1' s='14'/>
+<Pos l='67' c='1' s='14'/>
 </Attr>
 <Nary_Sub op='||'>
 <Assignement_Sub>
 <Attr>
-<Pos l='73' c='12' s='2'/>
+<Pos l='68' c='12' s='2'/>
 </Attr>
 <Variables>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='73' c='5' s='6'/>
+<Pos l='68' c='5' s='6'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='73' c='15' s='1'/>
+<Pos l='68' c='15' s='1'/>
 </Attr>
 <Id value='admin' typref='4'>
 <Attr>
-<Pos l='73' c='16' s='5'/>
+<Pos l='68' c='16' s='5'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -714,123 +714,123 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='74' c='16' s='2'/>
+<Pos l='69' c='16' s='2'/>
 </Attr>
 <Variables>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='74' c='8' s='7'/>
+<Pos l='69' c='8' s='7'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <EmptySet typref='7'>
 <Attr>
-<Pos l='74' c='19' s='2'/>
+<Pos l='69' c='19' s='2'/>
 </Attr>
 </EmptySet>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='75' c='25' s='2'/>
+<Pos l='70' c='25' s='2'/>
 </Attr>
 <Variables>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='75' c='8' s='16'/>
+<Pos l='70' c='8' s='16'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <EmptySet typref='5'>
 <Attr>
-<Pos l='75' c='28' s='2'/>
+<Pos l='70' c='28' s='2'/>
 </Attr>
 </EmptySet>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='76' c='34' s='2'/>
+<Pos l='71' c='34' s='2'/>
 </Attr>
 <Variables>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='76' c='8' s='25'/>
+<Pos l='71' c='8' s='25'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <EmptySet typref='6'>
 <Attr>
-<Pos l='76' c='37' s='2'/>
+<Pos l='71' c='37' s='2'/>
 </Attr>
 </EmptySet>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='77' c='24' s='2'/>
+<Pos l='72' c='24' s='2'/>
 </Attr>
 <Variables>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='77' c='8' s='15'/>
+<Pos l='72' c='8' s='15'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <EmptySet typref='8'>
 <Attr>
-<Pos l='77' c='27' s='2'/>
+<Pos l='72' c='27' s='2'/>
 </Attr>
 </EmptySet>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='78' c='33' s='2'/>
+<Pos l='73' c='33' s='2'/>
 </Attr>
 <Variables>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='78' c='8' s='24'/>
+<Pos l='73' c='8' s='24'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <EmptySet typref='9'>
 <Attr>
-<Pos l='78' c='36' s='2'/>
+<Pos l='73' c='36' s='2'/>
 </Attr>
 </EmptySet>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='79' c='21' s='2'/>
+<Pos l='74' c='21' s='2'/>
 </Attr>
 <Variables>
 <Id value='vmCategories' typref='10'>
 <Attr>
-<Pos l='79' c='8' s='12'/>
+<Pos l='74' c='8' s='12'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Nary_Exp op='{' typref='10'>
 <Attr>
-<Pos l='79' c='24' s='1'/>
+<Pos l='74' c='24' s='1'/>
 </Attr>
-<Id value='allocated' typref='24'>
+<Id value='allocated' typref='23'>
 <Attr>
-<Pos l='79' c='25' s='9'/>
+<Pos l='74' c='25' s='9'/>
 </Attr>
 </Id>
-<Id value='spot' typref='24'>
+<Id value='spot' typref='23'>
 <Attr>
-<Pos l='79' c='36' s='4'/>
+<Pos l='74' c='36' s='4'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -838,145 +838,130 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='80' c='28' s='2'/>
+<Pos l='75' c='28' s='2'/>
 </Attr>
 <Variables>
 <Id value='spotVirtualMachines' typref='8'>
 <Attr>
-<Pos l='80' c='8' s='19'/>
+<Pos l='75' c='8' s='19'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <EmptySet typref='8'>
 <Attr>
-<Pos l='80' c='31' s='2'/>
+<Pos l='75' c='31' s='2'/>
 </Attr>
 </EmptySet>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='81' c='33' s='2'/>
+<Pos l='76' c='33' s='2'/>
 </Attr>
 <Variables>
 <Id value='allocatedVirtualMachines' typref='8'>
 <Attr>
-<Pos l='81' c='8' s='24'/>
+<Pos l='76' c='8' s='24'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <EmptySet typref='8'>
 <Attr>
-<Pos l='81' c='36' s='2'/>
+<Pos l='76' c='36' s='2'/>
 </Attr>
 </EmptySet>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='82' c='20' s='2'/>
+<Pos l='77' c='20' s='2'/>
 </Attr>
 <Variables>
 <Id value='currentTime' typref='1'>
 <Attr>
-<Pos l='82' c='8' s='11'/>
+<Pos l='77' c='8' s='11'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Integer_Literal value='0' typref='1'>
 <Attr>
-<Pos l='82' c='23' s='1'/>
+<Pos l='77' c='23' s='1'/>
 </Attr>
 </Integer_Literal>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='83' c='18' s='2'/>
+<Pos l='78' c='23' s='2'/>
 </Attr>
 <Variables>
-<Id value='vmHistory' typref='11'>
+<Id value='instanceRating' typref='11'>
 <Attr>
-<Pos l='83' c='8' s='9'/>
+<Pos l='78' c='8' s='14'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <EmptySet typref='11'>
 <Attr>
-<Pos l='83' c='21' s='2'/>
+<Pos l='78' c='26' s='2'/>
 </Attr>
 </EmptySet>
 </Values>
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='84' c='23' s='2'/>
+<Pos l='79' c='29' s='2'/>
 </Attr>
 <Variables>
-<Id value='instanceRating' typref='12'>
+<Id value='finishedInstanceCost' typref='12'>
 <Attr>
-<Pos l='84' c='8' s='14'/>
+<Pos l='79' c='8' s='20'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
-<Nary_Exp op='{' typref='12'>
+<EmptySet typref='12'>
 <Attr>
-<Pos l='84' c='26' s='1'/>
+<Pos l='79' c='32' s='2'/>
 </Attr>
-<Binary_Exp op='|-&gt;' typref='25'>
-<Attr>
-<Pos l='84' c='37' s='3'/>
-</Attr>
-<Id value='allocated' typref='24'>
-<Attr>
-<Pos l='84' c='27' s='9'/>
-</Attr>
-</Id>
-<Integer_Literal value='2' typref='1'>
-<Attr>
-<Pos l='84' c='41' s='1'/>
-</Attr>
-</Integer_Literal>
-</Binary_Exp>
-<Binary_Exp op='|-&gt;' typref='25'>
-<Attr>
-<Pos l='84' c='49' s='3'/>
-</Attr>
-<Id value='spot' typref='24'>
-<Attr>
-<Pos l='84' c='44' s='4'/>
-</Attr>
-</Id>
-<Integer_Literal value='1' typref='1'>
-<Attr>
-<Pos l='84' c='53' s='1'/>
-</Attr>
-</Integer_Literal>
-</Binary_Exp>
-</Nary_Exp>
+</EmptySet>
 </Values>
 </Assignement_Sub>
 </Nary_Sub>
 </Initialisation>
 <Operations>
-<Operation name='addClient'>
+<Operation name='setInstanceRating'>
 <Attr>
-<Pos l='87' c='5' s='9' endLine='95'/>
+<Pos l='82' c='5' s='17' endLine='92'/>
 </Attr>
 <Input_Parameters>
-<Id value='user' typref='4'>
+<Id value='instanceType' typref='23'>
 <Attr>
-<Pos l='87' c='15' s='4'/>
+<Pos l='82' c='23' s='12'/>
+</Attr>
+</Id>
+<Id value='cpuRating' typref='1'>
+<Attr>
+<Pos l='82' c='37' s='9'/>
+</Attr>
+</Id>
+<Id value='hddRating' typref='1'>
+<Attr>
+<Pos l='82' c='48' s='9'/>
+</Attr>
+</Id>
+<Id value='memRating' typref='1'>
+<Attr>
+<Pos l='82' c='59' s='9'/>
 </Attr>
 </Id>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='87' c='21' s='6'/>
+<Pos l='82' c='70' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -984,116 +969,334 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='89' c='14' s='1'/>
+<Pos l='84' c='22' s='1'/>
 </Attr>
-<Id value='user' typref='4'>
+<Id value='instanceType' typref='23'>
 <Attr>
-<Pos l='89' c='9' s='4'/>
+<Pos l='84' c='9' s='12'/>
 </Attr>
 </Id>
-<Id value='USERS' typref='7'>
+<Nary_Exp op='{' typref='10'>
 <Attr>
-<Pos l='89' c='16' s='5'/>
+<Pos l='84' c='24' s='1'/>
+</Attr>
+<Id value='allocated' typref='23'>
+<Attr>
+<Pos l='84' c='25' s='9'/>
 </Attr>
 </Id>
+<Id value='spot' typref='23'>
+<Attr>
+<Pos l='84' c='36' s='4'/>
+</Attr>
+</Id>
+</Nary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op='/:'>
+<Exp_Comparison op=':'>
 <Attr>
-<Pos l='90' c='16' s='2'/>
+<Pos l='85' c='20' s='1'/>
 </Attr>
-<Id value='user' typref='4'>
+<Id value='cpuRating' typref='1'>
 <Attr>
-<Pos l='90' c='11' s='4'/>
-</Attr>
-</Id>
-<Id value='clients' typref='7'>
-<Attr>
-<Pos l='90' c='19' s='7'/>
+<Pos l='85' c='11' s='9'/>
 </Attr>
 </Id>
-</Exp_Comparison>
-<Exp_Comparison op='/:'>
+<Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='91' c='16' s='2'/>
-</Attr>
-<Id value='user' typref='4'>
-<Attr>
-<Pos l='91' c='11' s='4'/>
-</Attr>
-</Id>
-<Id value='admins' typref='7'>
-<Attr>
-<Pos l='91' c='19' s='6'/>
+<Pos l='85' c='22' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='92' c='18' s='1'/>
+<Pos l='86' c='21' s='1'/>
+</Attr>
+<Id value='hddRating' typref='1'>
+<Attr>
+<Pos l='86' c='11' s='9'/>
+</Attr>
+</Id>
+<Id value='NAT1' typref='2'>
+<Attr>
+<Pos l='86' c='23' s='4'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='87' c='21' s='1'/>
+</Attr>
+<Id value='memRating' typref='1'>
+<Attr>
+<Pos l='87' c='11' s='9'/>
+</Attr>
+</Id>
+<Id value='NAT1' typref='2'>
+<Attr>
+<Pos l='87' c='23' s='4'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='88' c='21' s='1'/>
+</Attr>
+<Id value='hddRating' typref='1'>
+<Attr>
+<Pos l='88' c='11' s='9'/>
+</Attr>
+</Id>
+<Id value='NAT1' typref='2'>
+<Attr>
+<Pos l='88' c='23' s='4'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='89' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='92' c='11' s='6'/>
+<Pos l='89' c='11' s='6'/>
 </Attr>
 </Id>
-<Id value='admins' typref='7'>
+<Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='92' c='20' s='6'/>
+<Pos l='89' c='20' s='1'/>
+</Attr>
+<Id value='admin' typref='4'>
+<Attr>
+<Pos l='89' c='21' s='5'/>
 </Attr>
 </Id>
+</Nary_Exp>
 </Exp_Comparison>
 </Nary_Pred>
 </Precondition>
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='94' c='17' s='2'/>
+<Pos l='91' c='38' s='2'/>
+</Attr>
+<Variables>
+<Binary_Exp op='(' typref='24'>
+<Attr>
+<Pos l='91' c='23' s='0'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='91' c='9' s='14'/>
+</Attr>
+</Id>
+<Id value='instanceType' typref='23'>
+<Attr>
+<Pos l='91' c='24' s='12'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Variables>
+<Values>
+<Record typref='24'>
+<Attr>
+<Pos l='91' c='41' s='3'/>
+</Attr>
+<Record_Item label='cpu'>
+<Attr>
+<Pos l='91' c='48' s='2'/>
+</Attr>
+<Id value='cpuRating' typref='1'>
+<Attr>
+<Pos l='91' c='50' s='9'/>
+</Attr>
+</Id>
+</Record_Item>
+<Record_Item label='hdd'>
+<Attr>
+<Pos l='91' c='64' s='2'/>
+</Attr>
+<Id value='hddRating' typref='1'>
+<Attr>
+<Pos l='91' c='66' s='9'/>
+</Attr>
+</Id>
+</Record_Item>
+<Record_Item label='mem'>
+<Attr>
+<Pos l='91' c='80' s='2'/>
+</Attr>
+<Id value='memRating' typref='1'>
+<Attr>
+<Pos l='91' c='82' s='9'/>
+</Attr>
+</Id>
+</Record_Item>
+</Record>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+<Operation name='addClient'>
+<Attr>
+<Pos l='94' c='5' s='9' endLine='103'/>
+</Attr>
+<Input_Parameters>
+<Id value='user' typref='4'>
+<Attr>
+<Pos l='94' c='15' s='4'/>
+</Attr>
+</Id>
+<Id value='caller' typref='4'>
+<Attr>
+<Pos l='94' c='21' s='6'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='96' c='14' s='1'/>
+</Attr>
+<Id value='user' typref='4'>
+<Attr>
+<Pos l='96' c='9' s='4'/>
+</Attr>
+</Id>
+<Id value='USERS' typref='7'>
+<Attr>
+<Pos l='96' c='16' s='5'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='/:'>
+<Attr>
+<Pos l='97' c='16' s='2'/>
+</Attr>
+<Id value='user' typref='4'>
+<Attr>
+<Pos l='97' c='11' s='4'/>
+</Attr>
+</Id>
+<Id value='clients' typref='7'>
+<Attr>
+<Pos l='97' c='19' s='7'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='/:'>
+<Attr>
+<Pos l='98' c='16' s='2'/>
+</Attr>
+<Id value='user' typref='4'>
+<Attr>
+<Pos l='98' c='11' s='4'/>
+</Attr>
+</Id>
+<Id value='admins' typref='7'>
+<Attr>
+<Pos l='98' c='19' s='6'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='99' c='18' s='1'/>
+</Attr>
+<Id value='caller' typref='4'>
+<Attr>
+<Pos l='99' c='11' s='6'/>
+</Attr>
+</Id>
+<Id value='admins' typref='7'>
+<Attr>
+<Pos l='99' c='20' s='6'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='101' c='17' s='2'/>
 </Attr>
 <Variables>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='94' c='9' s='7'/>
+<Pos l='101' c='9' s='7'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='\/' typref='7'>
 <Attr>
-<Pos l='94' c='28' s='2'/>
+<Pos l='101' c='28' s='2'/>
 </Attr>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='94' c='20' s='7'/>
+<Pos l='101' c='20' s='7'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='94' c='31' s='1'/>
+<Pos l='101' c='31' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='94' c='32' s='4'/>
+<Pos l='101' c='32' s='4'/>
 </Attr>
 </Id>
 </Nary_Exp>
 </Binary_Exp>
 </Values>
 </Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='102' c='39' s='2'/>
+</Attr>
+<Variables>
+<Binary_Exp op='(' typref='1'>
+<Attr>
+<Pos l='102' c='32' s='0'/>
+</Attr>
+<Id value='finishedInstanceCost' typref='12'>
+<Attr>
+<Pos l='102' c='12' s='20'/>
+</Attr>
+</Id>
+<Id value='user' typref='4'>
+<Attr>
+<Pos l='102' c='33' s='4'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='1'>
+<Attr>
+<Pos l='102' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
 </Body>
 </Operation>
 <Operation name='addAdmin'>
 <Attr>
-<Pos l='97' c='5' s='8' endLine='105'/>
+<Pos l='105' c='5' s='8' endLine='113'/>
 </Attr>
 <Input_Parameters>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='97' c='14' s='4'/>
+<Pos l='105' c='14' s='4'/>
 </Attr>
 </Id>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='97' c='20' s='6'/>
+<Pos l='105' c='20' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -1101,61 +1304,61 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='99' c='14' s='1'/>
+<Pos l='107' c='14' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='99' c='9' s='4'/>
+<Pos l='107' c='9' s='4'/>
 </Attr>
 </Id>
 <Id value='USERS' typref='7'>
 <Attr>
-<Pos l='99' c='16' s='5'/>
+<Pos l='107' c='16' s='5'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='/:'>
 <Attr>
-<Pos l='100' c='16' s='2'/>
+<Pos l='108' c='16' s='2'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='100' c='11' s='4'/>
+<Pos l='108' c='11' s='4'/>
 </Attr>
 </Id>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='100' c='19' s='7'/>
+<Pos l='108' c='19' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='/:'>
 <Attr>
-<Pos l='101' c='16' s='2'/>
+<Pos l='109' c='16' s='2'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='101' c='11' s='4'/>
+<Pos l='109' c='11' s='4'/>
 </Attr>
 </Id>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='101' c='19' s='6'/>
+<Pos l='109' c='19' s='6'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='102' c='18' s='1'/>
+<Pos l='110' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='102' c='11' s='6'/>
+<Pos l='110' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='102' c='20' s='6'/>
+<Pos l='110' c='20' s='6'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -1164,32 +1367,32 @@
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='104' c='16' s='2'/>
+<Pos l='112' c='16' s='2'/>
 </Attr>
 <Variables>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='104' c='9' s='6'/>
+<Pos l='112' c='9' s='6'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='\/' typref='7'>
 <Attr>
-<Pos l='104' c='26' s='2'/>
+<Pos l='112' c='26' s='2'/>
 </Attr>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='104' c='19' s='6'/>
+<Pos l='112' c='19' s='6'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='104' c='29' s='1'/>
+<Pos l='112' c='29' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='104' c='30' s='4'/>
+<Pos l='112' c='30' s='4'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -1200,17 +1403,17 @@
 </Operation>
 <Operation name='removeAdmin'>
 <Attr>
-<Pos l='107' c='5' s='11' endLine='115'/>
+<Pos l='115' c='5' s='11' endLine='123'/>
 </Attr>
 <Input_Parameters>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='107' c='17' s='4'/>
+<Pos l='115' c='17' s='4'/>
 </Attr>
 </Id>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='107' c='23' s='6'/>
+<Pos l='115' c='23' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -1218,76 +1421,76 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='109' c='13' s='1'/>
+<Pos l='117' c='13' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='109' c='9' s='4'/>
+<Pos l='117' c='9' s='4'/>
 </Attr>
 </Id>
 <Id value='USERS' typref='7'>
 <Attr>
-<Pos l='109' c='15' s='5'/>
+<Pos l='117' c='15' s='5'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='110' c='15' s='1'/>
+<Pos l='118' c='15' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='110' c='11' s='4'/>
+<Pos l='118' c='11' s='4'/>
 </Attr>
 </Id>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='110' c='17' s='6'/>
+<Pos l='118' c='17' s='6'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='/='>
 <Attr>
-<Pos l='111' c='27' s='2'/>
+<Pos l='119' c='27' s='2'/>
 </Attr>
 <Binary_Exp op='-s' typref='7'>
 <Attr>
-<Pos l='111' c='18' s='1'/>
+<Pos l='119' c='18' s='1'/>
 </Attr>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='111' c='11' s='6'/>
+<Pos l='119' c='11' s='6'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='111' c='20' s='1'/>
+<Pos l='119' c='20' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='111' c='21' s='4'/>
+<Pos l='119' c='21' s='4'/>
 </Attr>
 </Id>
 </Nary_Exp>
 </Binary_Exp>
 <EmptySet typref='7'>
 <Attr>
-<Pos l='111' c='30' s='2'/>
+<Pos l='119' c='30' s='2'/>
 </Attr>
 </EmptySet>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='112' c='18' s='1'/>
+<Pos l='120' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='112' c='11' s='6'/>
+<Pos l='120' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='112' c='20' s='6'/>
+<Pos l='120' c='20' s='6'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -1296,32 +1499,32 @@
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='114' c='16' s='2'/>
+<Pos l='122' c='16' s='2'/>
 </Attr>
 <Variables>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='114' c='9' s='6'/>
+<Pos l='122' c='9' s='6'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='-s' typref='7'>
 <Attr>
-<Pos l='114' c='26' s='1'/>
+<Pos l='122' c='26' s='1'/>
 </Attr>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='114' c='19' s='6'/>
+<Pos l='122' c='19' s='6'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='114' c='28' s='1'/>
+<Pos l='122' c='28' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='114' c='29' s='4'/>
+<Pos l='122' c='29' s='4'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -1332,17 +1535,17 @@
 </Operation>
 <Operation name='removeClient'>
 <Attr>
-<Pos l='117' c='5' s='12' endLine='126'/>
+<Pos l='125' c='5' s='12' endLine='134'/>
 </Attr>
 <Input_Parameters>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='117' c='18' s='4'/>
+<Pos l='125' c='18' s='4'/>
 </Attr>
 </Id>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='117' c='24' s='6'/>
+<Pos l='125' c='24' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -1350,46 +1553,46 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='120' c='14' s='1'/>
+<Pos l='128' c='14' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='120' c='9' s='4'/>
+<Pos l='128' c='9' s='4'/>
 </Attr>
 </Id>
 <Id value='USERS' typref='7'>
 <Attr>
-<Pos l='120' c='16' s='5'/>
+<Pos l='128' c='16' s='5'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='121' c='16' s='1'/>
+<Pos l='129' c='16' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='121' c='11' s='4'/>
+<Pos l='129' c='11' s='4'/>
 </Attr>
 </Id>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='121' c='18' s='7'/>
+<Pos l='129' c='18' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='122' c='18' s='1'/>
+<Pos l='130' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='122' c='11' s='6'/>
+<Pos l='130' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='122' c='20' s='6'/>
+<Pos l='130' c='20' s='6'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -1399,32 +1602,32 @@
 <Nary_Sub op='||'>
 <Assignement_Sub>
 <Attr>
-<Pos l='124' c='17' s='2'/>
+<Pos l='132' c='17' s='2'/>
 </Attr>
 <Variables>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='124' c='9' s='7'/>
+<Pos l='132' c='9' s='7'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='-s' typref='7'>
 <Attr>
-<Pos l='124' c='28' s='1'/>
+<Pos l='132' c='28' s='1'/>
 </Attr>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='124' c='20' s='7'/>
+<Pos l='132' c='20' s='7'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='124' c='30' s='1'/>
+<Pos l='132' c='30' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='124' c='31' s='4'/>
+<Pos l='132' c='31' s='4'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -1433,33 +1636,33 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='125' c='22' s='2'/>
+<Pos l='133' c='33' s='2'/>
 </Attr>
 <Variables>
-<Id value='vmHistory' typref='11'>
+<Id value='finishedInstanceCost' typref='12'>
 <Attr>
-<Pos l='125' c='12' s='9'/>
+<Pos l='133' c='12' s='20'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
-<Binary_Exp op='&lt;&lt;|' typref='11'>
+<Binary_Exp op='&lt;&lt;|' typref='12'>
 <Attr>
-<Pos l='125' c='32' s='3'/>
+<Pos l='133' c='43' s='3'/>
 </Attr>
 <Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='125' c='25' s='1'/>
+<Pos l='133' c='36' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='125' c='26' s='4'/>
+<Pos l='133' c='37' s='4'/>
 </Attr>
 </Id>
 </Nary_Exp>
-<Id value='vmHistory' typref='11'>
+<Id value='finishedInstanceCost' typref='12'>
 <Attr>
-<Pos l='125' c='36' s='9'/>
+<Pos l='133' c='47' s='20'/>
 </Attr>
 </Id>
 </Binary_Exp>
@@ -1470,24 +1673,24 @@
 </Operation>
 <Operation name='listClients'>
 <Attr>
-<Pos l='128' c='5' s='10' endLine='134'/>
+<Pos l='136' c='5' s='10' endLine='142'/>
 </Attr>
 <Output_Parameters>
 <Id value='clientList' typref='7'>
 <Attr>
-<Pos l='128' c='5' s='10'/>
+<Pos l='136' c='5' s='10'/>
 </Attr>
 </Id>
 </Output_Parameters>
 <Input_Parameters>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='128' c='32' s='4'/>
+<Pos l='136' c='32' s='4'/>
 </Attr>
 </Id>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='128' c='38' s='6'/>
+<Pos l='136' c='38' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -1495,31 +1698,31 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='130' c='14' s='1'/>
+<Pos l='138' c='14' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='130' c='9' s='4'/>
+<Pos l='138' c='9' s='4'/>
 </Attr>
 </Id>
 <Id value='USERS' typref='7'>
 <Attr>
-<Pos l='130' c='16' s='5'/>
+<Pos l='138' c='16' s='5'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='131' c='18' s='1'/>
+<Pos l='139' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='131' c='11' s='6'/>
+<Pos l='139' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='131' c='20' s='6'/>
+<Pos l='139' c='20' s='6'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -1528,19 +1731,19 @@
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='133' c='20' s='2'/>
+<Pos l='141' c='20' s='2'/>
 </Attr>
 <Variables>
 <Id value='clientList' typref='7'>
 <Attr>
-<Pos l='133' c='9' s='10'/>
+<Pos l='141' c='9' s='10'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='133' c='23' s='7'/>
+<Pos l='141' c='23' s='7'/>
 </Attr>
 </Id>
 </Values>
@@ -1549,52 +1752,52 @@
 </Operation>
 <Operation name='tickTimer'>
 <Attr>
-<Pos l='136' c='5' s='9' endLine='139'/>
+<Pos l='144' c='5' s='9' endLine='147'/>
 </Attr>
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='138' c='21' s='2'/>
+<Pos l='146' c='21' s='2'/>
 </Attr>
 <Variables>
 <Id value='currentTime' typref='1'>
 <Attr>
-<Pos l='138' c='9' s='11'/>
+<Pos l='146' c='9' s='11'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='mod' typref='1'>
 <Attr>
-<Pos l='138' c='42' s='3'/>
+<Pos l='146' c='42' s='3'/>
 </Attr>
 <Binary_Exp op='+i' typref='1'>
 <Attr>
-<Pos l='138' c='37' s='1'/>
+<Pos l='146' c='37' s='1'/>
 </Attr>
 <Id value='currentTime' typref='1'>
 <Attr>
-<Pos l='138' c='25' s='11'/>
+<Pos l='146' c='25' s='11'/>
 </Attr>
 </Id>
 <Integer_Literal value='1' typref='1'>
 <Attr>
-<Pos l='138' c='39' s='1'/>
+<Pos l='146' c='39' s='1'/>
 </Attr>
 </Integer_Literal>
 </Binary_Exp>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='138' c='54' s='1'/>
+<Pos l='146' c='54' s='1'/>
 </Attr>
 <Id value='MAXINT' typref='1'>
 <Attr>
-<Pos l='138' c='47' s='6'/>
+<Pos l='146' c='47' s='6'/>
 </Attr>
 </Id>
 <Integer_Literal value='1' typref='1'>
 <Attr>
-<Pos l='138' c='56' s='1'/>
+<Pos l='146' c='56' s='1'/>
 </Attr>
 </Integer_Literal>
 </Binary_Exp>
@@ -1605,27 +1808,27 @@
 </Operation>
 <Operation name='addResource'>
 <Attr>
-<Pos l='141' c='5' s='11' endLine='157'/>
+<Pos l='149' c='5' s='11' endLine='165'/>
 </Attr>
 <Input_Parameters>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='141' c='17' s='3'/>
+<Pos l='149' c='17' s='3'/>
 </Attr>
 </Id>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='141' c='22' s='3'/>
+<Pos l='149' c='22' s='3'/>
 </Attr>
 </Id>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='141' c='27' s='3'/>
+<Pos l='149' c='27' s='3'/>
 </Attr>
 </Id>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='141' c='32' s='6'/>
+<Pos l='149' c='32' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -1633,61 +1836,61 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='143' c='13' s='1'/>
+<Pos l='151' c='13' s='1'/>
 </Attr>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='143' c='9' s='3'/>
+<Pos l='151' c='9' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='143' c='15' s='4'/>
+<Pos l='151' c='15' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='144' c='15' s='1'/>
+<Pos l='152' c='15' s='1'/>
 </Attr>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='144' c='11' s='3'/>
+<Pos l='152' c='11' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='144' c='17' s='4'/>
+<Pos l='152' c='17' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='145' c='15' s='1'/>
+<Pos l='153' c='15' s='1'/>
 </Attr>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='145' c='11' s='3'/>
+<Pos l='153' c='11' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='145' c='17' s='4'/>
+<Pos l='153' c='17' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='146' c='18' s='1'/>
+<Pos l='154' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='146' c='11' s='6'/>
+<Pos l='154' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='146' c='20' s='6'/>
+<Pos l='154' c='20' s='6'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -1696,12 +1899,12 @@
 <Body>
 <ANY_Sub>
 <Attr>
-<Pos l='148' c='9' s='3'/>
+<Pos l='156' c='9' s='3'/>
 </Attr>
 <Variables>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='148' c='13' s='8'/>
+<Pos l='156' c='13' s='8'/>
 </Attr>
 </Id>
 </Variables>
@@ -1709,50 +1912,50 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='150' c='22' s='1'/>
+<Pos l='158' c='22' s='1'/>
 </Attr>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='150' c='13' s='8'/>
+<Pos l='158' c='13' s='8'/>
 </Attr>
 </Id>
 <Id value='MACHINE_RESOURCES' typref='5'>
 <Attr>
-<Pos l='150' c='24' s='17'/>
+<Pos l='158' c='24' s='17'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='/:'>
 <Attr>
-<Pos l='151' c='24' s='2'/>
+<Pos l='159' c='24' s='2'/>
 </Attr>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='151' c='15' s='8'/>
+<Pos l='159' c='15' s='8'/>
 </Attr>
 </Id>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='151' c='27' s='16'/>
+<Pos l='159' c='27' s='16'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='/:'>
 <Attr>
-<Pos l='152' c='24' s='2'/>
+<Pos l='160' c='24' s='2'/>
 </Attr>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='152' c='15' s='8'/>
+<Pos l='160' c='15' s='8'/>
 </Attr>
 </Id>
 <Unary_Exp op='dom' typref='5'>
 <Attr>
-<Pos l='152' c='27' s='3'/>
+<Pos l='160' c='27' s='3'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='152' c='31' s='25'/>
+<Pos l='160' c='31' s='25'/>
 </Attr>
 </Id>
 </Unary_Exp>
@@ -1763,32 +1966,32 @@
 <Nary_Sub op='||'>
 <Assignement_Sub>
 <Attr>
-<Pos l='154' c='30' s='2'/>
+<Pos l='162' c='30' s='2'/>
 </Attr>
 <Variables>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='154' c='13' s='16'/>
+<Pos l='162' c='13' s='16'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='\/' typref='5'>
 <Attr>
-<Pos l='154' c='50' s='2'/>
+<Pos l='162' c='50' s='2'/>
 </Attr>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='154' c='33' s='16'/>
+<Pos l='162' c='33' s='16'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='5'>
 <Attr>
-<Pos l='154' c='53' s='1'/>
+<Pos l='162' c='53' s='1'/>
 </Attr>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='154' c='54' s='8'/>
+<Pos l='162' c='54' s='8'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -1797,57 +2000,57 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='155' c='52' s='2'/>
+<Pos l='163' c='52' s='2'/>
 </Attr>
 <Variables>
-<Binary_Exp op='(' typref='27'>
+<Binary_Exp op='(' typref='24'>
 <Attr>
-<Pos l='155' c='41' s='0'/>
+<Pos l='163' c='41' s='0'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='155' c='16' s='25'/>
+<Pos l='163' c='16' s='25'/>
 </Attr>
 </Id>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='155' c='42' s='8'/>
+<Pos l='163' c='42' s='8'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Variables>
 <Values>
-<Record typref='27'>
+<Record typref='24'>
 <Attr>
-<Pos l='155' c='55' s='3'/>
+<Pos l='163' c='55' s='3'/>
 </Attr>
 <Record_Item label='cpu'>
 <Attr>
-<Pos l='155' c='62' s='2'/>
+<Pos l='163' c='62' s='2'/>
 </Attr>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='155' c='64' s='3'/>
+<Pos l='163' c='64' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='hdd'>
 <Attr>
-<Pos l='155' c='72' s='2'/>
+<Pos l='163' c='72' s='2'/>
 </Attr>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='155' c='74' s='3'/>
+<Pos l='163' c='74' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='mem'>
 <Attr>
-<Pos l='155' c='82' s='2'/>
+<Pos l='163' c='82' s='2'/>
 </Attr>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='155' c='84' s='3'/>
+<Pos l='163' c='84' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
@@ -1861,17 +2064,17 @@
 </Operation>
 <Operation name='removeResource'>
 <Attr>
-<Pos l='159' c='5' s='14' endLine='171'/>
+<Pos l='167' c='5' s='14' endLine='179'/>
 </Attr>
 <Input_Parameters>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='159' c='20' s='8'/>
+<Pos l='167' c='20' s='8'/>
 </Attr>
 </Id>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='159' c='30' s='6'/>
+<Pos l='167' c='30' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -1879,61 +2082,61 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='161' c='18' s='1'/>
+<Pos l='169' c='18' s='1'/>
 </Attr>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='161' c='9' s='8'/>
+<Pos l='169' c='9' s='8'/>
 </Attr>
 </Id>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='161' c='20' s='16'/>
+<Pos l='169' c='20' s='16'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='162' c='20' s='1'/>
+<Pos l='170' c='20' s='1'/>
 </Attr>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='162' c='11' s='8'/>
+<Pos l='170' c='11' s='8'/>
 </Attr>
 </Id>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='162' c='22' s='16'/>
+<Pos l='170' c='22' s='16'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='163' c='18' s='1'/>
+<Pos l='171' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='163' c='11' s='6'/>
+<Pos l='171' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='163' c='20' s='6'/>
+<Pos l='171' c='20' s='6'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='167' c='15' s='1'/>
+<Pos l='175' c='15' s='1'/>
 </Attr>
 <Quantified_Set typref='8'>
 <Attr>
-<Pos l='164' c='11' s='1'/>
+<Pos l='172' c='11' s='1'/>
 </Attr>
 <Variables>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='164' c='14' s='2'/>
+<Pos l='172' c='14' s='2'/>
 </Attr>
 </Id>
 </Variables>
@@ -1941,46 +2144,46 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='165' c='21' s='1'/>
+<Pos l='173' c='21' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='165' c='18' s='2'/>
+<Pos l='173' c='18' s='2'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='165' c='23' s='15'/>
+<Pos l='173' c='23' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='166' c='67' s='1'/>
+<Pos l='174' c='67' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
-<Pos l='166' c='50' s='1'/>
+<Pos l='174' c='50' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='166' c='45' s='0'/>
+<Pos l='174' c='45' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='166' c='21' s='24'/>
+<Pos l='174' c='21' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='166' c='46' s='2'/>
+<Pos l='174' c='46' s='2'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='166' c='69' s='8'/>
+<Pos l='174' c='69' s='8'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -1989,7 +2192,7 @@
 </Quantified_Set>
 <EmptySet typref='8'>
 <Attr>
-<Pos l='167' c='17' s='2'/>
+<Pos l='175' c='17' s='2'/>
 </Attr>
 </EmptySet>
 </Exp_Comparison>
@@ -1999,32 +2202,32 @@
 <Nary_Sub op='||'>
 <Assignement_Sub>
 <Attr>
-<Pos l='169' c='26' s='2'/>
+<Pos l='177' c='26' s='2'/>
 </Attr>
 <Variables>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='169' c='9' s='16'/>
+<Pos l='177' c='9' s='16'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='-s' typref='5'>
 <Attr>
-<Pos l='169' c='46' s='1'/>
+<Pos l='177' c='46' s='1'/>
 </Attr>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='169' c='29' s='16'/>
+<Pos l='177' c='29' s='16'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='5'>
 <Attr>
-<Pos l='169' c='48' s='1'/>
+<Pos l='177' c='48' s='1'/>
 </Attr>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='169' c='49' s='8'/>
+<Pos l='177' c='49' s='8'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -2033,33 +2236,33 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='170' c='38' s='2'/>
+<Pos l='178' c='38' s='2'/>
 </Attr>
 <Variables>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='170' c='12' s='25'/>
+<Pos l='178' c='12' s='25'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='&lt;&lt;|' typref='6'>
 <Attr>
-<Pos l='170' c='52' s='3'/>
+<Pos l='178' c='52' s='3'/>
 </Attr>
 <Nary_Exp op='{' typref='5'>
 <Attr>
-<Pos l='170' c='41' s='1'/>
+<Pos l='178' c='41' s='1'/>
 </Attr>
-<Id value='resource' typref='26'>
+<Id value='resource' typref='25'>
 <Attr>
-<Pos l='170' c='42' s='8'/>
+<Pos l='178' c='42' s='8'/>
 </Attr>
 </Id>
 </Nary_Exp>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='170' c='56' s='25'/>
+<Pos l='178' c='56' s='25'/>
 </Attr>
 </Id>
 </Binary_Exp>
@@ -2070,31 +2273,31 @@
 </Operation>
 <Operation name='listResources'>
 <Attr>
-<Pos l='173' c='5' s='12' endLine='176'/>
+<Pos l='181' c='5' s='12' endLine='184'/>
 </Attr>
 <Output_Parameters>
 <Id value='resourceList' typref='6'>
 <Attr>
-<Pos l='173' c='5' s='12'/>
+<Pos l='181' c='5' s='12'/>
 </Attr>
 </Id>
 </Output_Parameters>
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='175' c='22' s='2'/>
+<Pos l='183' c='22' s='2'/>
 </Attr>
 <Variables>
 <Id value='resourceList' typref='6'>
 <Attr>
-<Pos l='175' c='9' s='12'/>
+<Pos l='183' c='9' s='12'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='175' c='25' s='25'/>
+<Pos l='183' c='25' s='25'/>
 </Attr>
 </Id>
 </Values>
@@ -2103,27 +2306,27 @@
 </Operation>
 <Operation name='addAllocatedVirtualMachine'>
 <Attr>
-<Pos l='178' c='5' s='26' endLine='240'/>
+<Pos l='186' c='5' s='26' endLine='242'/>
 </Attr>
 <Input_Parameters>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='178' c='32' s='3'/>
+<Pos l='186' c='32' s='3'/>
 </Attr>
 </Id>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='178' c='37' s='3'/>
+<Pos l='186' c='37' s='3'/>
 </Attr>
 </Id>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='178' c='42' s='3'/>
+<Pos l='186' c='42' s='3'/>
 </Attr>
 </Id>
 <Id value='client' typref='4'>
 <Attr>
-<Pos l='178' c='47' s='6'/>
+<Pos l='186' c='47' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -2131,61 +2334,61 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='180' c='13' s='1'/>
+<Pos l='188' c='13' s='1'/>
 </Attr>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='180' c='9' s='3'/>
+<Pos l='188' c='9' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='180' c='15' s='4'/>
+<Pos l='188' c='15' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='181' c='15' s='1'/>
+<Pos l='189' c='15' s='1'/>
 </Attr>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='181' c='11' s='3'/>
+<Pos l='189' c='11' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='181' c='17' s='4'/>
+<Pos l='189' c='17' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='182' c='15' s='1'/>
+<Pos l='190' c='15' s='1'/>
 </Attr>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='182' c='11' s='3'/>
+<Pos l='190' c='11' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='182' c='17' s='4'/>
+<Pos l='190' c='17' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='183' c='18' s='1'/>
+<Pos l='191' c='18' s='1'/>
 </Attr>
 <Id value='client' typref='4'>
 <Attr>
-<Pos l='183' c='11' s='6'/>
+<Pos l='191' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='183' c='20' s='7'/>
+<Pos l='191' c='20' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -2194,17 +2397,17 @@
 <Body>
 <ANY_Sub>
 <Attr>
-<Pos l='185' c='9' s='3'/>
+<Pos l='193' c='9' s='3'/>
 </Attr>
 <Variables>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='185' c='13' s='7'/>
+<Pos l='193' c='13' s='7'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='185' c='22' s='2'/>
+<Pos l='193' c='22' s='2'/>
 </Attr>
 </Id>
 </Variables>
@@ -2212,263 +2415,239 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='187' c='16' s='1'/>
+<Pos l='195' c='16' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='187' c='13' s='2'/>
+<Pos l='195' c='13' s='2'/>
 </Attr>
 </Id>
 <Id value='VIRTUAL_MACHINES' typref='8'>
 <Attr>
-<Pos l='187' c='18' s='16'/>
+<Pos l='195' c='18' s='16'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='/:'>
 <Attr>
-<Pos l='188' c='18' s='2'/>
+<Pos l='196' c='18' s='2'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='188' c='15' s='2'/>
+<Pos l='196' c='15' s='2'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='188' c='21' s='15'/>
+<Pos l='196' c='21' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='/:'>
 <Attr>
-<Pos l='189' c='18' s='2'/>
+<Pos l='197' c='18' s='2'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='189' c='15' s='2'/>
+<Pos l='197' c='15' s='2'/>
 </Attr>
 </Id>
 <Id value='spotVirtualMachines' typref='8'>
 <Attr>
-<Pos l='189' c='21' s='19'/>
+<Pos l='197' c='21' s='19'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='/:'>
 <Attr>
-<Pos l='190' c='18' s='2'/>
+<Pos l='198' c='18' s='2'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='190' c='15' s='2'/>
+<Pos l='198' c='15' s='2'/>
 </Attr>
 </Id>
 <Id value='allocatedVirtualMachines' typref='8'>
 <Attr>
-<Pos l='190' c='21' s='24'/>
+<Pos l='198' c='21' s='24'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='191' c='23' s='1'/>
+<Pos l='199' c='23' s='1'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='191' c='15' s='7'/>
+<Pos l='199' c='15' s='7'/>
 </Attr>
 </Id>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='191' c='25' s='16'/>
+<Pos l='199' c='25' s='16'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='192' c='23' s='1'/>
+<Pos l='200' c='23' s='1'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='192' c='15' s='7'/>
+<Pos l='200' c='15' s='7'/>
 </Attr>
 </Id>
 <Unary_Exp op='dom' typref='5'>
 <Attr>
-<Pos l='192' c='25' s='3'/>
+<Pos l='200' c='25' s='3'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='192' c='29' s='25'/>
+<Pos l='200' c='29' s='25'/>
 </Attr>
 </Id>
 </Unary_Exp>
 </Exp_Comparison>
 <Exp_Comparison op='&lt;=i'>
 <Attr>
-<Pos l='193' c='19' s='2'/>
+<Pos l='201' c='19' s='2'/>
 </Attr>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='193' c='15' s='3'/>
+<Pos l='201' c='15' s='3'/>
 </Attr>
 </Id>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='195' c='21' s='1'/>
+<Pos l='203' c='25' s='1'/>
 </Attr>
 <Record_Field_Access label='cpu' typref='1'>
 <Attr>
-<Pos l='194' c='53' s='1'/>
+<Pos l='202' c='53' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='27'>
+<Binary_Exp op='(' typref='24'>
 <Attr>
-<Pos l='194' c='43' s='0'/>
+<Pos l='202' c='43' s='0'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='194' c='18' s='25'/>
+<Pos l='202' c='18' s='25'/>
 </Attr>
 </Id>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='194' c='44' s='7'/>
+<Pos l='202' c='44' s='7'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
 <Quantified_Exp type='iSIGMA' typref='1'>
 <Attr>
-<Pos l='195' c='45' s='1'/>
+<Pos l='203' c='48' s='1'/>
 </Attr>
 <Variables>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='195' c='30' s='14'/>
+<Pos l='203' c='33' s='14'/>
 </Attr>
 </Id>
 </Variables>
 <Pred>
-<Exp_Comparison op=':'>
-<Attr>
-<Pos l='196' c='37' s='1'/>
-</Attr>
-<Id value='virtualMachine' typref='28'>
-<Attr>
-<Pos l='196' c='22' s='14'/>
-</Attr>
-</Id>
-<Quantified_Set typref='8'>
-<Attr>
-<Pos l='197' c='25' s='1'/>
-</Attr>
-<Variables>
-<Id value='vm' typref='28'>
-<Attr>
-<Pos l='197' c='28' s='2'/>
-</Attr>
-</Id>
-</Variables>
-<Body>
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='198' c='33' s='1'/>
+<Pos l='204' c='44' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='198' c='30' s='2'/>
+<Pos l='204' c='29' s='14'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='198' c='35' s='15'/>
+<Pos l='204' c='46' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='199' c='79' s='1'/>
+<Pos l='205' c='90' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
-<Pos l='199' c='62' s='1'/>
+<Pos l='205' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='199' c='57' s='0'/>
+<Pos l='205' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='199' c='33' s='24'/>
+<Pos l='205' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='199' c='58' s='2'/>
+<Pos l='205' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='199' c='81' s='7'/>
+<Pos l='205' c='92' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='200' c='72' s='1'/>
+<Pos l='206' c='83' s='1'/>
 </Attr>
-<Record_Field_Access label='category' typref='24'>
+<Record_Field_Access label='category' typref='23'>
 <Attr>
-<Pos l='200' c='62' s='1'/>
+<Pos l='206' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='200' c='57' s='0'/>
+<Pos l='206' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='200' c='33' s='24'/>
+<Pos l='206' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='200' c='58' s='2'/>
+<Pos l='206' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='allocated' typref='24'>
+<Id value='allocated' typref='23'>
 <Attr>
-<Pos l='200' c='74' s='9'/>
+<Pos l='206' c='85' s='9'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 </Nary_Pred>
-</Body>
-</Quantified_Set>
-</Exp_Comparison>
 </Pred>
 <Body>
 <Record_Field_Access label='cpu' typref='1'>
 <Attr>
-<Pos l='202' c='67' s='1'/>
+<Pos l='207' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='202' c='50' s='0'/>
+<Pos l='207' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='202' c='26' s='24'/>
+<Pos l='207' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='202' c='51' s='14'/>
+<Pos l='207' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
@@ -2479,168 +2658,144 @@
 </Exp_Comparison>
 <Exp_Comparison op='&lt;=i'>
 <Attr>
-<Pos l='204' c='19' s='2'/>
+<Pos l='210' c='19' s='2'/>
 </Attr>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='204' c='15' s='3'/>
+<Pos l='210' c='15' s='3'/>
 </Attr>
 </Id>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='206' c='21' s='1'/>
+<Pos l='212' c='21' s='1'/>
 </Attr>
 <Record_Field_Access label='hdd' typref='1'>
 <Attr>
-<Pos l='205' c='53' s='1'/>
+<Pos l='211' c='53' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='27'>
+<Binary_Exp op='(' typref='24'>
 <Attr>
-<Pos l='205' c='43' s='0'/>
+<Pos l='211' c='43' s='0'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='205' c='18' s='25'/>
+<Pos l='211' c='18' s='25'/>
 </Attr>
 </Id>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='205' c='44' s='7'/>
+<Pos l='211' c='44' s='7'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
 <Quantified_Exp type='iSIGMA' typref='1'>
 <Attr>
-<Pos l='206' c='45' s='1'/>
+<Pos l='212' c='44' s='1'/>
 </Attr>
 <Variables>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='206' c='30' s='14'/>
+<Pos l='212' c='29' s='14'/>
 </Attr>
 </Id>
 </Variables>
 <Pred>
-<Exp_Comparison op=':'>
-<Attr>
-<Pos l='207' c='37' s='1'/>
-</Attr>
-<Id value='virtualMachine' typref='28'>
-<Attr>
-<Pos l='207' c='22' s='14'/>
-</Attr>
-</Id>
-<Quantified_Set typref='8'>
-<Attr>
-<Pos l='208' c='25' s='1'/>
-</Attr>
-<Variables>
-<Id value='vm' typref='28'>
-<Attr>
-<Pos l='208' c='28' s='2'/>
-</Attr>
-</Id>
-</Variables>
-<Body>
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='209' c='33' s='1'/>
+<Pos l='213' c='44' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='209' c='30' s='2'/>
+<Pos l='213' c='29' s='14'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='209' c='35' s='15'/>
+<Pos l='213' c='46' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='210' c='79' s='1'/>
+<Pos l='214' c='90' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
-<Pos l='210' c='62' s='1'/>
+<Pos l='214' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='210' c='57' s='0'/>
+<Pos l='214' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='210' c='33' s='24'/>
+<Pos l='214' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='210' c='58' s='2'/>
+<Pos l='214' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='210' c='81' s='7'/>
+<Pos l='214' c='92' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='211' c='72' s='1'/>
+<Pos l='215' c='83' s='1'/>
 </Attr>
-<Record_Field_Access label='category' typref='24'>
+<Record_Field_Access label='category' typref='23'>
 <Attr>
-<Pos l='211' c='62' s='1'/>
+<Pos l='215' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='211' c='57' s='0'/>
+<Pos l='215' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='211' c='33' s='24'/>
+<Pos l='215' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='211' c='58' s='2'/>
+<Pos l='215' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='allocated' typref='24'>
+<Id value='allocated' typref='23'>
 <Attr>
-<Pos l='211' c='74' s='9'/>
+<Pos l='215' c='85' s='9'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 </Nary_Pred>
-</Body>
-</Quantified_Set>
-</Exp_Comparison>
 </Pred>
 <Body>
 <Record_Field_Access label='hdd' typref='1'>
 <Attr>
-<Pos l='213' c='67' s='1'/>
+<Pos l='216' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='213' c='50' s='0'/>
+<Pos l='216' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='213' c='26' s='24'/>
+<Pos l='216' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='213' c='51' s='14'/>
+<Pos l='216' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
@@ -2651,168 +2806,144 @@
 </Exp_Comparison>
 <Exp_Comparison op='&lt;=i'>
 <Attr>
-<Pos l='215' c='19' s='2'/>
+<Pos l='219' c='19' s='2'/>
 </Attr>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='215' c='15' s='3'/>
+<Pos l='219' c='15' s='3'/>
 </Attr>
 </Id>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='217' c='17' s='1'/>
+<Pos l='221' c='21' s='1'/>
 </Attr>
 <Record_Field_Access label='mem' typref='1'>
 <Attr>
-<Pos l='216' c='53' s='1'/>
+<Pos l='220' c='53' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='27'>
+<Binary_Exp op='(' typref='24'>
 <Attr>
-<Pos l='216' c='43' s='0'/>
+<Pos l='220' c='43' s='0'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='216' c='18' s='25'/>
+<Pos l='220' c='18' s='25'/>
 </Attr>
 </Id>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='216' c='44' s='7'/>
+<Pos l='220' c='44' s='7'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
 <Quantified_Exp type='iSIGMA' typref='1'>
 <Attr>
-<Pos l='217' c='41' s='1'/>
+<Pos l='221' c='44' s='1'/>
 </Attr>
 <Variables>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='217' c='26' s='14'/>
+<Pos l='221' c='29' s='14'/>
 </Attr>
 </Id>
 </Variables>
 <Pred>
-<Exp_Comparison op=':'>
-<Attr>
-<Pos l='218' c='37' s='1'/>
-</Attr>
-<Id value='virtualMachine' typref='28'>
-<Attr>
-<Pos l='218' c='22' s='14'/>
-</Attr>
-</Id>
-<Quantified_Set typref='8'>
-<Attr>
-<Pos l='219' c='25' s='1'/>
-</Attr>
-<Variables>
-<Id value='vm' typref='28'>
-<Attr>
-<Pos l='219' c='28' s='2'/>
-</Attr>
-</Id>
-</Variables>
-<Body>
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='220' c='33' s='1'/>
+<Pos l='222' c='44' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='220' c='30' s='2'/>
+<Pos l='222' c='29' s='14'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='220' c='35' s='15'/>
+<Pos l='222' c='46' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='221' c='79' s='1'/>
+<Pos l='223' c='90' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
-<Pos l='221' c='62' s='1'/>
+<Pos l='223' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='221' c='57' s='0'/>
+<Pos l='223' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='221' c='33' s='24'/>
+<Pos l='223' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='221' c='58' s='2'/>
+<Pos l='223' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='221' c='81' s='7'/>
+<Pos l='223' c='92' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='222' c='72' s='1'/>
+<Pos l='224' c='83' s='1'/>
 </Attr>
-<Record_Field_Access label='category' typref='24'>
+<Record_Field_Access label='category' typref='23'>
 <Attr>
-<Pos l='222' c='62' s='1'/>
+<Pos l='224' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='222' c='57' s='0'/>
+<Pos l='224' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='222' c='33' s='24'/>
+<Pos l='224' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='222' c='58' s='2'/>
+<Pos l='224' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='allocated' typref='24'>
+<Id value='allocated' typref='23'>
 <Attr>
-<Pos l='222' c='74' s='9'/>
+<Pos l='224' c='85' s='9'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 </Nary_Pred>
-</Body>
-</Quantified_Set>
-</Exp_Comparison>
 </Pred>
 <Body>
 <Record_Field_Access label='mem' typref='1'>
 <Attr>
-<Pos l='224' c='67' s='1'/>
+<Pos l='225' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='224' c='50' s='0'/>
+<Pos l='225' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='224' c='26' s='24'/>
+<Pos l='225' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='224' c='51' s='14'/>
+<Pos l='225' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
@@ -2827,32 +2958,32 @@
 <Nary_Sub op='||'>
 <Assignement_Sub>
 <Attr>
-<Pos l='227' c='29' s='2'/>
+<Pos l='229' c='29' s='2'/>
 </Attr>
 <Variables>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='227' c='13' s='15'/>
+<Pos l='229' c='13' s='15'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='\/' typref='8'>
 <Attr>
-<Pos l='227' c='48' s='2'/>
+<Pos l='229' c='48' s='2'/>
 </Attr>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='227' c='32' s='15'/>
+<Pos l='229' c='32' s='15'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='8'>
 <Attr>
-<Pos l='227' c='51' s='1'/>
+<Pos l='229' c='51' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='227' c='52' s='2'/>
+<Pos l='229' c='52' s='2'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -2861,32 +2992,32 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='228' c='41' s='2'/>
+<Pos l='230' c='41' s='2'/>
 </Attr>
 <Variables>
 <Id value='allocatedVirtualMachines' typref='8'>
 <Attr>
-<Pos l='228' c='16' s='24'/>
+<Pos l='230' c='16' s='24'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='\/' typref='8'>
 <Attr>
-<Pos l='228' c='69' s='2'/>
+<Pos l='230' c='69' s='2'/>
 </Attr>
 <Id value='allocatedVirtualMachines' typref='8'>
 <Attr>
-<Pos l='228' c='44' s='24'/>
+<Pos l='230' c='44' s='24'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='8'>
 <Attr>
-<Pos l='228' c='72' s='1'/>
+<Pos l='230' c='72' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='228' c='73' s='2'/>
+<Pos l='230' c='73' s='2'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -2895,97 +3026,97 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='229' c='45' s='2'/>
+<Pos l='231' c='45' s='2'/>
 </Attr>
 <Variables>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='229' c='40' s='0'/>
+<Pos l='231' c='40' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='229' c='16' s='24'/>
+<Pos l='231' c='16' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='229' c='41' s='2'/>
+<Pos l='231' c='41' s='2'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Variables>
 <Values>
-<Record typref='29'>
+<Record typref='27'>
 <Attr>
-<Pos l='229' c='48' s='3'/>
+<Pos l='231' c='48' s='3'/>
 </Attr>
 <Record_Item label='residentMachine'>
 <Attr>
-<Pos l='230' c='37' s='2'/>
+<Pos l='232' c='37' s='2'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='230' c='39' s='7'/>
+<Pos l='232' c='39' s='7'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='owner'>
 <Attr>
-<Pos l='231' c='27' s='2'/>
+<Pos l='233' c='27' s='2'/>
 </Attr>
 <Id value='client' typref='4'>
 <Attr>
-<Pos l='231' c='29' s='6'/>
+<Pos l='233' c='29' s='6'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='category'>
 <Attr>
-<Pos l='232' c='29' s='2'/>
+<Pos l='234' c='29' s='2'/>
 </Attr>
-<Id value='allocated' typref='24'>
+<Id value='allocated' typref='23'>
 <Attr>
-<Pos l='232' c='31' s='9'/>
+<Pos l='234' c='31' s='9'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='startTime'>
 <Attr>
-<Pos l='233' c='30' s='2'/>
+<Pos l='235' c='30' s='2'/>
 </Attr>
 <Id value='currentTime' typref='1'>
 <Attr>
-<Pos l='233' c='32' s='11'/>
+<Pos l='235' c='32' s='11'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='cpu'>
 <Attr>
-<Pos l='234' c='25' s='2'/>
+<Pos l='236' c='25' s='2'/>
 </Attr>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='234' c='27' s='3'/>
+<Pos l='236' c='27' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='hdd'>
 <Attr>
-<Pos l='235' c='25' s='2'/>
+<Pos l='237' c='25' s='2'/>
 </Attr>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='235' c='27' s='3'/>
+<Pos l='237' c='27' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='mem'>
 <Attr>
-<Pos l='236' c='25' s='2'/>
+<Pos l='238' c='25' s='2'/>
 </Attr>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='236' c='27' s='3'/>
+<Pos l='238' c='27' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
@@ -2999,27 +3130,27 @@
 </Operation>
 <Operation name='addSpotVirtualMachine'>
 <Attr>
-<Pos l='242' c='5' s='21' endLine='297'/>
+<Pos l='244' c='5' s='21' endLine='298'/>
 </Attr>
 <Input_Parameters>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='242' c='27' s='3'/>
+<Pos l='244' c='27' s='3'/>
 </Attr>
 </Id>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='242' c='32' s='3'/>
+<Pos l='244' c='32' s='3'/>
 </Attr>
 </Id>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='242' c='37' s='3'/>
+<Pos l='244' c='37' s='3'/>
 </Attr>
 </Id>
 <Id value='client' typref='4'>
 <Attr>
-<Pos l='242' c='42' s='6'/>
+<Pos l='244' c='42' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -3027,61 +3158,61 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='244' c='13' s='1'/>
+<Pos l='246' c='13' s='1'/>
 </Attr>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='244' c='9' s='3'/>
+<Pos l='246' c='9' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='244' c='15' s='4'/>
+<Pos l='246' c='15' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='245' c='15' s='1'/>
+<Pos l='247' c='15' s='1'/>
 </Attr>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='245' c='11' s='3'/>
+<Pos l='247' c='11' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='245' c='17' s='4'/>
+<Pos l='247' c='17' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='246' c='15' s='1'/>
+<Pos l='248' c='15' s='1'/>
 </Attr>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='246' c='11' s='3'/>
+<Pos l='248' c='11' s='3'/>
 </Attr>
 </Id>
 <Id value='NAT1' typref='2'>
 <Attr>
-<Pos l='246' c='17' s='4'/>
+<Pos l='248' c='17' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='247' c='18' s='1'/>
+<Pos l='249' c='18' s='1'/>
 </Attr>
 <Id value='client' typref='4'>
 <Attr>
-<Pos l='247' c='11' s='6'/>
+<Pos l='249' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='clients' typref='7'>
 <Attr>
-<Pos l='247' c='20' s='7'/>
+<Pos l='249' c='20' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -3090,17 +3221,17 @@
 <Body>
 <ANY_Sub>
 <Attr>
-<Pos l='249' c='9' s='3'/>
+<Pos l='251' c='9' s='3'/>
 </Attr>
 <Variables>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='249' c='13' s='7'/>
+<Pos l='251' c='13' s='7'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='249' c='22' s='2'/>
+<Pos l='251' c='22' s='2'/>
 </Attr>
 </Id>
 </Variables>
@@ -3108,46 +3239,16 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='251' c='16' s='1'/>
+<Pos l='253' c='16' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='251' c='13' s='2'/>
+<Pos l='253' c='13' s='2'/>
 </Attr>
 </Id>
 <Id value='VIRTUAL_MACHINES' typref='8'>
 <Attr>
-<Pos l='251' c='18' s='16'/>
-</Attr>
-</Id>
-</Exp_Comparison>
-<Exp_Comparison op='/:'>
-<Attr>
-<Pos l='252' c='18' s='2'/>
-</Attr>
-<Id value='vm' typref='28'>
-<Attr>
-<Pos l='252' c='15' s='2'/>
-</Attr>
-</Id>
-<Id value='virtualMachines' typref='8'>
-<Attr>
-<Pos l='252' c='21' s='15'/>
-</Attr>
-</Id>
-</Exp_Comparison>
-<Exp_Comparison op='/:'>
-<Attr>
-<Pos l='253' c='18' s='2'/>
-</Attr>
-<Id value='vm' typref='28'>
-<Attr>
-<Pos l='253' c='15' s='2'/>
-</Attr>
-</Id>
-<Id value='spotVirtualMachines' typref='8'>
-<Attr>
-<Pos l='253' c='21' s='19'/>
+<Pos l='253' c='18' s='16'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -3155,93 +3256,123 @@
 <Attr>
 <Pos l='254' c='18' s='2'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
 <Pos l='254' c='15' s='2'/>
 </Attr>
 </Id>
+<Id value='virtualMachines' typref='8'>
+<Attr>
+<Pos l='254' c='21' s='15'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='/:'>
+<Attr>
+<Pos l='255' c='18' s='2'/>
+</Attr>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='255' c='15' s='2'/>
+</Attr>
+</Id>
+<Id value='spotVirtualMachines' typref='8'>
+<Attr>
+<Pos l='255' c='21' s='19'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='/:'>
+<Attr>
+<Pos l='256' c='18' s='2'/>
+</Attr>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='256' c='15' s='2'/>
+</Attr>
+</Id>
 <Id value='allocatedVirtualMachines' typref='8'>
 <Attr>
-<Pos l='254' c='21' s='24'/>
+<Pos l='256' c='21' s='24'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='255' c='23' s='1'/>
+<Pos l='257' c='23' s='1'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='255' c='15' s='7'/>
+<Pos l='257' c='15' s='7'/>
 </Attr>
 </Id>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='255' c='25' s='16'/>
+<Pos l='257' c='25' s='16'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='256' c='23' s='1'/>
+<Pos l='258' c='23' s='1'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='256' c='15' s='7'/>
+<Pos l='258' c='15' s='7'/>
 </Attr>
 </Id>
 <Unary_Exp op='dom' typref='5'>
 <Attr>
-<Pos l='256' c='25' s='3'/>
+<Pos l='258' c='25' s='3'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='256' c='29' s='25'/>
+<Pos l='258' c='29' s='25'/>
 </Attr>
 </Id>
 </Unary_Exp>
 </Exp_Comparison>
 <Exp_Comparison op='&lt;=i'>
 <Attr>
-<Pos l='257' c='19' s='2'/>
+<Pos l='259' c='19' s='2'/>
 </Attr>
 <Id value='cpu' typref='1'>
 <Attr>
-<Pos l='257' c='15' s='3'/>
+<Pos l='259' c='15' s='3'/>
 </Attr>
 </Id>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='259' c='17' s='1'/>
+<Pos l='261' c='21' s='1'/>
 </Attr>
 <Record_Field_Access label='cpu' typref='1'>
 <Attr>
-<Pos l='258' c='53' s='1'/>
+<Pos l='260' c='53' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='27'>
+<Binary_Exp op='(' typref='24'>
 <Attr>
-<Pos l='258' c='43' s='0'/>
+<Pos l='260' c='43' s='0'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='258' c='18' s='25'/>
+<Pos l='260' c='18' s='25'/>
 </Attr>
 </Id>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='258' c='44' s='7'/>
+<Pos l='260' c='44' s='7'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
 <Quantified_Exp type='iSIGMA' typref='1'>
 <Attr>
-<Pos l='259' c='41' s='1'/>
+<Pos l='261' c='44' s='1'/>
 </Attr>
 <Variables>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='259' c='26' s='14'/>
+<Pos l='261' c='29' s='14'/>
 </Attr>
 </Id>
 </Variables>
@@ -3249,57 +3380,28 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='261' c='44' s='1'/>
+<Pos l='262' c='44' s='1'/>
 </Attr>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='261' c='29' s='14'/>
+<Pos l='262' c='29' s='14'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='261' c='46' s='15'/>
+<Pos l='262' c='46' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='262' c='91' s='1'/>
+<Pos l='263' c='90' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
-<Attr>
-<Pos l='262' c='74' s='1'/>
-</Attr>
-<Binary_Exp op='(' typref='29'>
-<Attr>
-<Pos l='262' c='57' s='0'/>
-</Attr>
-<Id value='virtualMachineProperties' typref='9'>
-<Attr>
-<Pos l='262' c='33' s='24'/>
-</Attr>
-</Id>
-<Id value='virtualMachine' typref='28'>
-<Attr>
-<Pos l='262' c='58' s='14'/>
-</Attr>
-</Id>
-</Binary_Exp>
-</Record_Field_Access>
-<Id value='machine' typref='26'>
-<Attr>
-<Pos l='262' c='93' s='7'/>
-</Attr>
-</Id>
-</Exp_Comparison>
-</Nary_Pred>
-</Pred>
-<Body>
-<Record_Field_Access label='cpu' typref='1'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
 <Pos l='263' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
 <Pos l='263' c='56' s='0'/>
 </Attr>
@@ -3308,58 +3410,87 @@
 <Pos l='263' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
 <Pos l='263' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
+<Id value='machine' typref='25'>
+<Attr>
+<Pos l='263' c='92' s='7'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Pred>
+<Body>
+<Record_Field_Access label='cpu' typref='1'>
+<Attr>
+<Pos l='264' c='73' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='264' c='56' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='264' c='32' s='24'/>
+</Attr>
+</Id>
+<Id value='virtualMachine' typref='26'>
+<Attr>
+<Pos l='264' c='57' s='14'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
 </Body>
 </Quantified_Exp>
 </Binary_Exp>
 </Exp_Comparison>
 <Exp_Comparison op='&lt;=i'>
 <Attr>
-<Pos l='266' c='19' s='2'/>
+<Pos l='267' c='19' s='2'/>
 </Attr>
 <Id value='hdd' typref='1'>
 <Attr>
-<Pos l='266' c='15' s='3'/>
+<Pos l='267' c='15' s='3'/>
 </Attr>
 </Id>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='268' c='17' s='1'/>
+<Pos l='269' c='17' s='1'/>
 </Attr>
 <Record_Field_Access label='hdd' typref='1'>
 <Attr>
-<Pos l='267' c='53' s='1'/>
+<Pos l='268' c='53' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='27'>
+<Binary_Exp op='(' typref='24'>
 <Attr>
-<Pos l='267' c='43' s='0'/>
+<Pos l='268' c='43' s='0'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='267' c='18' s='25'/>
+<Pos l='268' c='18' s='25'/>
 </Attr>
 </Id>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='267' c='44' s='7'/>
+<Pos l='268' c='44' s='7'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
 <Quantified_Exp type='iSIGMA' typref='1'>
 <Attr>
-<Pos l='268' c='41' s='1'/>
+<Pos l='269' c='41' s='1'/>
 </Attr>
 <Variables>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='268' c='26' s='14'/>
+<Pos l='269' c='26' s='14'/>
 </Attr>
 </Id>
 </Variables>
@@ -3367,46 +3498,46 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='270' c='44' s='1'/>
+<Pos l='271' c='44' s='1'/>
 </Attr>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='270' c='29' s='14'/>
+<Pos l='271' c='29' s='14'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='270' c='46' s='15'/>
+<Pos l='271' c='46' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='271' c='91' s='1'/>
+<Pos l='272' c='91' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
-<Pos l='271' c='74' s='1'/>
+<Pos l='272' c='74' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='271' c='57' s='0'/>
+<Pos l='272' c='57' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='271' c='33' s='24'/>
+<Pos l='272' c='33' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='271' c='58' s='14'/>
+<Pos l='272' c='58' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='271' c='93' s='7'/>
+<Pos l='272' c='93' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -3415,20 +3546,20 @@
 <Body>
 <Record_Field_Access label='hdd' typref='1'>
 <Attr>
-<Pos l='272' c='73' s='1'/>
+<Pos l='273' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='272' c='56' s='0'/>
+<Pos l='273' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='272' c='32' s='24'/>
+<Pos l='273' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='272' c='57' s='14'/>
+<Pos l='273' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
@@ -3439,45 +3570,45 @@
 </Exp_Comparison>
 <Exp_Comparison op='&lt;=i'>
 <Attr>
-<Pos l='275' c='19' s='2'/>
+<Pos l='276' c='19' s='2'/>
 </Attr>
 <Id value='mem' typref='1'>
 <Attr>
-<Pos l='275' c='15' s='3'/>
+<Pos l='276' c='15' s='3'/>
 </Attr>
 </Id>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='277' c='17' s='1'/>
+<Pos l='278' c='17' s='1'/>
 </Attr>
 <Record_Field_Access label='mem' typref='1'>
 <Attr>
-<Pos l='276' c='53' s='1'/>
+<Pos l='277' c='53' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='27'>
+<Binary_Exp op='(' typref='24'>
 <Attr>
-<Pos l='276' c='43' s='0'/>
+<Pos l='277' c='43' s='0'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='276' c='18' s='25'/>
+<Pos l='277' c='18' s='25'/>
 </Attr>
 </Id>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='276' c='44' s='7'/>
+<Pos l='277' c='44' s='7'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
 <Quantified_Exp type='iSIGMA' typref='1'>
 <Attr>
-<Pos l='277' c='41' s='1'/>
+<Pos l='278' c='41' s='1'/>
 </Attr>
 <Variables>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='277' c='26' s='14'/>
+<Pos l='278' c='26' s='14'/>
 </Attr>
 </Id>
 </Variables>
@@ -3485,46 +3616,46 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='279' c='44' s='1'/>
+<Pos l='280' c='44' s='1'/>
 </Attr>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='279' c='29' s='14'/>
+<Pos l='280' c='29' s='14'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='279' c='46' s='15'/>
+<Pos l='280' c='46' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='280' c='91' s='1'/>
+<Pos l='281' c='91' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
-<Pos l='280' c='74' s='1'/>
+<Pos l='281' c='74' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='280' c='57' s='0'/>
+<Pos l='281' c='57' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='280' c='33' s='24'/>
+<Pos l='281' c='33' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='280' c='58' s='14'/>
+<Pos l='281' c='58' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='280' c='93' s='7'/>
+<Pos l='281' c='93' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -3533,20 +3664,20 @@
 <Body>
 <Record_Field_Access label='mem' typref='1'>
 <Attr>
-<Pos l='281' c='73' s='1'/>
+<Pos l='282' c='73' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='281' c='56' s='0'/>
+<Pos l='282' c='56' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='281' c='32' s='24'/>
+<Pos l='282' c='32' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='281' c='57' s='14'/>
+<Pos l='282' c='57' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
@@ -3561,32 +3692,32 @@
 <Nary_Sub op='||'>
 <Assignement_Sub>
 <Attr>
-<Pos l='285' c='29' s='2'/>
+<Pos l='286' c='29' s='2'/>
 </Attr>
 <Variables>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='285' c='13' s='15'/>
+<Pos l='286' c='13' s='15'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='\/' typref='8'>
 <Attr>
-<Pos l='285' c='48' s='2'/>
+<Pos l='286' c='48' s='2'/>
 </Attr>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='285' c='32' s='15'/>
+<Pos l='286' c='32' s='15'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='8'>
 <Attr>
-<Pos l='285' c='51' s='1'/>
+<Pos l='286' c='51' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='285' c='52' s='2'/>
+<Pos l='286' c='52' s='2'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -3595,32 +3726,32 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='286' c='41' s='2'/>
+<Pos l='287' c='36' s='2'/>
 </Attr>
 <Variables>
-<Id value='allocatedVirtualMachines' typref='8'>
+<Id value='spotVirtualMachines' typref='8'>
 <Attr>
-<Pos l='286' c='16' s='24'/>
+<Pos l='287' c='16' s='19'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Binary_Exp op='\/' typref='8'>
 <Attr>
-<Pos l='286' c='69' s='2'/>
+<Pos l='287' c='59' s='2'/>
 </Attr>
-<Id value='allocatedVirtualMachines' typref='8'>
+<Id value='spotVirtualMachines' typref='8'>
 <Attr>
-<Pos l='286' c='44' s='24'/>
+<Pos l='287' c='39' s='19'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='8'>
 <Attr>
-<Pos l='286' c='72' s='1'/>
+<Pos l='287' c='62' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='286' c='73' s='2'/>
+<Pos l='287' c='63' s='2'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -3629,97 +3760,97 @@
 </Assignement_Sub>
 <Assignement_Sub>
 <Attr>
-<Pos l='287' c='45' s='2'/>
+<Pos l='288' c='45' s='2'/>
 </Attr>
 <Variables>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='287' c='40' s='0'/>
+<Pos l='288' c='40' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='287' c='16' s='24'/>
+<Pos l='288' c='16' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='287' c='41' s='2'/>
+<Pos l='288' c='41' s='2'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Variables>
 <Values>
-<Record typref='29'>
+<Record typref='27'>
 <Attr>
-<Pos l='287' c='48' s='3'/>
+<Pos l='288' c='48' s='3'/>
 </Attr>
 <Record_Item label='residentMachine'>
 <Attr>
-<Pos l='288' c='37' s='2'/>
+<Pos l='289' c='37' s='2'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='288' c='39' s='7'/>
+<Pos l='289' c='39' s='7'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='owner'>
 <Attr>
-<Pos l='289' c='27' s='2'/>
+<Pos l='290' c='27' s='2'/>
 </Attr>
 <Id value='client' typref='4'>
 <Attr>
-<Pos l='289' c='29' s='6'/>
+<Pos l='290' c='29' s='6'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='category'>
 <Attr>
-<Pos l='290' c='29' s='2'/>
+<Pos l='291' c='29' s='2'/>
 </Attr>
-<Id value='allocated' typref='24'>
+<Id value='allocated' typref='23'>
 <Attr>
-<Pos l='290' c='31' s='9'/>
+<Pos l='291' c='31' s='9'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='startTime'>
 <Attr>
-<Pos l='291' c='30' s='2'/>
+<Pos l='292' c='30' s='2'/>
 </Attr>
 <Id value='currentTime' typref='1'>
 <Attr>
-<Pos l='291' c='32' s='11'/>
+<Pos l='292' c='32' s='11'/>
 </Attr>
 </Id>
 </Record_Item>
 <Record_Item label='cpu'>
 <Attr>
-<Pos l='292' c='25' s='2'/>
-</Attr>
-<Id value='cpu' typref='1'>
-<Attr>
-<Pos l='292' c='27' s='3'/>
-</Attr>
-</Id>
-</Record_Item>
-<Record_Item label='hdd'>
-<Attr>
 <Pos l='293' c='25' s='2'/>
 </Attr>
-<Id value='hdd' typref='1'>
+<Id value='cpu' typref='1'>
 <Attr>
 <Pos l='293' c='27' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
-<Record_Item label='mem'>
+<Record_Item label='hdd'>
 <Attr>
 <Pos l='294' c='25' s='2'/>
 </Attr>
-<Id value='mem' typref='1'>
+<Id value='hdd' typref='1'>
 <Attr>
 <Pos l='294' c='27' s='3'/>
+</Attr>
+</Id>
+</Record_Item>
+<Record_Item label='mem'>
+<Attr>
+<Pos l='295' c='25' s='2'/>
+</Attr>
+<Id value='mem' typref='1'>
+<Attr>
+<Pos l='295' c='27' s='3'/>
 </Attr>
 </Id>
 </Record_Item>
@@ -3731,21 +3862,19 @@
 </ANY_Sub>
 </Body>
 </Operation>
-<Operation name='getAllocatedVmsOnMachine'>
+<Operation name='removeVirtualMachine'>
 <Attr>
-<Pos l='299' c='5' s='3' endLine='308'/>
+<Pos l='300' c='5' s='20' endLine='320'/>
 </Attr>
-<Output_Parameters>
-<Id value='vms' typref='8'>
+<Input_Parameters>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='299' c='5' s='3'/>
+<Pos l='300' c='26' s='2'/>
 </Attr>
 </Id>
-</Output_Parameters>
-<Input_Parameters>
-<Id value='machine' typref='26'>
+<Id value='caller' typref='4'>
 <Attr>
-<Pos l='299' c='38' s='7'/>
+<Pos l='300' c='30' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -3753,35 +3882,613 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='301' c='17' s='1'/>
+<Pos l='302' c='12' s='1'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='301' c='9' s='7'/>
+<Pos l='302' c='9' s='2'/>
 </Attr>
 </Id>
-<Id value='machineResources' typref='5'>
+<Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='301' c='19' s='16'/>
+<Pos l='302' c='14' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='302' c='19' s='1'/>
+<Pos l='303' c='14' s='1'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='302' c='11' s='7'/>
+<Pos l='303' c='11' s='2'/>
+</Attr>
+</Id>
+<Unary_Exp op='dom' typref='8'>
+<Attr>
+<Pos l='303' c='16' s='3'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='303' c='20' s='24'/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='304' c='18' s='1'/>
+</Attr>
+<Id value='caller' typref='4'>
+<Attr>
+<Pos l='304' c='11' s='6'/>
+</Attr>
+</Id>
+<Binary_Exp op='\/' typref='7'>
+<Attr>
+<Pos l='304' c='27' s='2'/>
+</Attr>
+<Id value='admins' typref='7'>
+<Attr>
+<Pos l='304' c='20' s='6'/>
+</Attr>
+</Id>
+<Nary_Exp op='{' typref='7'>
+<Attr>
+<Pos l='304' c='30' s='1'/>
+</Attr>
+<Record_Field_Access label='owner' typref='4'>
+<Attr>
+<Pos l='304' c='61' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='304' c='56' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='304' c='32' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='304' c='57' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Nary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='306' c='25' s='2'/>
+</Attr>
+<Variables>
+<Id value='virtualMachines' typref='8'>
+<Attr>
+<Pos l='306' c='9' s='15'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-s' typref='8'>
+<Attr>
+<Pos l='306' c='44' s='1'/>
+</Attr>
+<Id value='virtualMachines' typref='8'>
+<Attr>
+<Pos l='306' c='28' s='15'/>
+</Attr>
+</Id>
+<Nary_Exp op='{' typref='8'>
+<Attr>
+<Pos l='306' c='46' s='1'/>
+</Attr>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='306' c='47' s='2'/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='307' c='37' s='2'/>
+</Attr>
+<Variables>
+<Id value='allocatedVirtualMachines' typref='8'>
+<Attr>
+<Pos l='307' c='12' s='24'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-s' typref='8'>
+<Attr>
+<Pos l='307' c='65' s='1'/>
+</Attr>
+<Id value='allocatedVirtualMachines' typref='8'>
+<Attr>
+<Pos l='307' c='40' s='24'/>
+</Attr>
+</Id>
+<Nary_Exp op='{' typref='8'>
+<Attr>
+<Pos l='307' c='67' s='1'/>
+</Attr>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='307' c='68' s='2'/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='308' c='32' s='2'/>
+</Attr>
+<Variables>
+<Id value='spotVirtualMachines' typref='8'>
+<Attr>
+<Pos l='308' c='12' s='19'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-s' typref='8'>
+<Attr>
+<Pos l='308' c='55' s='1'/>
+</Attr>
+<Id value='spotVirtualMachines' typref='8'>
+<Attr>
+<Pos l='308' c='35' s='19'/>
+</Attr>
+</Id>
+<Nary_Exp op='{' typref='8'>
+<Attr>
+<Pos l='308' c='57' s='1'/>
+</Attr>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='308' c='58' s='2'/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='309' c='71' s='2'/>
+</Attr>
+<Variables>
+<Binary_Exp op='(' typref='1'>
+<Attr>
+<Pos l='309' c='32' s='0'/>
+</Attr>
+<Id value='finishedInstanceCost' typref='12'>
+<Attr>
+<Pos l='309' c='12' s='20'/>
+</Attr>
+</Id>
+<Record_Field_Access label='owner' typref='4'>
+<Attr>
+<Pos l='309' c='63' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='309' c='58' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='309' c='34' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='309' c='59' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Variables>
+<Values>
+<Binary_Exp op='+i' typref='1'>
+<Attr>
+<Pos l='317' c='13' s='1'/>
+</Attr>
+<Binary_Exp op='+i' typref='1'>
+<Attr>
+<Pos l='314' c='13' s='1'/>
+</Attr>
+<Binary_Exp op='+i' typref='1'>
+<Attr>
+<Pos l='311' c='13' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='1'>
+<Attr>
+<Pos l='310' c='33' s='0'/>
+</Attr>
+<Id value='finishedInstanceCost' typref='12'>
+<Attr>
+<Pos l='310' c='13' s='20'/>
+</Attr>
+</Id>
+<Record_Field_Access label='owner' typref='4'>
+<Attr>
+<Pos l='310' c='64' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='310' c='59' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='310' c='35' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='310' c='60' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='313' c='17' s='1'/>
+</Attr>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='312' c='17' s='1'/>
+</Attr>
+<Record_Field_Access label='cpu' typref='1'>
+<Attr>
+<Pos l='311' c='74' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='24'>
+<Attr>
+<Pos l='311' c='32' s='0'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='311' c='18' s='14'/>
+</Attr>
+</Id>
+<Record_Field_Access label='category' typref='23'>
+<Attr>
+<Pos l='311' c='63' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='311' c='58' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='311' c='34' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='311' c='59' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Record_Field_Access>
+<Record_Field_Access label='cpu' typref='1'>
+<Attr>
+<Pos l='312' c='50' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='312' c='45' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='312' c='21' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='312' c='46' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+<Binary_Exp op='-i' typref='1'>
+<Attr>
+<Pos l='313' c='32' s='1'/>
+</Attr>
+<Id value='currentTime' typref='1'>
+<Attr>
+<Pos l='313' c='20' s='11'/>
+</Attr>
+</Id>
+<Record_Field_Access label='startTime' typref='1'>
+<Attr>
+<Pos l='313' c='65' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='313' c='60' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='313' c='36' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='313' c='61' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='316' c='17' s='1'/>
+</Attr>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='315' c='17' s='1'/>
+</Attr>
+<Record_Field_Access label='hdd' typref='1'>
+<Attr>
+<Pos l='314' c='74' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='24'>
+<Attr>
+<Pos l='314' c='32' s='0'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='314' c='18' s='14'/>
+</Attr>
+</Id>
+<Record_Field_Access label='category' typref='23'>
+<Attr>
+<Pos l='314' c='63' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='314' c='58' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='314' c='34' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='314' c='59' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Record_Field_Access>
+<Record_Field_Access label='hdd' typref='1'>
+<Attr>
+<Pos l='315' c='50' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='315' c='45' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='315' c='21' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='315' c='46' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+<Binary_Exp op='-i' typref='1'>
+<Attr>
+<Pos l='316' c='32' s='1'/>
+</Attr>
+<Id value='currentTime' typref='1'>
+<Attr>
+<Pos l='316' c='20' s='11'/>
+</Attr>
+</Id>
+<Record_Field_Access label='startTime' typref='1'>
+<Attr>
+<Pos l='316' c='65' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='316' c='60' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='316' c='36' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='316' c='61' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='319' c='17' s='1'/>
+</Attr>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='318' c='17' s='1'/>
+</Attr>
+<Record_Field_Access label='mem' typref='1'>
+<Attr>
+<Pos l='317' c='74' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='24'>
+<Attr>
+<Pos l='317' c='32' s='0'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='317' c='18' s='14'/>
+</Attr>
+</Id>
+<Record_Field_Access label='category' typref='23'>
+<Attr>
+<Pos l='317' c='63' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='317' c='58' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='317' c='34' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='317' c='59' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Record_Field_Access>
+<Record_Field_Access label='mem' typref='1'>
+<Attr>
+<Pos l='318' c='50' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='318' c='45' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='318' c='21' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='318' c='46' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+<Binary_Exp op='-i' typref='1'>
+<Attr>
+<Pos l='319' c='32' s='1'/>
+</Attr>
+<Id value='currentTime' typref='1'>
+<Attr>
+<Pos l='319' c='20' s='11'/>
+</Attr>
+</Id>
+<Record_Field_Access label='startTime' typref='1'>
+<Attr>
+<Pos l='319' c='65' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='319' c='60' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='319' c='36' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='319' c='61' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Body>
+</Operation>
+<Operation name='getAllocatedVmsOnMachine'>
+<Attr>
+<Pos l='322' c='5' s='3' endLine='331'/>
+</Attr>
+<Output_Parameters>
+<Id value='vms' typref='8'>
+<Attr>
+<Pos l='322' c='5' s='3'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Input_Parameters>
+<Id value='machine' typref='25'>
+<Attr>
+<Pos l='322' c='38' s='7'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='324' c='17' s='1'/>
+</Attr>
+<Id value='machine' typref='25'>
+<Attr>
+<Pos l='324' c='9' s='7'/>
+</Attr>
+</Id>
+<Id value='machineResources' typref='5'>
+<Attr>
+<Pos l='324' c='19' s='16'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='325' c='19' s='1'/>
+</Attr>
+<Id value='machine' typref='25'>
+<Attr>
+<Pos l='325' c='11' s='7'/>
 </Attr>
 </Id>
 <Unary_Exp op='dom' typref='5'>
 <Attr>
-<Pos l='302' c='21' s='3'/>
+<Pos l='325' c='21' s='3'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='302' c='25' s='25'/>
+<Pos l='325' c='25' s='25'/>
 </Attr>
 </Id>
 </Unary_Exp>
@@ -3791,24 +4498,24 @@
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='304' c='13' s='2'/>
+<Pos l='327' c='13' s='2'/>
 </Attr>
 <Variables>
 <Id value='vms' typref='8'>
 <Attr>
-<Pos l='304' c='9' s='3'/>
+<Pos l='327' c='9' s='3'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Quantified_Set typref='8'>
 <Attr>
-<Pos l='304' c='16' s='1'/>
+<Pos l='327' c='16' s='1'/>
 </Attr>
 <Variables>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='304' c='19' s='2'/>
+<Pos l='327' c='19' s='2'/>
 </Attr>
 </Id>
 </Variables>
@@ -3816,46 +4523,46 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='305' c='29' s='1'/>
+<Pos l='328' c='29' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='305' c='26' s='2'/>
+<Pos l='328' c='26' s='2'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='305' c='31' s='15'/>
+<Pos l='328' c='31' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='306' c='75' s='1'/>
+<Pos l='329' c='75' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
-<Pos l='306' c='58' s='1'/>
+<Pos l='329' c='58' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='306' c='53' s='0'/>
+<Pos l='329' c='53' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='306' c='29' s='24'/>
+<Pos l='329' c='29' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='306' c='54' s='2'/>
+<Pos l='329' c='54' s='2'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='306' c='77' s='7'/>
+<Pos l='329' c='77' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -3868,19 +4575,19 @@
 </Operation>
 <Operation name='getAllocatedCpuOnMachine'>
 <Attr>
-<Pos l='310' c='5' s='8' endLine='323'/>
+<Pos l='333' c='5' s='8' endLine='346'/>
 </Attr>
 <Output_Parameters>
 <Id value='totalCpu' typref='1'>
 <Attr>
-<Pos l='310' c='5' s='8'/>
+<Pos l='333' c='5' s='8'/>
 </Attr>
 </Id>
 </Output_Parameters>
 <Input_Parameters>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='310' c='43' s='7'/>
+<Pos l='333' c='43' s='7'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -3888,35 +4595,35 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='312' c='17' s='1'/>
+<Pos l='335' c='17' s='1'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='312' c='9' s='7'/>
+<Pos l='335' c='9' s='7'/>
 </Attr>
 </Id>
 <Id value='machineResources' typref='5'>
 <Attr>
-<Pos l='312' c='19' s='16'/>
+<Pos l='335' c='19' s='16'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='313' c='19' s='1'/>
+<Pos l='336' c='19' s='1'/>
 </Attr>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='313' c='11' s='7'/>
+<Pos l='336' c='11' s='7'/>
 </Attr>
 </Id>
 <Unary_Exp op='dom' typref='5'>
 <Attr>
-<Pos l='313' c='21' s='3'/>
+<Pos l='336' c='21' s='3'/>
 </Attr>
 <Id value='machineResourceProperties' typref='6'>
 <Attr>
-<Pos l='313' c='25' s='25'/>
+<Pos l='336' c='25' s='25'/>
 </Attr>
 </Id>
 </Unary_Exp>
@@ -3926,24 +4633,24 @@
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='317' c='18' s='2'/>
+<Pos l='340' c='18' s='2'/>
 </Attr>
 <Variables>
 <Id value='totalCpu' typref='1'>
 <Attr>
-<Pos l='317' c='9' s='8'/>
+<Pos l='340' c='9' s='8'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Quantified_Exp type='iSIGMA' typref='1'>
 <Attr>
-<Pos l='317' c='42' s='1'/>
+<Pos l='340' c='42' s='1'/>
 </Attr>
 <Variables>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='317' c='27' s='14'/>
+<Pos l='340' c='27' s='14'/>
 </Attr>
 </Id>
 </Variables>
@@ -3951,46 +4658,46 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='319' c='32' s='1'/>
+<Pos l='342' c='32' s='1'/>
 </Attr>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='319' c='17' s='14'/>
+<Pos l='342' c='17' s='14'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='319' c='34' s='15'/>
+<Pos l='342' c='34' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='320' c='79' s='1'/>
+<Pos l='343' c='79' s='1'/>
 </Attr>
-<Record_Field_Access label='residentMachine' typref='26'>
+<Record_Field_Access label='residentMachine' typref='25'>
 <Attr>
-<Pos l='320' c='62' s='1'/>
+<Pos l='343' c='62' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='320' c='45' s='0'/>
+<Pos l='343' c='45' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='320' c='21' s='24'/>
+<Pos l='343' c='21' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='320' c='46' s='14'/>
+<Pos l='343' c='46' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
-<Id value='machine' typref='26'>
+<Id value='machine' typref='25'>
 <Attr>
-<Pos l='320' c='81' s='7'/>
+<Pos l='343' c='81' s='7'/>
 </Attr>
 </Id>
 </Exp_Comparison>
@@ -3999,20 +4706,20 @@
 <Body>
 <Record_Field_Access label='cpu' typref='1'>
 <Attr>
-<Pos l='321' c='61' s='1'/>
+<Pos l='344' c='59' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='321' c='44' s='0'/>
+<Pos l='344' c='42' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='321' c='20' s='24'/>
+<Pos l='344' c='18' s='24'/>
 </Attr>
 </Id>
-<Id value='virtualMachine' typref='28'>
+<Id value='virtualMachine' typref='26'>
 <Attr>
-<Pos l='321' c='45' s='14'/>
+<Pos l='344' c='43' s='14'/>
 </Attr>
 </Id>
 </Binary_Exp>
@@ -4025,29 +4732,29 @@
 </Operation>
 <Operation name='listVmsForUser'>
 <Attr>
-<Pos l='325' c='5' s='6' endLine='336'/>
+<Pos l='348' c='5' s='6' endLine='359'/>
 </Attr>
 <Output_Parameters>
 <Id value='vmList' typref='8'>
 <Attr>
-<Pos l='325' c='5' s='6'/>
+<Pos l='348' c='5' s='6'/>
 </Attr>
 </Id>
 </Output_Parameters>
 <Input_Parameters>
 <Id value='resourceTypes' typref='10'>
 <Attr>
-<Pos l='325' c='31' s='13'/>
+<Pos l='348' c='31' s='13'/>
 </Attr>
 </Id>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='325' c='46' s='4'/>
+<Pos l='348' c='46' s='4'/>
 </Attr>
 </Id>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='325' c='52' s='6'/>
+<Pos l='348' c='52' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -4055,74 +4762,74 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op='&lt;:'>
 <Attr>
-<Pos l='327' c='23' s='2'/>
+<Pos l='350' c='23' s='2'/>
 </Attr>
 <Id value='resourceTypes' typref='10'>
 <Attr>
-<Pos l='327' c='9' s='13'/>
+<Pos l='350' c='9' s='13'/>
 </Attr>
 </Id>
 <Id value='VM_CATEGORIES' typref='10'>
 <Attr>
-<Pos l='327' c='26' s='13'/>
+<Pos l='350' c='26' s='13'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='328' c='16' s='1'/>
+<Pos l='351' c='16' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='328' c='11' s='4'/>
+<Pos l='351' c='11' s='4'/>
 </Attr>
 </Id>
 <Id value='USERS' typref='7'>
 <Attr>
-<Pos l='328' c='18' s='5'/>
+<Pos l='351' c='18' s='5'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='329' c='18' s='1'/>
+<Pos l='352' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='329' c='11' s='6'/>
+<Pos l='352' c='11' s='6'/>
 </Attr>
 </Id>
 <Id value='USERS' typref='7'>
 <Attr>
-<Pos l='329' c='20' s='5'/>
+<Pos l='352' c='20' s='5'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='330' c='18' s='1'/>
+<Pos l='353' c='18' s='1'/>
 </Attr>
 <Id value='caller' typref='4'>
 <Attr>
-<Pos l='330' c='11' s='6'/>
+<Pos l='353' c='11' s='6'/>
 </Attr>
 </Id>
 <Binary_Exp op='\/' typref='7'>
 <Attr>
-<Pos l='330' c='27' s='2'/>
+<Pos l='353' c='27' s='2'/>
 </Attr>
 <Id value='admins' typref='7'>
 <Attr>
-<Pos l='330' c='20' s='6'/>
+<Pos l='353' c='20' s='6'/>
 </Attr>
 </Id>
 <Nary_Exp op='{' typref='7'>
 <Attr>
-<Pos l='330' c='30' s='1'/>
+<Pos l='353' c='30' s='1'/>
 </Attr>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='330' c='31' s='4'/>
+<Pos l='353' c='31' s='4'/>
 </Attr>
 </Id>
 </Nary_Exp>
@@ -4133,24 +4840,24 @@
 <Body>
 <Assignement_Sub>
 <Attr>
-<Pos l='332' c='16' s='2'/>
+<Pos l='355' c='16' s='2'/>
 </Attr>
 <Variables>
 <Id value='vmList' typref='8'>
 <Attr>
-<Pos l='332' c='9' s='6'/>
+<Pos l='355' c='9' s='6'/>
 </Attr>
 </Id>
 </Variables>
 <Values>
 <Quantified_Set typref='8'>
 <Attr>
-<Pos l='332' c='19' s='1'/>
+<Pos l='355' c='19' s='1'/>
 </Attr>
 <Variables>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='332' c='22' s='2'/>
+<Pos l='355' c='22' s='2'/>
 </Attr>
 </Id>
 </Variables>
@@ -4158,52 +4865,501 @@
 <Nary_Pred op='&amp;'>
 <Exp_Comparison op=':'>
 <Attr>
-<Pos l='333' c='33' s='1'/>
+<Pos l='356' c='33' s='1'/>
 </Attr>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='333' c='30' s='2'/>
+<Pos l='356' c='30' s='2'/>
 </Attr>
 </Id>
 <Id value='virtualMachines' typref='8'>
 <Attr>
-<Pos l='333' c='35' s='15'/>
+<Pos l='356' c='35' s='15'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 <Exp_Comparison op='='>
 <Attr>
-<Pos l='334' c='69' s='1'/>
+<Pos l='357' c='69' s='1'/>
 </Attr>
 <Record_Field_Access label='owner' typref='4'>
 <Attr>
-<Pos l='334' c='62' s='1'/>
+<Pos l='357' c='62' s='1'/>
 </Attr>
-<Binary_Exp op='(' typref='29'>
+<Binary_Exp op='(' typref='27'>
 <Attr>
-<Pos l='334' c='57' s='0'/>
+<Pos l='357' c='57' s='0'/>
 </Attr>
 <Id value='virtualMachineProperties' typref='9'>
 <Attr>
-<Pos l='334' c='33' s='24'/>
+<Pos l='357' c='33' s='24'/>
 </Attr>
 </Id>
-<Id value='vm' typref='28'>
+<Id value='vm' typref='26'>
 <Attr>
-<Pos l='334' c='58' s='2'/>
+<Pos l='357' c='58' s='2'/>
 </Attr>
 </Id>
 </Binary_Exp>
 </Record_Field_Access>
 <Id value='user' typref='4'>
 <Attr>
-<Pos l='334' c='71' s='4'/>
+<Pos l='357' c='71' s='4'/>
 </Attr>
 </Id>
 </Exp_Comparison>
 </Nary_Pred>
 </Body>
 </Quantified_Set>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+<Operation name='getBillingForRunningVM'>
+<Attr>
+<Pos l='361' c='5' s='7' endLine='377'/>
+</Attr>
+<Output_Parameters>
+<Id value='billing' typref='1'>
+<Attr>
+<Pos l='361' c='5' s='7'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Input_Parameters>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='361' c='40' s='2'/>
+</Attr>
+</Id>
+<Id value='caller' typref='4'>
+<Attr>
+<Pos l='361' c='44' s='6'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='363' c='12' s='1'/>
+</Attr>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='363' c='9' s='2'/>
+</Attr>
+</Id>
+<Id value='virtualMachines' typref='8'>
+<Attr>
+<Pos l='363' c='14' s='15'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='364' c='18' s='1'/>
+</Attr>
+<Id value='caller' typref='4'>
+<Attr>
+<Pos l='364' c='11' s='6'/>
+</Attr>
+</Id>
+<Id value='USERS' typref='7'>
+<Attr>
+<Pos l='364' c='20' s='5'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='365' c='18' s='1'/>
+</Attr>
+<Id value='caller' typref='4'>
+<Attr>
+<Pos l='365' c='11' s='6'/>
+</Attr>
+</Id>
+<Binary_Exp op='\/' typref='7'>
+<Attr>
+<Pos l='365' c='27' s='2'/>
+</Attr>
+<Id value='admins' typref='7'>
+<Attr>
+<Pos l='365' c='20' s='6'/>
+</Attr>
+</Id>
+<Nary_Exp op='{' typref='7'>
+<Attr>
+<Pos l='365' c='30' s='1'/>
+</Attr>
+<Record_Field_Access label='owner' typref='4'>
+<Attr>
+<Pos l='365' c='61' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='365' c='56' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='365' c='32' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='365' c='57' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Nary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='366' c='53' s='1'/>
+</Attr>
+<Record_Field_Access label='category' typref='23'>
+<Attr>
+<Pos l='366' c='42' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='366' c='37' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='366' c='13' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='366' c='38' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+<Unary_Exp op='dom' typref='10'>
+<Attr>
+<Pos l='366' c='55' s='3'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='366' c='59' s='14'/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Attr>
+<Pos l='368' c='17' s='2'/>
+</Attr>
+<Variables>
+<Id value='billing' typref='1'>
+<Attr>
+<Pos l='368' c='9' s='7'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+i' typref='1'>
+<Attr>
+<Pos l='374' c='21' s='1'/>
+</Attr>
+<Binary_Exp op='+i' typref='1'>
+<Attr>
+<Pos l='371' c='21' s='1'/>
+</Attr>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='370' c='25' s='1'/>
+</Attr>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='369' c='25' s='1'/>
+</Attr>
+<Record_Field_Access label='cpu' typref='1'>
+<Attr>
+<Pos l='368' c='79' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='24'>
+<Attr>
+<Pos l='368' c='37' s='0'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='368' c='23' s='14'/>
+</Attr>
+</Id>
+<Record_Field_Access label='category' typref='23'>
+<Attr>
+<Pos l='368' c='68' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='368' c='63' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='368' c='39' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='368' c='64' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Record_Field_Access>
+<Record_Field_Access label='cpu' typref='1'>
+<Attr>
+<Pos l='369' c='58' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='369' c='53' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='369' c='29' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='369' c='54' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+<Binary_Exp op='-i' typref='1'>
+<Attr>
+<Pos l='370' c='40' s='1'/>
+</Attr>
+<Id value='currentTime' typref='1'>
+<Attr>
+<Pos l='370' c='28' s='11'/>
+</Attr>
+</Id>
+<Record_Field_Access label='startTime' typref='1'>
+<Attr>
+<Pos l='370' c='73' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='370' c='68' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='370' c='44' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='370' c='69' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Binary_Exp>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='373' c='25' s='1'/>
+</Attr>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='372' c='25' s='1'/>
+</Attr>
+<Record_Field_Access label='hdd' typref='1'>
+<Attr>
+<Pos l='371' c='82' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='24'>
+<Attr>
+<Pos l='371' c='40' s='0'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='371' c='26' s='14'/>
+</Attr>
+</Id>
+<Record_Field_Access label='category' typref='23'>
+<Attr>
+<Pos l='371' c='71' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='371' c='66' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='371' c='42' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='371' c='67' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Record_Field_Access>
+<Record_Field_Access label='hdd' typref='1'>
+<Attr>
+<Pos l='372' c='58' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='372' c='53' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='372' c='29' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='372' c='54' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+<Binary_Exp op='-i' typref='1'>
+<Attr>
+<Pos l='373' c='40' s='1'/>
+</Attr>
+<Id value='currentTime' typref='1'>
+<Attr>
+<Pos l='373' c='28' s='11'/>
+</Attr>
+</Id>
+<Record_Field_Access label='startTime' typref='1'>
+<Attr>
+<Pos l='373' c='73' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='373' c='68' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='373' c='44' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='373' c='69' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='376' c='25' s='1'/>
+</Attr>
+<Binary_Exp op='*i' typref='1'>
+<Attr>
+<Pos l='375' c='25' s='1'/>
+</Attr>
+<Record_Field_Access label='mem' typref='1'>
+<Attr>
+<Pos l='374' c='82' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='24'>
+<Attr>
+<Pos l='374' c='40' s='0'/>
+</Attr>
+<Id value='instanceRating' typref='11'>
+<Attr>
+<Pos l='374' c='26' s='14'/>
+</Attr>
+</Id>
+<Record_Field_Access label='category' typref='23'>
+<Attr>
+<Pos l='374' c='71' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='374' c='66' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='374' c='42' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='374' c='67' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Record_Field_Access>
+<Record_Field_Access label='mem' typref='1'>
+<Attr>
+<Pos l='375' c='58' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='375' c='53' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='375' c='29' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='375' c='54' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+<Binary_Exp op='-i' typref='1'>
+<Attr>
+<Pos l='376' c='40' s='1'/>
+</Attr>
+<Id value='currentTime' typref='1'>
+<Attr>
+<Pos l='376' c='28' s='11'/>
+</Attr>
+</Id>
+<Record_Field_Access label='startTime' typref='1'>
+<Attr>
+<Pos l='376' c='73' s='1'/>
+</Attr>
+<Binary_Exp op='(' typref='27'>
+<Attr>
+<Pos l='376' c='68' s='0'/>
+</Attr>
+<Id value='virtualMachineProperties' typref='9'>
+<Attr>
+<Pos l='376' c='44' s='24'/>
+</Attr>
+</Id>
+<Id value='vm' typref='26'>
+<Attr>
+<Pos l='376' c='69' s='2'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Record_Field_Access>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
 </Values>
 </Assignement_Sub>
 </Body>
@@ -4302,15 +5458,15 @@
 <Type id='11'>
 <Unary_Exp op='POW'>
 <Binary_Exp op='*'>
-<Id value='USERS'/>
-<Struct>
-<Record_Item label='category'>
 <Id value='VM_CATEGORIES'/>
-</Record_Item>
-<Record_Item label='startTime'>
+<Struct>
+<Record_Item label='cpu'>
 <Id value='INTEGER'/>
 </Record_Item>
-<Record_Item label='endTime'>
+<Record_Item label='hdd'>
+<Id value='INTEGER'/>
+</Record_Item>
+<Record_Item label='mem'>
 <Id value='INTEGER'/>
 </Record_Item>
 </Struct>
@@ -4320,7 +5476,7 @@
 <Type id='12'>
 <Unary_Exp op='POW'>
 <Binary_Exp op='*'>
-<Id value='VM_CATEGORIES'/>
+<Id value='USERS'/>
 <Id value='INTEGER'/>
 </Binary_Exp>
 </Unary_Exp>
@@ -4452,59 +5608,35 @@
 <Unary_Exp op='POW'>
 <Binary_Exp op='*'>
 <Id value='USERS'/>
-<Struct>
-<Record_Item label='category'>
-<Id value='VM_CATEGORIES'/>
-</Record_Item>
-<Record_Item label='startTime'>
 <Id value='INTEGER'/>
-</Record_Item>
-<Record_Item label='endTime'>
-<Id value='INTEGER'/>
-</Record_Item>
-</Struct>
 </Binary_Exp>
 </Unary_Exp>
 </Unary_Exp>
 </Type>
 <Type id='22'>
 <Unary_Exp op='POW'>
-<Struct>
-<Record_Item label='category'>
+<Unary_Exp op='POW'>
+<Binary_Exp op='*'>
 <Id value='VM_CATEGORIES'/>
-</Record_Item>
-<Record_Item label='startTime'>
+<Struct>
+<Record_Item label='cpu'>
 <Id value='INTEGER'/>
 </Record_Item>
-<Record_Item label='endTime'>
+<Record_Item label='hdd'>
+<Id value='INTEGER'/>
+</Record_Item>
+<Record_Item label='mem'>
 <Id value='INTEGER'/>
 </Record_Item>
 </Struct>
+</Binary_Exp>
+</Unary_Exp>
 </Unary_Exp>
 </Type>
 <Type id='23'>
-<Unary_Exp op='POW'>
-<Unary_Exp op='POW'>
-<Binary_Exp op='*'>
 <Id value='VM_CATEGORIES'/>
-<Id value='INTEGER'/>
-</Binary_Exp>
-</Unary_Exp>
-</Unary_Exp>
 </Type>
 <Type id='24'>
-<Id value='VM_CATEGORIES'/>
-</Type>
-<Type id='25'>
-<Binary_Exp op='*'>
-<Id value='VM_CATEGORIES'/>
-<Id value='INTEGER'/>
-</Binary_Exp>
-</Type>
-<Type id='26'>
-<Id value='MACHINE_RESOURCES'/>
-</Type>
-<Type id='27'>
 <Struct>
 <Record_Item label='cpu'>
 <Id value='INTEGER'/>
@@ -4517,10 +5649,13 @@
 </Record_Item>
 </Struct>
 </Type>
-<Type id='28'>
+<Type id='25'>
+<Id value='MACHINE_RESOURCES'/>
+</Type>
+<Type id='26'>
 <Id value='VIRTUAL_MACHINES'/>
 </Type>
-<Type id='29'>
+<Type id='27'>
 <Struct>
 <Record_Item label='residentMachine'>
 <Id value='MACHINE_RESOURCES'/>

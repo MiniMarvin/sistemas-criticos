@@ -25,8 +25,8 @@ ABSTRACT_VARIABLES
     spotVirtualMachines ,
     allocatedVirtualMachines ,
     currentTime ,
-    vmHistory ,
-    instanceRating
+    instanceRating ,
+    finishedInstanceCost
 
 INVARIANT
     USERS : FIN ( USERS )
@@ -61,13 +61,8 @@ INVARIANT
     & allocatedVirtualMachines <: virtualMachines
     & spotVirtualMachines \/ allocatedVirtualMachines = virtualMachines
     & spotVirtualMachines /\ allocatedVirtualMachines = {}
-    & vmHistory : clients +-> struct (
-            category : VM_CATEGORIES ,
-            startTime : NAT ,
-            endTime : NAT
-        )
-    & instanceRating : { allocated , spot } <-> NAT
-
+    & finishedInstanceCost : USERS +-> NAT
+    & instanceRating : { allocated , spot } +-> struct ( cpu : NAT , hdd : NAT , mem : NAT )
 
 INITIALISATION
     admins := { admin }
@@ -80,10 +75,22 @@ INITIALISATION
     || spotVirtualMachines := {}
     || allocatedVirtualMachines := {}
     || currentTime := 0
-    || vmHistory := {}
-    || instanceRating := { allocated |-> 2 , spot |-> 1 }
+    || instanceRating := {}
+    || finishedInstanceCost := {}
 
 OPERATIONS
+    setInstanceRating ( instanceType , cpuRating , hddRating , memRating , caller ) =
+    PRE
+        instanceType : { allocated , spot }
+        & cpuRating : NAT1
+        & hddRating : NAT1
+        & memRating : NAT1
+        & hddRating : NAT1
+        & caller : { admin }
+    THEN
+        instanceRating ( instanceType ) := rec ( cpu : cpuRating , hdd : hddRating , mem : memRating )
+    END ;
+
     addClient ( user , caller ) =
     PRE
         user : USERS
@@ -92,6 +99,7 @@ OPERATIONS
         & caller : admins
     THEN
         clients := clients \/ { user }
+        || finishedInstanceCost ( user ) := 0
     END ;
 
     addAdmin ( user , caller ) =
@@ -122,7 +130,7 @@ OPERATIONS
         & caller : admins
     THEN
         clients := clients - { user }
-        || vmHistory := { user } <<| vmHistory
+        || finishedInstanceCost := { user } <<| finishedInstanceCost
     END ;
 
     clientList <-- listClients ( user , caller ) =
@@ -192,36 +200,30 @@ OPERATIONS
             & machine : dom ( machineResourceProperties )
             & cpu <= (
                 ( machineResourceProperties ( machine ) ) ' cpu
-                    -  SIGMA virtualMachine . (
-                    ( virtualMachine :
-                        {  vm |
-                            ( vm : virtualMachines )
-                            & ( ( virtualMachineProperties ( vm ) ) ' residentMachine = machine )
-                            & ( ( virtualMachineProperties ( vm ) ) ' category = allocated )
-                        }
-                    ) | ( virtualMachineProperties ( virtualMachine ) ) ' cpu )
+                        - SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & ( virtualMachineProperties ( virtualMachine ) ) ' residentMachine = machine
+                            & ( virtualMachineProperties ( virtualMachine ) ) ' category = allocated
+                            | ( virtualMachineProperties ( virtualMachine ) ) ' cpu
+                        )
             )
             & hdd <= (
                 ( machineResourceProperties ( machine ) ) ' hdd
-                    -  SIGMA virtualMachine . (
-                    ( virtualMachine :
-                        {  vm |
-                            ( vm : virtualMachines )
-                            & ( ( virtualMachineProperties ( vm ) ) ' residentMachine = machine )
-                            & ( ( virtualMachineProperties ( vm ) ) ' category = allocated )
-                        }
-                    ) | ( virtualMachineProperties ( virtualMachine ) ) ' hdd )
+                    - SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & ( virtualMachineProperties ( virtualMachine ) ) ' residentMachine = machine
+                            & ( virtualMachineProperties ( virtualMachine ) ) ' category = allocated
+                            | ( virtualMachineProperties ( virtualMachine ) ) ' hdd
+                        )
             )
             & mem <= (
                 ( machineResourceProperties ( machine ) ) ' mem
-                -  SIGMA virtualMachine . (
-                    ( virtualMachine :
-                        {  vm |
-                            ( vm : virtualMachines )
-                            & ( ( virtualMachineProperties ( vm ) ) ' residentMachine = machine )
-                            & ( ( virtualMachineProperties ( vm ) ) ' category = allocated )
-                        }
-                    ) | ( virtualMachineProperties ( virtualMachine ) ) ' mem )
+                    - SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & ( virtualMachineProperties ( virtualMachine ) ) ' residentMachine = machine
+                            & ( virtualMachineProperties ( virtualMachine ) ) ' category = allocated
+                            | ( virtualMachineProperties ( virtualMachine ) ) ' mem
+                        )
             )
         THEN
             virtualMachines := virtualMachines \/ { vm }
@@ -256,10 +258,9 @@ OPERATIONS
             & machine : dom ( machineResourceProperties )
             & cpu <= (
                 ( machineResourceProperties ( machine ) ) ' cpu
-                -  SIGMA virtualMachine . (
-                    (
+                    - SIGMA virtualMachine . (
                             virtualMachine : virtualMachines
-                            & ( ( virtualMachineProperties ( virtualMachine ) ) ' residentMachine = machine ) )
+                            & ( virtualMachineProperties ( virtualMachine ) ) ' residentMachine = machine
                             | ( virtualMachineProperties ( virtualMachine ) ) ' cpu
                         )
             )
@@ -283,7 +284,7 @@ OPERATIONS
             )
         THEN
             virtualMachines := virtualMachines \/ { vm }
-            || allocatedVirtualMachines := allocatedVirtualMachines \/ { vm }
+            || spotVirtualMachines := spotVirtualMachines \/ { vm }
             || virtualMachineProperties ( vm ) := rec (
                     residentMachine : machine ,
                     owner : client ,
@@ -294,6 +295,28 @@ OPERATIONS
                     mem : mem
                 )
         END
+    END ;
+
+    removeVirtualMachine ( vm , caller ) =
+    PRE
+        vm : virtualMachines
+        & vm : dom ( virtualMachineProperties )
+        & caller : admins \/ { ( virtualMachineProperties ( vm ) ) ' owner }
+    THEN
+        virtualMachines := virtualMachines - { vm }
+        || allocatedVirtualMachines := allocatedVirtualMachines - { vm }
+        || spotVirtualMachines := spotVirtualMachines - { vm }
+        || finishedInstanceCost ( ( virtualMachineProperties ( vm ) ) ' owner ) :=
+            finishedInstanceCost ( ( virtualMachineProperties ( vm ) ) ' owner )
+            + ( ( ( instanceRating ( ( virtualMachineProperties ( vm ) ) ' category ) ) ' cpu )
+                * ( ( virtualMachineProperties ( vm ) ) ' cpu )
+                * ( currentTime - ( virtualMachineProperties ( vm ) ) ' startTime ) )
+            + ( ( ( instanceRating ( ( virtualMachineProperties ( vm ) ) ' category ) ) ' hdd )
+                * ( ( virtualMachineProperties ( vm ) ) ' hdd )
+                * ( currentTime - ( virtualMachineProperties ( vm ) ) ' startTime ) )
+            + ( ( ( instanceRating ( ( virtualMachineProperties ( vm ) ) ' category ) ) ' mem )
+                * ( ( virtualMachineProperties ( vm ) ) ' mem )
+                * ( currentTime - ( virtualMachineProperties ( vm ) ) ' startTime ) )
     END ;
 
     vms <-- getAllocatedVmsOnMachine ( machine ) =
@@ -317,9 +340,9 @@ OPERATIONS
         totalCpu := SIGMA virtualMachine . (
             (
                 virtualMachine : virtualMachines
-                & ( ( virtualMachineProperties ( virtualMachine ) ) ' residentMachine = machine ) )
-                | ( virtualMachineProperties ( virtualMachine ) ) ' cpu
-            )
+                & ( ( virtualMachineProperties ( virtualMachine ) ) ' residentMachine = machine )
+            ) | ( virtualMachineProperties ( virtualMachine ) ) ' cpu
+        )
     END ;
 
     vmList <-- listVmsForUser ( resourceTypes , user , caller ) =
@@ -333,19 +356,34 @@ OPERATIONS
                             ( vm : virtualMachines )
                             & ( ( virtualMachineProperties ( vm ) ) ' owner = user )
                         }
+    END ;
+
+    billing <-- getBillingForRunningVM ( vm , caller ) =
+    PRE
+        vm : virtualMachines
+        & caller : USERS
+        & caller : admins \/ { ( virtualMachineProperties ( vm ) ) ' owner }
+        & ( ( virtualMachineProperties ( vm ) ) ' category ) : dom ( instanceRating )
+    THEN
+        billing := ( ( ( instanceRating ( ( virtualMachineProperties ( vm ) ) ' category ) ) ' cpu )
+                        * ( ( virtualMachineProperties ( vm ) ) ' cpu )
+                        * ( currentTime - ( virtualMachineProperties ( vm ) ) ' startTime ) )
+                    + ( ( ( instanceRating ( ( virtualMachineProperties ( vm ) ) ' category ) ) ' hdd )
+                        * ( ( virtualMachineProperties ( vm ) ) ' hdd )
+                        * ( currentTime - ( virtualMachineProperties ( vm ) ) ' startTime ) )
+                    + ( ( ( instanceRating ( ( virtualMachineProperties ( vm ) ) ' category ) ) ' mem )
+                        * ( ( virtualMachineProperties ( vm ) ) ' mem )
+                        * ( currentTime - ( virtualMachineProperties ( vm ) ) ' startTime ) )
     END
 
-//    billing <-- getBillingForVM(vm, caller) =
+//    billing <-- getBillingForUser(periodBegin, periodEnd, user, caller) =
 //    PRE
-//        vm : virtualMachines
-//        & caller : USERS
-//        & caller : admins \/ {(virtualMachineProperties(vm))'owner}
-//        & (virtualMachineProperties(vm))'owner : dom(vmHistory)
+//        periodBegin : NAT
+//        & periodEnd : NAT
+//        & user : clients
+//        & caller : admins \/ {user}
 //    THEN
-//        billing := SIGMA vmd . (
-//            vmd : vmHistory((virtualMachineProperties(vm))'owner)
-//            | instanceRating(vmd'category) //*(vmd'endTime - vmd'startTime)
-//        )
+//        billing := 
 //    END
-
+//
 END
