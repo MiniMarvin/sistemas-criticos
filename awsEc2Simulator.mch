@@ -258,28 +258,27 @@ OPERATIONS
             & machine : dom(machineResourceProperties)
             & cpu <= (
                 (machineResourceProperties(machine))'cpu
-                    - SIGMA virtualMachine . (
-                            virtualMachine : virtualMachines
-                            & (virtualMachineProperties(virtualMachine))'residentMachine = machine
-                            | (virtualMachineProperties(virtualMachine))'cpu
-                        )
+                - SIGMA vm . (
+                        vm : dom(virtualMachineProperties)
+                        & (virtualMachineProperties(vm))'residentMachine = machine
+                        | (virtualMachineProperties(vm))'cpu
+                    )
             )
             & hdd <= (
                 (machineResourceProperties(machine))'hdd
-                -  SIGMA virtualMachine . (
-                    (    
-                            virtualMachine : virtualMachines
-                            & ((virtualMachineProperties(virtualMachine))'residentMachine = machine)) 
-                            | (virtualMachineProperties(virtualMachine))'hdd
-                        )
+                -  SIGMA vm . (
+                        vm : dom(virtualMachineProperties)
+                        & (virtualMachineProperties(vm))'residentMachine = machine
+                        | (virtualMachineProperties(vm))'hdd
+                )
             )
             & mem <= (
                 (machineResourceProperties(machine))'mem
-                -  SIGMA virtualMachine . (
+                -  SIGMA vm . (
                     (    
-                            virtualMachine : virtualMachines
-                            & ((virtualMachineProperties(virtualMachine))'residentMachine = machine)) 
-                            | (virtualMachineProperties(virtualMachine))'mem
+                            vm : dom(virtualMachineProperties)
+                            & ((virtualMachineProperties(vm))'residentMachine = machine)) 
+                            | (virtualMachineProperties(vm))'mem
                         )
             )
         THEN
@@ -337,11 +336,11 @@ OPERATIONS
     THEN // TODO: proove it's a finite set
         // That's a finite set because it's a subset of ran(virtualMachineProperties)
         // which is finite itself
-        totalCpu := SIGMA virtualMachine . (
+        totalCpu := SIGMA vm . (
             (
-                virtualMachine : virtualMachines
-                & ((virtualMachineProperties(virtualMachine))'residentMachine = machine)
-            ) | (virtualMachineProperties(virtualMachine))'cpu
+                vm : dom(virtualMachineProperties)
+                & ((virtualMachineProperties(vm))'residentMachine = machine)
+            ) | (virtualMachineProperties(vm))'cpu
         )
     END;
 
@@ -353,7 +352,7 @@ OPERATIONS
         & caller : admins \/ {user}
     THEN
         vmList := {  vm | 
-                            (vm : virtualMachines)
+                            (vm : dom(virtualMachineProperties))
                             & ((virtualMachineProperties(vm))'owner = user) 
                         }
     END;
@@ -374,16 +373,31 @@ OPERATIONS
                     + (((instanceRating((virtualMachineProperties(vm))'category))'mem) 
                         * ((virtualMachineProperties(vm))'mem) 
                         * (currentTime -  (virtualMachineProperties(vm))'startTime))
-    END
+    END;
     
-//    billing <-- getBillingForUser(periodBegin, periodEnd, user, caller) =
-//    PRE
-//        periodBegin : NAT
-//        & periodEnd : NAT
-//        & user : clients
-//        & caller : admins \/ {user}
-//    THEN
-//        billing := 
-//    END
-//
+    billing <-- getBillingForUser(user, caller) =
+    PRE
+        user : clients
+        & user : dom(finishedInstanceCost)
+        & caller : admins \/ {user}
+
+    THEN
+        // comprehension over finite set must be finite
+        billing := SIGMA vm . (
+            vm : dom(virtualMachineProperties)
+            & (virtualMachineProperties(vm))'owner = user
+            & (virtualMachineProperties(vm))'category : dom(instanceRating)
+            | 
+            (virtualMachineProperties(vm))'cpu 
+                * ((instanceRating((virtualMachineProperties(vm))'category))'cpu) 
+                * (currentTime - ((virtualMachineProperties(vm))'startTime))
+            + (virtualMachineProperties(vm))'hdd 
+                * ((instanceRating((virtualMachineProperties(vm))'category))'hdd) 
+                * (currentTime - ((virtualMachineProperties(vm))'startTime))
+            + (virtualMachineProperties(vm))'mem 
+                * ((instanceRating((virtualMachineProperties(vm))'category))'mem) 
+                * (currentTime - ((virtualMachineProperties(vm))'startTime))
+        ) + finishedInstanceCost(user)
+    END
+
 END
