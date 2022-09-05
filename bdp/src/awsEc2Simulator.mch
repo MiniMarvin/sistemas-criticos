@@ -128,6 +128,7 @@ OPERATIONS
         user : USERS
         & user : clients
         & caller : admins
+        & { vmp | vmp : ran ( virtualMachineProperties ) & vmp ' owner = user } = {}
     THEN
         clients := clients - { user }
         || finishedInstanceCost := { user } <<| finishedInstanceCost
@@ -301,8 +302,17 @@ OPERATIONS
         vm : virtualMachines
         & vm : dom ( virtualMachineProperties )
         & caller : admins \/ { ( virtualMachineProperties ( vm ) ) ' owner }
+        & ( virtualMachineProperties ( vm ) ) ' owner : USERS
+        & ( virtualMachineProperties ( vm ) ) ' owner : dom ( finishedInstanceCost )
+        & finishedInstanceCost ( ( virtualMachineProperties ( vm ) ) ' owner ) > 0
+        & ( virtualMachineProperties ( vm ) ) ' category : dom ( instanceRating )
+        &  ( ( instanceRating ( ( virtualMachineProperties ( vm ) ) ' category ) ) ' cpu ) > 0
+        &  ( ( virtualMachineProperties ( vm ) ) ' cpu ) > 0
+        & currentTime >= ( virtualMachineProperties ( vm ) ) ' startTime
     THEN // all of those are necessarily true because they exists
+        // TODO: remove from virtualMachineProperties
         virtualMachines := virtualMachines - { vm }
+        || virtualMachineProperties := { vm } <<| virtualMachineProperties
         || allocatedVirtualMachines := allocatedVirtualMachines - { vm }
         || spotVirtualMachines := spotVirtualMachines - { vm }
         || finishedInstanceCost ( ( virtualMachineProperties ( vm ) ) ' owner ) :=
@@ -382,6 +392,7 @@ OPERATIONS
         & caller : admins \/ { user }
 
     THEN
+        // comprehension over finite set must be finite
         billing := SIGMA vm . (
             vm : dom ( virtualMachineProperties )
             & ( virtualMachineProperties ( vm ) ) ' owner = user

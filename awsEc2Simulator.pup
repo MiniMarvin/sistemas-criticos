@@ -1,5 +1,5 @@
 ﻿THEORY User_Pass IS
-Operation(Operation_addSpotVirtualMachine) & ff(0) & pr & pp(rp.0 | 60);
+Operation(Operation_removeVirtualMachine) & ff(0) & pr & pp(rp.0 | 60) & pp(rt.0 | 60);
 Operation(Operation_tickTimer) & ff(0) & mp & pp(rp.0 | 60) & pr & pp(rp.1 | 60) & pp(rp.1 | 60);
 Operation(Operation_addAllocatedVirtualMachine) & ff(0) & mp & pr & pp(rp.0 | 60)
 END
