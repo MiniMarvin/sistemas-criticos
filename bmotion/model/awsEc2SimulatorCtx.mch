@@ -1,0 +1,32 @@
+/* awsEc2SimulatorCtx
+ * Author: 
+ * Creation date: 27/08/2022
+ */
+MACHINE
+    awsEc2SimulatorCtx
+
+SETS
+    USERS;
+    MACHINE_RESOURCES;
+    VIRTUAL_MACHINES;
+    VM_CATEGORIES;
+    NONE
+
+CONSTANTS
+    allocated,
+    spot,
+    vmLimit
+
+INVARIANT
+    USERS : FIN(USERS)
+    & NONE : FIN(NONE)
+    & VM_CATEGORIES : FIN(VM_CATEGORIES)
+    & VIRTUAL_MACHINES : FIN(VIRTUAL_MACHINES)
+
+PROPERTIES
+    allocated : VM_CATEGORIES
+    & spot : VM_CATEGORIES
+    & vmLimit : NAT1
+
+
+END

@@ -1,0 +1,8 @@
+{
+    "id": "awsEc2Simulator",
+    "template": "index.html",
+    "observers": "awsEc2Simulator.observers.json",
+    "events": "awsEc2Simulator.events.json",
+    "model": "../awsEc2Simulator.mch",
+    "autoOpen": ["events"]
+}

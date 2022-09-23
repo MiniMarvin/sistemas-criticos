@@ -9,10 +9,12 @@ SEES
     awsEc2SimulatorCtx
 
 CONCRETE_CONSTANTS
-    admin
+    admin ,
+    none
 
 PROPERTIES
     admin : USERS
+    & none : USERS
 
 ABSTRACT_VARIABLES
     machineResources ,
@@ -26,10 +28,12 @@ ABSTRACT_VARIABLES
     allocatedVirtualMachines ,
     currentTime ,
     instanceRating ,
-    finishedInstanceCost
+    finishedInstanceCost ,
+    currentUser
 
 INVARIANT
     USERS : FIN ( USERS )
+    & currentUser : USERS
     & admins <: USERS
     & clients <: USERS
     & admins /\ clients = {}
@@ -66,6 +70,7 @@ INVARIANT
 
 INITIALISATION
     admins := { admin }
+    || currentUser := none
     || clients := {}
     || machineResources := {}
     || machineResourceProperties := {}
@@ -79,65 +84,80 @@ INITIALISATION
     || finishedInstanceCost := {}
 
 OPERATIONS
-    setInstanceRating ( instanceType , cpuRating , hddRating , memRating , caller ) =
+    setInstanceRating ( instanceType , cpuRating , hddRating , memRating ) =
     PRE
         instanceType : { allocated , spot }
         & cpuRating : NAT1
         & hddRating : NAT1
         & memRating : NAT1
         & hddRating : NAT1
-        & caller : { admin }
+        & currentUser : { admin }
     THEN
         instanceRating ( instanceType ) := rec ( cpu : cpuRating , hdd : hddRating , mem : memRating )
     END ;
 
-    addClient ( user , caller ) =
+    login ( user ) =
+    PRE
+        currentUser = none
+        & user : admins \/ clients
+    THEN
+        currentUser := user
+    END ;
+
+    logout =
+    PRE
+        currentUser /= none
+    THEN
+        currentUser := none
+    END ;
+
+    addClient ( user ) =
     PRE
         user : USERS
         & user /: clients
         & user /: admins
-        & caller : admins
+        & currentUser : admins
     THEN
         clients := clients \/ { user }
         || finishedInstanceCost ( user ) := 0
     END ;
 
-    addAdmin ( user , caller ) =
+    addAdmin ( user ) =
     PRE
         user : USERS
         & user /: clients
         & user /: admins
-        & caller : admins
+        & currentUser : admins
     THEN
         admins := admins \/ { user }
     END ;
 
-    removeAdmin ( user , caller ) =
+    removeAdmin ( user ) =
     PRE
         user : USERS
         & user : admins
         & admins - { user } /= {}
-        & caller : admins
+        & currentUser : admins
     THEN
         admins := admins - { user }
     END ;
 
-    removeClient ( user , caller ) =
+    removeClient ( user ) =
     PRE
         // TODO guarantee the shutdown of every service owned by this client
         user : USERS
         & user : clients
-        & caller : admins
+        & currentUser : admins
         & { vmp | vmp : ran ( virtualMachineProperties ) & vmp ' owner = user } = {}
     THEN
         clients := clients - { user }
         || finishedInstanceCost := { user } <<| finishedInstanceCost
     END ;
 
-    clientList <-- listClients ( user , caller ) =
+    clientList <-- listClients ( user ) =
     PRE
         user : USERS
-        & caller : admins
+        & currentUser : admins
     THEN
         clientList := clients
     END ;
@@ -147,12 +167,12 @@ OPERATIONS
         currentTime := ( currentTime + 1 ) mod ( MAXINT - 1 )
     END ;
 
-    addResource ( cpu , hdd , mem , caller ) =
+    addResource ( cpu , hdd , mem ) =
     PRE
         cpu : NAT1
         & hdd : NAT1
         & mem : NAT1
-        & caller : admins
+        & currentUser : admins
     THEN
         ANY resource
         WHERE
@@ -165,11 +185,11 @@ OPERATIONS
         END
     END ;
 
-    removeResource ( resource , caller ) =
+    removeResource ( resource ) =
     PRE
         resource : machineResources
         & resource : machineResources
-        & caller : admins
+        & currentUser : admins
         & {  vm |
                 ( vm : virtualMachines )
                 & ( ( virtualMachineProperties ( vm ) ) ' residentMachine = resource )
@@ -297,11 +317,11 @@ OPERATIONS
         END
     END ;
 
-    removeVirtualMachine ( vm , caller ) =
+    removeVirtualMachine ( vm ) =
     PRE
         vm : virtualMachines
         & vm : dom ( virtualMachineProperties )
-        & caller : admins \/ { ( virtualMachineProperties ( vm ) ) ' owner }
+        & currentUser : admins \/ { ( virtualMachineProperties ( vm ) ) ' owner }
         & ( virtualMachineProperties ( vm ) ) ' owner : USERS
         & ( virtualMachineProperties ( vm ) ) ' owner : dom ( finishedInstanceCost )
         & finishedInstanceCost ( ( virtualMachineProperties ( vm ) ) ' owner ) > 0
@@ -354,12 +374,11 @@ OPERATIONS
         )
     END ;
 
-    vmList <-- listVmsForUser ( resourceTypes , user , caller ) =
+    vmList <-- listVmsForUser ( resourceTypes , user ) =
     PRE
         resourceTypes <: VM_CATEGORIES
         & user : USERS
-        & caller : USERS
-        & caller : admins \/ { user }
+        & currentUser : admins \/ { user }
     THEN
         vmList := {  vm |
                             ( vm : dom ( virtualMachineProperties ) )
@@ -367,11 +386,10 @@ OPERATIONS
                         }
     END ;
 
-    billing <-- getBillingForRunningVM ( vm , caller ) =
+    billing <-- getBillingForRunningVM ( vm ) =
     PRE
         vm : virtualMachines
-        & caller : USERS
-        & caller : admins \/ { ( virtualMachineProperties ( vm ) ) ' owner }
+        & currentUser : admins \/ { ( virtualMachineProperties ( vm ) ) ' owner }
         & ( ( virtualMachineProperties ( vm ) ) ' category ) : dom ( instanceRating )
     THEN
         billing := ( ( ( instanceRating ( ( virtualMachineProperties ( vm ) ) ' category ) ) ' cpu )
@@ -385,11 +403,11 @@ OPERATIONS
                         * ( currentTime - ( virtualMachineProperties ( vm ) ) ' startTime ) )
     END ;
 
-    billing <-- getBillingForUser ( user , caller ) =
+    billing <-- getBillingForUser ( user ) =
     PRE
         user : clients
         & user : dom ( finishedInstanceCost )
-        & caller : admins \/ { user }
+        & currentUser : admins \/ { user }
 
     THEN
         // comprehension over finite set must be finite

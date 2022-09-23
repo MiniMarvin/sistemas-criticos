@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>BMotionWeb</title>
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    .template {
+      width: 100%;
+      /* background-color: red; */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login {
+      display: flex;
+      flex-direction: row;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      justify-content: center;
+    }
+
+    .header {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .login-box {
+      background-color: white;
+      border-radius: 5px;
+      border-width: 1px;
+      border-color: black;
+      padding: 50px;
+    }
+
+    .login-box select {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .full-btn {
+      width: 100%;
+      padding: 8px;
+      background-color: #90f1f8;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .full-btn :hover {
+      background-color: #5ac4cb;
+      cursor: grab;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script src="bms.api.js"></script>
+  <script src="script.js"></script>
+
+  <!-- <div data-bms-svg="visualization.svg" class="hiddenContent"></div> -->
+  <!-- Login -->
+  <main class="template">
+    <section class="login">
+      <div class="login-box">
+        <h1>Escolha Como Logar</h1>
+        <!-- TODO: bring the users -->
+        <select name="username">
+          <option value="a">a</option>
+          <option value="b">b</option>
+          <option value="c">c</option>
+        </select>
+
+        <button class="full-btn">continuar</button>
+      </div>
+    </section>
+    <section class="subHeader">
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>

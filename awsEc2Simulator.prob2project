@@ -1,0 +1,30 @@
+{
+  "name": "awsEc2Simulator",
+  "description": "(this project was created automatically from file /Users/caiogomes/Documents/atelierb/aws_ec2/awsEc2Simulator.mch)",
+  "machines": [
+    {
+      "name": "awsEc2Simulator",
+      "description": "",
+      "location": "awsEc2Simulator.mch",
+      "lastUsedPreferenceName": "default",
+      "ltlFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [],
+      "visBVisualisation": null
+    }
+  ],
+  "preferences": [],
+  "metadata": {
+    "fileType": "Project",
+    "formatVersion": 9,
+    "savedAt": "2022-09-09T17:31:25.097387Z",
+    "creator": "User",
+    "proB2KernelVersion": "3.14.0",
+    "proBCliVersion": null,
+    "modelName": null
+  }
+}
