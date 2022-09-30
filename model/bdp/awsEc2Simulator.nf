@@ -56,7 +56,7 @@ THEORY ListInvariantX IS
   Gluing_List_Invariant(Machine(awsEc2Simulator))==(btrue);
   Expanded_List_Invariant(Machine(awsEc2Simulator))==(btrue);
   Abstract_List_Invariant(Machine(awsEc2Simulator))==(btrue);
-  Context_List_Invariant(Machine(awsEc2Simulator))==(VM_CATEGORIES: FIN(VM_CATEGORIES) & VIRTUAL_MACHINES: FIN(VIRTUAL_MACHINES));
+  Context_List_Invariant(Machine(awsEc2Simulator))==(USERS: FIN(USERS) & VM_CATEGORIES: FIN(VM_CATEGORIES) & VIRTUAL_MACHINES: FIN(VIRTUAL_MACHINES));
   List_Invariant(Machine(awsEc2Simulator))==(currentUser: USERS & admins <: USERS & clients <: USERS & admins/\clients = {} & admins/={} & currentTime: NAT & MACHINE_RESOURCES: FIN(MACHINE_RESOURCES) & machineResources <: MACHINE_RESOURCES & machineResourceProperties: machineResources +-> struct(cpu>>NAT1,hdd>>NAT1,mem>>NAT1) & VIRTUAL_MACHINES: FIN(VIRTUAL_MACHINES) & VM_CATEGORIES: FIN(VM_CATEGORIES) & vmCategories <: VM_CATEGORIES & virtualMachines <: VIRTUAL_MACHINES & virtualMachines: FIN(virtualMachines) & virtualMachineProperties: virtualMachines --> struct(residentMachine>>MACHINE_RESOURCES,owner>>USERS,category>>VM_CATEGORIES,startTime>>NAT,cpu>>NAT1,hdd>>NAT1,mem>>NAT1) & virtualMachineProperties: FIN(virtualMachineProperties) & spotVirtualMachines <: virtualMachines & allocatedVirtualMachines <: virtualMachines & spotVirtualMachines\/allocatedVirtualMachines = virtualMachines & spotVirtualMachines/\allocatedVirtualMachines = {} & finishedInstanceCost: USERS +-> NAT & instanceRating: {allocated,spot} +-> struct(cpu>>NAT,hdd>>NAT,mem>>NAT))
 END
 &
@@ -76,9 +76,9 @@ THEORY ListExclusivityX IS
 END
 &
 THEORY ListInitialisationX IS
-  Expanded_List_Initialisation(Machine(awsEc2Simulator))==(admins,currentUser,clients,machineResources,machineResourceProperties,virtualMachines,virtualMachineProperties,vmCategories,spotVirtualMachines,allocatedVirtualMachines,currentTime,instanceRating,finishedInstanceCost:={admin},none,{},{},{},{},{},{allocated,spot},{},{},0,{},{});
+  Expanded_List_Initialisation(Machine(awsEc2Simulator))==(admins,currentUser,clients,machineResources,machineResourceProperties,virtualMachines,virtualMachineProperties,vmCategories,spotVirtualMachines,allocatedVirtualMachines,currentTime,instanceRating,finishedInstanceCost:={admin},none,{},{},{},{},{},{allocated,spot},{},{},0,{allocated|->rec(cpu>>2,hdd>>2,mem>>2),spot|->rec(cpu>>1,hdd>>1,mem>>1)},{});
   Context_List_Initialisation(Machine(awsEc2Simulator))==(skip);
-  List_Initialisation(Machine(awsEc2Simulator))==(admins:={admin} || currentUser:=none || clients:={} || machineResources:={} || machineResourceProperties:={} || virtualMachines:={} || virtualMachineProperties:={} || vmCategories:={allocated,spot} || spotVirtualMachines:={} || allocatedVirtualMachines:={} || currentTime:=0 || instanceRating:={} || finishedInstanceCost:={})
+  List_Initialisation(Machine(awsEc2Simulator))==(admins:={admin} || currentUser:=none || clients:={} || machineResources:={} || machineResourceProperties:={} || virtualMachines:={} || virtualMachineProperties:={} || vmCategories:={allocated,spot} || spotVirtualMachines:={} || allocatedVirtualMachines:={} || currentTime:=0 || instanceRating:={allocated|->rec(cpu>>2,hdd>>2,mem>>2),spot|->rec(cpu>>1,hdd>>1,mem>>1)} || finishedInstanceCost:={})
 END
 &
 THEORY ListParametersX IS
@@ -270,7 +270,7 @@ END
 &
 THEORY ListPropertiesX IS
   Abstract_List_Properties(Machine(awsEc2Simulator))==(btrue);
-  Context_List_Properties(Machine(awsEc2Simulator))==(allocated: VM_CATEGORIES & spot: VM_CATEGORIES & allocated/=spot & admin: USERS & none: USERS & admin/=none & USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}));
+  Context_List_Properties(Machine(awsEc2Simulator))==(allocated: VM_CATEGORIES & spot: VM_CATEGORIES & allocated/=spot & admin: USERS & none: USERS & admin/=none & user0: USERS & user1: USERS & user2: USERS & user3: USERS & user0/=admin & user0/=none & user0/=user1 & user0/=user2 & user0/=user3 & user1/=admin & user1/=none & user1/=user2 & user1/=user3 & user2/=admin & user2/=none & user2/=user3 & user3/=admin & user3/=none & USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}));
   Inherited_List_Properties(Machine(awsEc2Simulator))==(btrue);
   List_Properties(Machine(awsEc2Simulator))==(btrue)
 END
@@ -316,9 +316,9 @@ THEORY ListOfIdsX IS
   List_Of_VisibleCst_Ids(Machine(awsEc2Simulator)) == (?);
   List_Of_VisibleVar_Ids(Machine(awsEc2Simulator)) == (? | ?);
   List_Of_Ids_SeenBNU(Machine(awsEc2Simulator)) == (?: ?);
-  List_Of_Ids(Machine(awsEc2SimulatorCtx)) == (allocated,spot,admin,none,USERS,MACHINE_RESOURCES,VIRTUAL_MACHINES,VM_CATEGORIES | ? | ? | ? | ? | ? | ? | ? | awsEc2SimulatorCtx);
+  List_Of_Ids(Machine(awsEc2SimulatorCtx)) == (allocated,spot,admin,none,user0,user1,user2,user3,USERS,MACHINE_RESOURCES,VIRTUAL_MACHINES,VM_CATEGORIES | ? | ? | ? | ? | ? | ? | ? | awsEc2SimulatorCtx);
   List_Of_HiddenCst_Ids(Machine(awsEc2SimulatorCtx)) == (? | ?);
-  List_Of_VisibleCst_Ids(Machine(awsEc2SimulatorCtx)) == (allocated,spot,admin,none);
+  List_Of_VisibleCst_Ids(Machine(awsEc2SimulatorCtx)) == (allocated,spot,admin,none,user0,user1,user2,user3);
   List_Of_VisibleVar_Ids(Machine(awsEc2SimulatorCtx)) == (? | ?);
   List_Of_Ids_SeenBNU(Machine(awsEc2SimulatorCtx)) == (?: ?)
 END

@@ -134,8 +134,8 @@ END
 &
 THEORY Formulas IS
 ((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
-USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}) & ((allocated) : (VM_CATEGORIES)) & ((spot) : (VM_CATEGORIES)) & not(((allocated) = (spot))) & ((admin) : (USERS)) & ((none) : (USERS)) & not(((admin) = (none)));
-((VM_CATEGORIES) : (FIN(VM_CATEGORIES))) & ((VIRTUAL_MACHINES) : (FIN(VIRTUAL_MACHINES)));
+USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}) & ((allocated) : (VM_CATEGORIES)) & ((spot) : (VM_CATEGORIES)) & not(((allocated) = (spot))) & ((admin) : (USERS)) & ((none) : (USERS)) & not(((admin) = (none))) & ((user0) : (USERS)) & ((user1) : (USERS)) & ((user2) : (USERS)) & ((user3) : (USERS)) & not(((user0) = (admin))) & not(((user0) = (none))) & not(((user0) = (user1))) & not(((user0) = (user2))) & not(((user0) = (user3))) & not(((user1) = (admin))) & not(((user1) = (none))) & not(((user1) = (user2))) & not(((user1) = (user3))) & not(((user2) = (admin))) & not(((user2) = (none))) & not(((user2) = (user3))) & not(((user3) = (admin))) & not(((user3) = (none)));
+((USERS) : (FIN(USERS))) & ((VM_CATEGORIES) : (FIN(VM_CATEGORIES))) & ((VIRTUAL_MACHINES) : (FIN(VIRTUAL_MACHINES)));
 "Invariant is preserved";
 ({admin}) : POW( USERS);
 ((((({admin})) /\ ({}))) = ({}));
@@ -149,7 +149,7 @@ not(((({admin})) = ({})));
 (((({}) \/ ({}))) = ({}));
 (((({}) /\ ({}))) = ({}));
 (({}) : (((USERS) +-> (NAT))));
-(({}) : (((({allocated}\/{spot})) +-> (struct(cpu$8888 >> NAT,hdd$8888 >> NAT,mem$8888 >> NAT)))));
+((({((allocated) |-> (rec(cpu$8888 >> 2,hdd$8888 >> 2,mem$8888 >> 2)))}\/{((spot) |-> (rec(cpu$8888 >> 1,hdd$8888 >> 1,mem$8888 >> 1)))})) : (((({allocated}\/{spot})) +-> (struct(cpu$8888 >> NAT,hdd$8888 >> NAT,mem$8888 >> NAT)))));
 ((currentUser) : (USERS)) & admins : POW( USERS) & clients : POW( USERS) & ((((admins) /\ (clients))) = ({})) & not(((admins) = ({}))) & ((currentTime) : (NAT)) & ((MACHINE_RESOURCES) : (FIN(MACHINE_RESOURCES))) & machineResources : POW( MACHINE_RESOURCES) & ((machineResourceProperties) : (((machineResources) +-> (struct(cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0})))))) & ((VIRTUAL_MACHINES) : (FIN(VIRTUAL_MACHINES))) & ((VM_CATEGORIES) : (FIN(VM_CATEGORIES))) & vmCategories : POW( VM_CATEGORIES) & virtualMachines : POW( VIRTUAL_MACHINES) & ((virtualMachines) : (FIN(virtualMachines))) & virtualMachineProperties : virtualMachines +-> struct(category$8888 >> VM_CATEGORIES,cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}),owner$8888 >> USERS,residentMachine$8888 >> MACHINE_RESOURCES,startTime$8888 >> NAT) & dom(virtualMachineProperties) = virtualMachines & ((virtualMachineProperties) : (((virtualMachines) --> (struct(category$8888 >> VM_CATEGORIES,cpu$8888 >> (NAT-{0}),hdd$8888 >> (NAT-{0}),mem$8888 >> (NAT-{0}),owner$8888 >> USERS,residentMachine$8888 >> MACHINE_RESOURCES,startTime$8888 >> NAT))))) & ((virtualMachineProperties) : (FIN(virtualMachineProperties))) & spotVirtualMachines : POW( virtualMachines) & allocatedVirtualMachines : POW( virtualMachines) & ((((spotVirtualMachines) \/ (allocatedVirtualMachines))) = (virtualMachines)) & ((((spotVirtualMachines) /\ (allocatedVirtualMachines))) = ({})) & ((finishedInstanceCost) : (((USERS) +-> (NAT)))) & ((instanceRating) : (((({allocated}\/{spot})) +-> (struct(cpu$8888 >> NAT,hdd$8888 >> NAT,mem$8888 >> NAT)))));
 ((instanceType) : (({allocated}\/{spot})));
 ((cpuRating) : ((NAT-{0})));

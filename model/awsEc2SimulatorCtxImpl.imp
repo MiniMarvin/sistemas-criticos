@@ -7,12 +7,12 @@ IMPLEMENTATION awsEc2SimulatorCtxImpl
 REFINES awsEc2SimulatorCtx
 
 VALUES
-    MACHINE_RESOURCES = 0..100;
+    MACHINE_RESOURCES = 0..102;
     VIRTUAL_MACHINES = 1..1000;
     VM_CATEGORIES = {0, 1};
     allocated = 0;
     spot = 1;
-    USERS = 1..10000;
+    USERS = 1..100;
     none = 1;
     admin = 2
 

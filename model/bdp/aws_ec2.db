@@ -12,8 +12,5 @@
         <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2/model" name="awsEc2SimulatorCtx" suffix="mch" user="caiogomes">
             <component name="awsEc2SimulatorCtx" type="specification" />
         </component_file>
-        <component_file path="/Users/caiogomes/Documents/atelierb/aws_ec2/model" name="awsEc2SimulatorCtxImpl" suffix="imp" user="caiogomes">
-            <component name="awsEc2SimulatorCtxImpl" type="implementation" />
-        </component_file>
     </project>
 </db_xml>

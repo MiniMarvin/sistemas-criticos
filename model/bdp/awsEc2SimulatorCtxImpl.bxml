@@ -18,7 +18,7 @@
 <Pos l='10' c='25' s='1'/>
 </Attr>
 </Integer_Literal>
-<Integer_Literal value='100' typref='1'>
+<Integer_Literal value='102' typref='1'>
 <Attr>
 <Pos l='10' c='28' s='3'/>
 </Attr>

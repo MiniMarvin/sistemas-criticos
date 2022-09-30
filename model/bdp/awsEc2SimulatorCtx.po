@@ -1,12 +1,14 @@
 THEORY ProofList IS
+_f(1) & _f(2) & Initialisation.3,(_f(3) => _f(6));
 _f(1) & _f(2) & Initialisation.2,(_f(3) => _f(5));
 _f(1) & _f(2) & Initialisation.1,(_f(3) => _f(4))
 END
 &
 THEORY Formulas IS
 ((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
-USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}) & ((allocated) : (VM_CATEGORIES)) & ((spot) : (VM_CATEGORIES)) & not(((allocated) = (spot))) & ((admin) : (USERS)) & ((none) : (USERS)) & not(((admin) = (none)));
+USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}) & ((allocated) : (VM_CATEGORIES)) & ((spot) : (VM_CATEGORIES)) & not(((allocated) = (spot))) & ((admin) : (USERS)) & ((none) : (USERS)) & not(((admin) = (none))) & ((user0) : (USERS)) & ((user1) : (USERS)) & ((user2) : (USERS)) & ((user3) : (USERS)) & not(((user0) = (admin))) & not(((user0) = (none))) & not(((user0) = (user1))) & not(((user0) = (user2))) & not(((user0) = (user3))) & not(((user1) = (admin))) & not(((user1) = (none))) & not(((user1) = (user2))) & not(((user1) = (user3))) & not(((user2) = (admin))) & not(((user2) = (none))) & not(((user2) = (user3))) & not(((user3) = (admin))) & not(((user3) = (none)));
 "Invariant is preserved";
+((USERS) : (FIN(USERS)));
 ((VM_CATEGORIES) : (FIN(VM_CATEGORIES)));
 ((VIRTUAL_MACHINES) : (FIN(VIRTUAL_MACHINES)))
 END

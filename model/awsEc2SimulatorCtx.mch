@@ -15,12 +15,12 @@ CONSTANTS
     allocated,
     spot,
     admin,
-    none
+    none,
+    user0,user1,user2,user3
     
 INVARIANT
-//    USERS : FIN(USERS)
-
-    VM_CATEGORIES : FIN(VM_CATEGORIES)
+    USERS : FIN(USERS)
+    & VM_CATEGORIES : FIN(VM_CATEGORIES)
     & VIRTUAL_MACHINES : FIN(VIRTUAL_MACHINES)
 
 PROPERTIES
@@ -30,6 +30,11 @@ PROPERTIES
     & admin : USERS
     & none : USERS
     & admin /= none
+    &user0:USERS&user1:USERS&user2:USERS&user3:USERS
+    &user0/=admin&user0/=none&user0/=user1&user0/=user2&user0/=user3
+    &user1/=admin&user1/=none&user1/=user2&user1/=user3
+    &user2/=admin&user2/=none&user2/=user3
+    &user3/=admin&user3/=none
 
 
 END

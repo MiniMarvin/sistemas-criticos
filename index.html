@@ -34,7 +34,7 @@
     }
 
     .template {
-      padding: 10px;
+      padding: 10px 50px 10px 20px;
       width: 100%;
       /* background-color: red; */
       display: flex;
@@ -107,6 +107,25 @@
       align-content: stretch;
     }
 
+    .list-elements {
+      width: 100%;
+      margin-top: 20px;
+      background-color: red;
+    }
+
+    .list-elements table {
+      width: 100%;
+    }
+
+    td {
+      border-width: 1px;
+      border-color: black;
+      border-style: solid;
+    }
+
+    .margin-v-10 {
+      margin: 10px 0px;
+    }
   </style>
 </head>
 
@@ -143,13 +162,18 @@
     <section class="header">
       <div class="row-block">
         <h3 style="margin-right: 20px">Usuários</h3>
-        <!-- <input type="number" placeholder="novo usuário..." id="newUserName" /> -->
         <div style="width:50px">
           <button class="full-btn" id="addUser" title="adicionar usuário">+</button>
         </div>
       </div>
 
       <button class="text-btn" id="resources-view">ver recursos</button>
+    </section>
+    <section class="header">
+      <button class="text-btn" id="reloadUsersView">recarregar tabela</button>
+    </section>
+    <section class="list-elements margin-v-10">
+      <table id="usersTable"></table>
     </section>
   </main>
 

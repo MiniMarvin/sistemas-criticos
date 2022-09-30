@@ -57,7 +57,7 @@ THEORY ListInvariantX IS
   Expanded_List_Invariant(Machine(awsEc2SimulatorCtx))==(btrue);
   Abstract_List_Invariant(Machine(awsEc2SimulatorCtx))==(btrue);
   Context_List_Invariant(Machine(awsEc2SimulatorCtx))==(btrue);
-  List_Invariant(Machine(awsEc2SimulatorCtx))==(VM_CATEGORIES: FIN(VM_CATEGORIES) & VIRTUAL_MACHINES: FIN(VIRTUAL_MACHINES))
+  List_Invariant(Machine(awsEc2SimulatorCtx))==(USERS: FIN(USERS) & VM_CATEGORIES: FIN(VM_CATEGORIES) & VIRTUAL_MACHINES: FIN(VIRTUAL_MACHINES))
 END
 &
 THEORY ListAssertionsX IS
@@ -110,9 +110,9 @@ THEORY ListPreconditionX END
 THEORY ListSubstitutionX END
 &
 THEORY ListConstantsX IS
-  List_Valuable_Constants(Machine(awsEc2SimulatorCtx))==(allocated,spot,admin,none);
+  List_Valuable_Constants(Machine(awsEc2SimulatorCtx))==(allocated,spot,admin,none,user0,user1,user2,user3);
   Inherited_List_Constants(Machine(awsEc2SimulatorCtx))==(?);
-  List_Constants(Machine(awsEc2SimulatorCtx))==(allocated,spot,admin,none)
+  List_Constants(Machine(awsEc2SimulatorCtx))==(allocated,spot,admin,none,user0,user1,user2,user3)
 END
 &
 THEORY ListSetsX IS
@@ -143,7 +143,7 @@ THEORY ListPropertiesX IS
   Abstract_List_Properties(Machine(awsEc2SimulatorCtx))==(btrue);
   Context_List_Properties(Machine(awsEc2SimulatorCtx))==(btrue);
   Inherited_List_Properties(Machine(awsEc2SimulatorCtx))==(btrue);
-  List_Properties(Machine(awsEc2SimulatorCtx))==(allocated: VM_CATEGORIES & spot: VM_CATEGORIES & allocated/=spot & admin: USERS & none: USERS & admin/=none & USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}))
+  List_Properties(Machine(awsEc2SimulatorCtx))==(allocated: VM_CATEGORIES & spot: VM_CATEGORIES & allocated/=spot & admin: USERS & none: USERS & admin/=none & user0: USERS & user1: USERS & user2: USERS & user3: USERS & user0/=admin & user0/=none & user0/=user1 & user0/=user2 & user0/=user3 & user1/=admin & user1/=none & user1/=user2 & user1/=user3 & user2/=admin & user2/=none & user2/=user3 & user3/=admin & user3/=none & USERS: FIN(INTEGER) & not(USERS = {}) & MACHINE_RESOURCES: FIN(INTEGER) & not(MACHINE_RESOURCES = {}) & VIRTUAL_MACHINES: FIN(INTEGER) & not(VIRTUAL_MACHINES = {}) & VM_CATEGORIES: FIN(INTEGER) & not(VM_CATEGORIES = {}))
 END
 &
 THEORY ListSeenInfoX END
@@ -151,9 +151,9 @@ THEORY ListSeenInfoX END
 THEORY ListANYVarX END
 &
 THEORY ListOfIdsX IS
-  List_Of_Ids(Machine(awsEc2SimulatorCtx)) == (allocated,spot,admin,none,USERS,MACHINE_RESOURCES,VIRTUAL_MACHINES,VM_CATEGORIES | ? | ? | ? | ? | ? | ? | ? | awsEc2SimulatorCtx);
+  List_Of_Ids(Machine(awsEc2SimulatorCtx)) == (allocated,spot,admin,none,user0,user1,user2,user3,USERS,MACHINE_RESOURCES,VIRTUAL_MACHINES,VM_CATEGORIES | ? | ? | ? | ? | ? | ? | ? | awsEc2SimulatorCtx);
   List_Of_HiddenCst_Ids(Machine(awsEc2SimulatorCtx)) == (? | ?);
-  List_Of_VisibleCst_Ids(Machine(awsEc2SimulatorCtx)) == (allocated,spot,admin,none);
+  List_Of_VisibleCst_Ids(Machine(awsEc2SimulatorCtx)) == (allocated,spot,admin,none,user0,user1,user2,user3);
   List_Of_VisibleVar_Ids(Machine(awsEc2SimulatorCtx)) == (? | ?);
   List_Of_Ids_SeenBNU(Machine(awsEc2SimulatorCtx)) == (?: ?)
 END
@@ -163,7 +163,7 @@ THEORY SetsEnvX IS
 END
 &
 THEORY ConstantsEnvX IS
-  Constants(Machine(awsEc2SimulatorCtx)) == (Type(allocated) == Cst(atype(VM_CATEGORIES,?,?));Type(spot) == Cst(atype(VM_CATEGORIES,?,?));Type(admin) == Cst(atype(USERS,?,?));Type(none) == Cst(atype(USERS,?,?)))
+  Constants(Machine(awsEc2SimulatorCtx)) == (Type(allocated) == Cst(atype(VM_CATEGORIES,?,?));Type(spot) == Cst(atype(VM_CATEGORIES,?,?));Type(admin) == Cst(atype(USERS,?,?));Type(none) == Cst(atype(USERS,?,?));Type(user0) == Cst(atype(USERS,?,?));Type(user1) == Cst(atype(USERS,?,?));Type(user2) == Cst(atype(USERS,?,?));Type(user3) == Cst(atype(USERS,?,?)))
 END
 &
 THEORY TCIntRdX IS

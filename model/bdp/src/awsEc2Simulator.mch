@@ -72,7 +72,7 @@ INITIALISATION
     || spotVirtualMachines := {}
     || allocatedVirtualMachines := {}
     || currentTime := 0
-    || instanceRating := {}
+    || instanceRating := { allocated |-> rec ( cpu : 2 , hdd : 2 , mem : 2 ) , spot |-> rec ( cpu : 1 , hdd : 1 , mem : 1 ) }
     || finishedInstanceCost := {}
 
 OPERATIONS
@@ -411,6 +411,7 @@ OPERATIONS
                         * ( ( virtualMachineProperties ( vm ) ) ' mem )
                         * ( currentTime - ( virtualMachineProperties ( vm ) ) ' startTime ) )
     END ;
+
 
     billing <-- getBillingForUser ( user ) =
     PRE
