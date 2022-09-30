@@ -1,12 +1,23 @@
 'use strict'
 
 /**
- * @type {{users: string[], admins: string[], clients: string[], pages: Set<string>, currentPage: string}}
+ * @type {{
+ *  users: string[], 
+ *  admins: string[], 
+ *  clientsData: {
+ *    id: string,
+ *    'consumo (R$)': string,
+ *    '# EC2': string,
+ *    '# spots': string,
+ *  }[], 
+ *  pages: Set<string>, 
+ *  currentPage: string
+ * }}
  */
 const state = {
   users: [],
   admins: [],
-  clients: [],
+  clientsData: [],
   pages: new Set(),
   currentPage: ''
 }
@@ -39,21 +50,21 @@ function addObservers() {
 
   bms.observe("formula", {
     selector: '#shadow',
-    // currentTime,virtualMachines,instanceRating: triggers billing update
     formulas: ["clients"],
     trigger: function (_, values) {
-      console.log('[clients] update:', { values })
       const newClients = parseSet(values[0])
-      // TODO: update to figure how to handle only new values
-      if (state.clients != newClients) {
-        state.clients = newClients
-      } else {
-        return
-      }
+      console.log('>', { newClients })
+      const keepTable = {}
+      const keepData = state.clientsData.filter(data => {
+        const willKeep = newClients.includes(data.id)
+        keepTable[data.id] = willKeep
+        return willKeep
+      })
+      console.log('>>', { keepData, keepTable })
 
-      // TODO: In order to let it work by clicking in the user the billing will be retrieved
-      // So it's the ugly way but works :/
-      const clientsData = state.clients.map(client => {
+      const newData = newClients.filter(client => {
+        return !keepTable[client]
+      }).map(client => {
         return {
           id: client,
           'consumo (R$)': '?',
@@ -62,7 +73,11 @@ function addObservers() {
         }
       })
 
-      replaceTable('usersTable', clientsData, ['id', 'consumo (R$)', '# EC2', '# spots'])
+      console.log('>>', { newData })
+
+      state.clientsData = [...keepData, ...newData]
+      console.log('>>>', { clientsData: state.clientsData })
+      replaceTable('usersTable', state.clientsData, ['id', 'consumo (R$)', '# EC2', '# spots'])
     }
   })
 
@@ -133,11 +148,14 @@ function addHandlers() {
 
 function addHtmlEventHandlers() {
   document.getElementById('reloadUsersView').onclick = () => {
-    const billingPromises = state.clients.map(client => {
-      return executeOperation('getBillingForUser', `user=${client}`)
+    const billingPromises = state.clientsData.map(client => {
+      return executeOperation('getBillingForUser', `user=${client.id}`)
     })
     Promise.all(billingPromises).then(billings => {
       console.log('[reload billing]', { billings })
+      state.clientsData.forEach((client, idx) => {
+        client['consumo (R$)'] = billings[idx][0]
+      })
     }).catch(err => {
       console.log('[reload billing ERROR]', { err })
     })
