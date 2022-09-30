@@ -12,12 +12,27 @@
  *  }[], 
  *  currentUser: string,
  *  pages: Set<string>, 
- *  currentPage: string
+ *  currentPage: string,
  *  mrData: {[key:string]: {
  *    id: string,
  *    mem: number,
  *    cpu: number,
  *    hdd: number
+ *  }},
+ *  vmProperties: {[key:string]: {
+ *    vm: string,
+ *    residentMachine: string,
+ *    owner: string,
+ *    category: string,
+ *    startTime: number,
+ *    cpu: number,
+ *    hdd: number,
+ *    mem: number
+ *  }},
+ *  used: {[key: string]: {
+ *    cpu: number,
+ *    hdd: number,
+ *    mem: number
  *  }}
  * }}
  */
@@ -28,7 +43,9 @@ const state = {
   currentUser: '',
   pages: new Set(),
   currentPage: '',
-  mrData: {}
+  mrData: {},
+  vmProperties: {},
+  used: {}
 }
 
 function main() {
@@ -72,17 +89,16 @@ function addObservers() {
       })
 
       const newData = newClients.filter(client => {
+        if (!client) return false
         return !keepTable[client]
       }).map(client => {
         return {
           id: client,
-          'consumo (R$)': '?',
-          '# EC2': '?',
-          '# spots': '?',
         }
       })
 
       state.clientsData = [...keepData, ...newData]
+      console.log(`[update clients]`, { clientsData: state.clientsData })
       replaceUsersTable(state.clientsData)
     }
   })
@@ -92,7 +108,37 @@ function addObservers() {
     formulas: ["virtualMachineProperties"],
     translate: true,
     trigger: (_, values) => {
-      console.log('[VM_PROPERTIES] ', { values })
+      const vmProperties = {}
+      const used = {}
+      values[0].forEach(v => {
+        const vmProp = {
+          vm: v[0],
+          residentMachine: v[1].residentMachine,
+          owner: v[1].owner,
+          category: v[1].category,
+          startTime: v[1].startTime,
+          cpu: v[1].cpu,
+          hdd: v[1].hdd,
+          mem: v[1].mem,
+        }
+
+        vmProperties[vmProp.vm] = vmProp
+
+        if (used[vmProp.residentMachine]) {
+          used[vmProp.residentMachine].mem += vmProp.mem
+          used[vmProp.residentMachine].cpu += vmProp.cpu
+          used[vmProp.residentMachine].hdd += vmProp.hdd
+        } else {
+          used[vmProp.residentMachine].mem = 0
+          used[vmProp.residentMachine].cpu = 0
+          used[vmProp.residentMachine].hdd = 0
+        }
+      })
+
+      state.vmProperties = vmProperties
+      state.used = used
+      console.log('[VM_PROPERTIES] ', { used })
+      updateUsedMachineResources()
     }
   })
 
@@ -103,19 +149,29 @@ function addObservers() {
     trigger: (_, values) => {
       const mrProps = {}
       const data = values[0].map(v => {
+        console.log(`[machineResourceProperties]`, {v})
         const mrProp = {
           id: v[0],
           mem: v[1].mem,
           cpu: v[1].cpu,
           hdd: v[1].hdd
         }
+
         mrProps[v[0]] = mrProp
-        return mrProp
+        return {
+          id: mrProp.id,
+          hdd: mrProp.hdd,
+          mem: mrProp.mem,
+          cpu: mrProp.cpu,
+          mem_livre: mrProp.mem - ((state.used[mrProp.id] || {}).mem || 0),
+          cpu_livre: mrProp.cpu - ((state.used[mrProp.id] || {}).cpu || 0),
+          hdd_livre: mrProp.hdd - ((state.used[mrProp.id] || {}).hdd || 0),
+        }
       })
 
       state.mrData = mrProps
+      console.log({ mrProps, data })
       replaceResourcesTable(data)
-      // console.log('[MACHINE_RESOURCES_PROPERTIES] ', { mrProps })
     }
   })
 
@@ -259,8 +315,25 @@ function updateUserPool(users) {
   replaceOptions('usernameSelector', users)
 }
 
-function login() {
+function updateUsedMachineResources() {
+  console.log('>>>>', { used: state.used, mrData: state.mrData })
+  if (Object.keys(state.mrData).length === 0) {
+    return
+  }
 
+  const computedTable = Object.keys(state.mrData).map(key => {
+    return {
+      id: key,
+      mem: state.mrData[key].mem,
+      cpu: state.mrData[key].cpu,
+      hdd: state.mrData[key].hdd,
+      mem_livre: state.mrData[key].mem - ((state.used[key] || {}).mem || 0),
+      cpu_livre: state.mrData[key].cpu - ((state.used[key] || {}).cpu || 0),
+      hdd_livre: state.mrData[key].hdd - ((state.used[key] || {}).hdd || 0),
+    }
+  })
+  console.log({ computedTable })
+  replaceResourcesTable(computedTable)
 }
 
 /**
@@ -448,7 +521,7 @@ function executeOperation(operation, predicate) {
 
 
 function replaceUsersTable(data) {
-  replaceTable('usersTable', data || [], ['id', 'consumo (R$)', '# EC2', '# spots'])
+  replaceTable('usersTable', data, ['id', 'consumo (R$)', '# EC2', '# spots'])
 }
 
 function replaceResourcesTable(data) {
