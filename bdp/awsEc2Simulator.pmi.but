@@ -1,1 +1,0 @@
-﻿Flag(FileOn("awsEc2Simulator.pmi.res")) & Set(toto | virtualMachineProperties(vm)'owner: dom(finishedInstanceCost))
