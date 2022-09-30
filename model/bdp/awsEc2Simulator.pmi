@@ -1,6 +1,6 @@
 THEORY BalanceX IS
-awsEc2Simulator,131,0,0,119,0,0,0;
-Initialisation,14,0,0,14,0,0,0;
+awsEc2Simulator,130,0,0,118,0,0,0;
+Initialisation,13,0,0,13,0,0,0;
 Operation_addAdmin,3,0,0,3,0,0,0;
 Operation_addAllocatedVirtualMachine,8,0,0,7,0,0,0;
 Operation_addArbitraryClient,3,0,0,3,0,0,0;
@@ -130,7 +130,6 @@ Proved(0);
 Proved(0);
 Proved(0);
 Unproved;
-Proved(0);
 Proved(0);
 Proved(0);
 Proved(0);
@@ -291,7 +290,6 @@ pr;
 pr;
 pr;
 pr;
-pr;
 pr
 END
 &
@@ -425,13 +423,12 @@ Force(0),?;
 Force(0),?;
 Force(0),?;
 Force(0),?;
-Force(0),?;
 Force(0),?
 END
 &
 THEORY Status IS
-awsEc2Simulator,131,0,119,0,0,0;
-Initialisation,14,0,14,0,0,0;
+awsEc2Simulator,130,0,118,0,0,0;
+Initialisation,13,0,13,0,0,0;
 Operation_addAdmin,3,0,3,0,0,0;
 Operation_addAllocatedVirtualMachine,8,0,7,0,0,0;
 Operation_addArbitraryClient,3,0,3,0,0,0;

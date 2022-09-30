@@ -10,16 +10,25 @@
  *    '# EC2': string,
  *    '# spots': string,
  *  }[], 
+ *  currentUser: string,
  *  pages: Set<string>, 
  *  currentPage: string
+ *  mrData: {[key:string]: {
+ *    id: string,
+ *    mem: number,
+ *    cpu: number,
+ *    hdd: number
+ *  }}
  * }}
  */
 const state = {
   users: [],
   admins: [],
   clientsData: [],
+  currentUser: '',
   pages: new Set(),
-  currentPage: ''
+  currentPage: '',
+  mrData: {}
 }
 
 function main() {
@@ -37,6 +46,8 @@ function main() {
 function addObservers() {
   bms.init(() => {
     console.log('did init')
+    replaceUsersTable([])
+    replaceResourcesTable([])
   })
 
   bms.observe("formula", {
@@ -53,14 +64,12 @@ function addObservers() {
     formulas: ["clients"],
     trigger: function (_, values) {
       const newClients = parseSet(values[0])
-      console.log('>', { newClients })
       const keepTable = {}
       const keepData = state.clientsData.filter(data => {
         const willKeep = newClients.includes(data.id)
         keepTable[data.id] = willKeep
         return willKeep
       })
-      console.log('>>', { keepData, keepTable })
 
       const newData = newClients.filter(client => {
         return !keepTable[client]
@@ -73,11 +82,40 @@ function addObservers() {
         }
       })
 
-      console.log('>>', { newData })
-
       state.clientsData = [...keepData, ...newData]
-      console.log('>>>', { clientsData: state.clientsData })
-      replaceTable('usersTable', state.clientsData, ['id', 'consumo (R$)', '# EC2', '# spots'])
+      replaceUsersTable(state.clientsData)
+    }
+  })
+
+  bms.observe("formula", {
+    selector: '#shadow',
+    formulas: ["virtualMachineProperties"],
+    translate: true,
+    trigger: (_, values) => {
+      console.log('[VM_PROPERTIES] ', { values })
+    }
+  })
+
+  bms.observe("formula", {
+    selector: '#shadow',
+    formulas: ["machineResourceProperties"],
+    translate: true,
+    trigger: (_, values) => {
+      const mrProps = {}
+      const data = values[0].map(v => {
+        const mrProp = {
+          id: v[0],
+          mem: v[1].mem,
+          cpu: v[1].cpu,
+          hdd: v[1].hdd
+        }
+        mrProps[v[0]] = mrProp
+        return mrProp
+      })
+
+      state.mrData = mrProps
+      replaceResourcesTable(data)
+      // console.log('[MACHINE_RESOURCES_PROPERTIES] ', { mrProps })
     }
   })
 
@@ -97,10 +135,15 @@ function addObservers() {
     formulas: ["currentUser"],
     trigger: function (_, values) {
       const currentUser = values[0]
-      console.log('[currentUser]updated:', { currentUser })
+      console.log('[currentUser] updated:', { currentUser })
       if (!currentUser || currentUser === 'none') {
         setPage('loginScreen')
       } else {
+        if (state.currentUser === currentUser) {
+          return
+        }
+
+        state.currentUser = currentUser
         if (state.admins.includes(currentUser)) {
           setPage('adminScreen')
         } else {
@@ -144,6 +187,27 @@ function addHandlers() {
       }
     ]
   })
+
+  bms.executeEvent({
+    selector: '#addResource',
+    events: [
+      {
+        name: 'addResource',
+        predicate: () => {
+          console.log(`[addResource] trying predicate...`)
+          const mem = document.getElementById('addResourceMem').value
+          const hdd = document.getElementById('addResourceHdd').value
+          const cpu = document.getElementById('addResourceCpu').value
+          const myPredicate = `mem=${mem}&hdd=${hdd}&cpu=${cpu}`
+          console.log(`[addResource]${myPredicate}`)
+          return myPredicate
+        }
+      }
+    ],
+    callback: () => {
+      console.log(`[addResource_CALLBACK] executed...`)
+    }
+  })
 }
 
 function addHtmlEventHandlers() {
@@ -159,6 +223,18 @@ function addHtmlEventHandlers() {
     }).catch(err => {
       console.log('[reload billing ERROR]', { err })
     })
+  }
+
+  document.getElementById('reloadResourcesView').onclick = () => {
+
+  }
+
+  document.getElementById('resources-view').onclick = () => {
+    setPage('adminResourcesScreen')
+  }
+
+  document.getElementById('users-view').onclick = () => {
+    setPage('adminScreen')
   }
 }
 
@@ -259,7 +335,7 @@ function replaceTable(id, values, headers) {
       const td = document.createElement('td')
       td.id = `${id}-td-${i}-${j}`
       // console.log({ i, val })
-      td.innerText = val[header] || ''
+      td.innerText = val[header] || '?'
       tr.appendChild(td)
     })
     return tr
@@ -317,7 +393,7 @@ function executeOperation(operation, predicate) {
 
   let usedExecutor = Promise.resolve()
   if (freeGroup[operation].length === 0) {
-    console.log('[freeGroup -> 0]', { operationGroup, freeGroup })
+    // console.log('[freeGroup -> 0]', { operationGroup, freeGroup })
     // setup new executor
     const randomId = makeId(10)
     operationGroup[operation][randomId] = {
@@ -368,6 +444,15 @@ function executeOperation(operation, predicate) {
       document.getElementById(executor).click()
     })
   })
+}
+
+
+function replaceUsersTable(data) {
+  replaceTable('usersTable', data || [], ['id', 'consumo (R$)', '# EC2', '# spots'])
+}
+
+function replaceResourcesTable(data) {
+  replaceTable('resourcesTable', data, ['id', 'hdd', 'hdd_livre', 'cpu', 'cpu_livre', 'mem', 'mem_livre', 'vms'])
 }
 
 //===================================

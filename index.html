@@ -89,6 +89,7 @@
       background-color: transparent;
       color: #A5CAE5;
       border: none;
+      cursor: pointer;
     }
 
     .text-btn :hover {
@@ -110,7 +111,7 @@
     .list-elements {
       width: 100%;
       margin-top: 20px;
-      background-color: red;
+      /* background-color: red; */
     }
 
     .list-elements table {
@@ -125,6 +126,15 @@
 
     .margin-v-10 {
       margin: 10px 0px;
+    }
+
+    .input-bar {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-bar span {
+      width: 100%;
     }
   </style>
 </head>
@@ -174,6 +184,43 @@
     </section>
     <section class="list-elements margin-v-10">
       <table id="usersTable"></table>
+    </section>
+  </main>
+
+  <main id="adminResourcesScreen" class="template hidden">
+    <section class="header">
+      <h1>Administração</h1>
+      <div style="width:100px">
+        <button class="full-btn logoutBtn" id="logoutBtnAdmin">sair</button>
+      </div>
+    </section>
+    <section class="header">
+      <div class="row-block">
+        <h3 style="margin-right: 20px">Recursos</h3>
+        <div class="input-bar">
+          <span>mem:</span>
+          <input type="number" id="addResourceMem" />
+        </div>
+        <div class="input-bar">
+          <span>hdd:</span>
+          <input type="number" id="addResourceHdd" />
+        </div>
+        <div class="input-bar">
+          <span>cpu:</span>
+          <input type="number" id="addResourceCpu" />
+        </div>
+        <div style="width:50px">
+          <button class="full-btn" id="addResource" title="adicionar recursos">+</button>
+        </div>
+      </div>
+
+      <button class="text-btn" id="users-view">ver usuários</button>
+    </section>
+    <section class="header">
+      <button class="text-btn" id="reloadResourcesView">recarregar tabela</button>
+    </section>
+    <section class="list-elements margin-v-10">
+      <table id="resourcesTable"></table>
     </section>
   </main>
 
