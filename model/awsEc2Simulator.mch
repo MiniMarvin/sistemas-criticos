@@ -57,7 +57,7 @@ INVARIANT
     & allocatedVirtualMachines <: virtualMachines
     & spotVirtualMachines \/ allocatedVirtualMachines = virtualMachines
     & spotVirtualMachines /\ allocatedVirtualMachines = {}
-    & finishedInstanceCost : USERS +-> NAT
+    & finishedInstanceCost : USERS +-> 1..1000
     & instanceRating : {allocated, spot} +-> struct(cpu: NAT, hdd: NAT, mem: NAT)
 
 INITIALISATION
@@ -349,8 +349,7 @@ OPERATIONS
         & vm : dom(virtualMachineProperties)
         & currentUser : admins \/ {(virtualMachineProperties(vm))'owner}
         & (virtualMachineProperties(vm))'owner : USERS
-        //& (virtualMachineProperties(vm))'owner : dom(finishedInstanceCost) 
-        //& finishedInstanceCost((virtualMachineProperties(vm))'owner) > 0
+        & (virtualMachineProperties(vm))'owner : dom(finishedInstanceCost) 
         & (virtualMachineProperties(vm))'category : dom(instanceRating)
         &  ((instanceRating((virtualMachineProperties(vm))'category))'cpu)  > 0
         &  ((virtualMachineProperties(vm))'cpu)  > 0

@@ -286,8 +286,9 @@ function addObservers() {
     formulas: ["currentUser"],
     trigger: function (_, values) {
       const currentUser = values[0]
-      // console.log('[currentUser] updated:', { currentUser })
+      console.log('[currentUser] updated:', { currentUser })
       if (!currentUser || currentUser === 'none') {
+        state.currentUser = currentUser
         setPage('loginScreen')
       } else {
         if (state.currentUser === currentUser) {
@@ -568,7 +569,7 @@ function replaceTable(id, values, headers) {
       const td = document.createElement('td')
       td.id = `${id}-td-${i}-${j}`
       const colClass = `${id}_${headers[j].replace(/[#()\\/\.]/g, '').replace(' ', '')}`.replace(' ', '')
-      console.log({ colClass })
+      // console.log({ colClass })
       td.classList.add(colClass)
       let txt = '?'
       if (val[header] !== undefined && val[header] !== null) txt = val[header]
