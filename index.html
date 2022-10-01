@@ -137,6 +137,19 @@
     .input-bar span {
       width: 100%;
     }
+
+    #ticker {
+      position: absolute;
+      padding: 20px;
+      right: 20px;
+      bottom: 20px;
+      background-color: aqua;
+      border-width: 1px;
+      filter:  drop-shadow(0 0 0.75rem crimson);
+      z-index: 1000;
+      cursor: pointer;
+      border-radius: 5px;
+    }
   </style>
 </head>
 
@@ -247,6 +260,7 @@
           <span>cpu:</span>
           <input type="number" id="addVmCpu" />
         </div>
+        <div style="width: 20px"></div>
         <div style="width:50px">
           <button class="full-btn" id="addUserVmAllocated" title="adicionar VM">+ ec2</button>
         </div>
@@ -255,7 +269,7 @@
           <button class="full-btn" id="addUserVmSpot" title="adicionar VM">+ spot</button>
         </div>
       </div>
-      <button class="text-btn" id="vms-view">ver billing</button>
+      <!-- <button class="text-btn" id="vms-view">ver billing</button> -->
     </section>
     <section class="header">
       <button class="text-btn" id="reloadUserVmsView">recarregar lista de recursos</button>
@@ -264,6 +278,7 @@
       <table id="userVmsTable"></table>
     </section>
   </main>
+  <div id="ticker">+ 0</div>
   <div id="shadow"></div>
 </body>
 

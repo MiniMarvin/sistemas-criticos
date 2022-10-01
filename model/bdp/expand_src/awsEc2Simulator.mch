@@ -30,7 +30,7 @@ INVARIANT
     & clients <: USERS
     & admins /\ clients = {}
     & admins /= {}
-    & currentTime : NAT
+    & currentTime : 0 .. 100
     & MACHINE_RESOURCES : FIN ( MACHINE_RESOURCES )
     & machineResources <: MACHINE_RESOURCES
     & machineResourceProperties : machineResources +-> struct (
@@ -173,7 +173,7 @@ OPERATIONS
 
     tickTimer =
     BEGIN
-        currentTime := ( currentTime + 1 ) mod ( MAXINT - 1 )
+        currentTime := ( currentTime + 1 ) mod 100
     END ;
 
     addResource ( cpu , hdd , mem ) =
@@ -259,24 +259,47 @@ OPERATIONS
             ANY pset
             WHERE
                 pset <: virtualMachineProperties
-                & cpu <= SIGMA vm1 . (
-                    vm1 : dom ( pset )
-                    & ( pset ( vm1 ) ) ' residentMachine = machine
-                    & ( pset ( vm1 ) ) ' category = spot
-                    | ( pset ( vm1 ) ) ' cpu
-                )
-                & mem <= SIGMA vm1 . (
-                    vm1 : dom ( pset )
-                    & ( pset ( vm1 ) ) ' residentMachine = machine
-                    & ( pset ( vm1 ) ) ' category = spot
-                    | ( pset ( vm1 ) ) ' mem
-                )
-                & hdd <= SIGMA vm1 . (
-                    vm1 : dom ( pset )
-                    & ( pset ( vm1 ) ) ' residentMachine = machine
-                    & ( pset ( vm1 ) ) ' category = spot
-                    | ( pset ( vm1 ) ) ' hdd
-                )
+                & cpu <= ( machineResourceProperties ( machine ) ) ' cpu
+                    - SIGMA vm1 . (
+                        vm1 : dom ( pset )
+                        & ( virtualMachineProperties ( vm1 ) ) ' residentMachine = machine
+                        & ( virtualMachineProperties ( vm1 ) ) ' category = allocated
+                        | ( virtualMachineProperties ( vm1 ) ) ' cpu
+                    )
+                    + SIGMA vm2 . (
+                        vm2 : dom ( pset )
+                        & ( pset ( vm2 ) ) ' residentMachine = machine
+                        & ( pset ( vm2 ) ) ' category = spot
+                        | ( pset ( vm2 ) ) ' cpu
+                    )
+                & mem <=
+                    ( machineResourceProperties ( machine ) ) ' mem
+                    - SIGMA vm1 . (
+                        vm1 : dom ( pset )
+                        & ( virtualMachineProperties ( vm1 ) ) ' residentMachine = machine
+                        & ( virtualMachineProperties ( vm1 ) ) ' category = allocated
+                        | ( virtualMachineProperties ( vm1 ) ) ' mem
+                    )
+                    + SIGMA vm2 . (
+                        vm2 : dom ( pset )
+                        & ( pset ( vm2 ) ) ' residentMachine = machine
+                        & ( pset ( vm2 ) ) ' category = spot
+                        | ( pset ( vm2 ) ) ' mem
+                    )
+                & hdd <=
+                    ( machineResourceProperties ( machine ) ) ' hdd
+                    - SIGMA vm1 . (
+                        vm1 : dom ( pset )
+                        & ( virtualMachineProperties ( vm1 ) ) ' residentMachine = machine
+                        & ( virtualMachineProperties ( vm1 ) ) ' category = allocated
+                        | ( virtualMachineProperties ( vm1 ) ) ' hdd
+                    )
+                    + SIGMA vm2 . (
+                        vm2 : dom ( pset )
+                        & ( pset ( vm2 ) ) ' residentMachine = machine
+                        & ( pset ( vm2 ) ) ' category = spot
+                        | ( pset ( vm2 ) ) ' hdd
+                    )
             THEN
                 virtualMachines :=
                     ( virtualMachines \/ { vm } )

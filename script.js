@@ -10,6 +10,18 @@
  *    '# EC2': string,
  *    '# spots': string,
  *  }[], 
+ *  instanceRatings: {
+ *   allocated: {
+ *     cpu: number,
+ *     mem: number,
+ *     hdd: number
+ *   },
+ *   spot: {
+ *     cpu: number,
+ *     mem: number,
+ *     hdd: number
+ *   },
+ *  },
  *  currentUser: string,
  *  pages: Set<string>, 
  *  currentPage: string,
@@ -37,16 +49,32 @@
  *  clientData: {[key:string]: {
  *    vms: [{
  *      id: string,
+ *      tipo: string,
+ *      'consumo / hora': number
+ *      consumo: number,
  *      cpu: number,
  *      mem: number,
  *      hdd: number
  *    }]
- *  }}
+ *  }},
+ *  currentTime: number
  * }}
  */
 const state = {
   users: [],
   admins: [],
+  instanceRatings: {
+    allocated: {
+      cpu: 0,
+      mem: 0,
+      hdd: 0,
+    },
+    spot: {
+      cpu: 0,
+      mem: 0,
+      hdd: 0,
+    },
+  },
   clientsData: [],
   currentUser: '',
   pages: new Set(),
@@ -54,7 +82,8 @@ const state = {
   mrData: {},
   vmProperties: {},
   used: {},
-  clientData: {}
+  clientData: {},
+  currentTime: 0
 }
 
 function main() {
@@ -79,10 +108,34 @@ function addObservers() {
 
   bms.observe("formula", {
     selector: '#shadow',
+    formulas: ["instanceRating"],
+    translate: true,
+    trigger: function (_, values) {
+      console.log('[instanceRating] update:', { values })
+      const ratings = {}
+      values[0].forEach(g => {
+        ratings[g[0]] = g[1]
+      })
+      state.instanceRatings = ratings
+    }
+  })
+
+  bms.observe("formula", {
+    selector: '#shadow',
     formulas: ["admins"],
     trigger: function (_, values) {
       console.log('[admins] update:', { values })
       state.admins = parseSet(values[0])
+    }
+  })
+
+  bms.observe("formula", {
+    selector: '#ticker',
+    formulas: ["currentTime"],
+    trigger: function (_, values) {
+      console.log('[currentTime] update:', { values })
+      state.currentTime = values[0]
+      document.getElementById('ticker').innerText = `+ ${state.currentTime}`
     }
   })
 
@@ -96,6 +149,11 @@ function addObservers() {
         const willKeep = newClients.includes(data.id)
         keepTable[data.id] = willKeep
         return willKeep
+      }).map(dt => {
+        const userVms = (state.clientData[dt.id] || {}).vms || []
+        dt['# EC2'] = userVms.filter(d => d.tipo == 'allocated').length
+        dt['# spots'] = userVms.length - dt['# EC2']
+        return dt
       })
 
       const newData = newClients.filter(client => {
@@ -154,9 +212,17 @@ function addObservers() {
           clientData[v[1].owner.value] = { vms: [] }
         }
 
+        const hourlyCost = state.instanceRatings[v[1].category.value].cpu * v[1].cpu
+          + state.instanceRatings[v[1].category.value].mem * v[1].mem
+          + state.instanceRatings[v[1].category.value].hdd * v[1].hdd
+        console.log('>>>', {
+          hc: hourlyCost * (state.currentTime - v[1].startTime)
+        })
         clientData[v[1].owner.value].vms.push({
           id: v[0],
           tipo: v[1].category.value,
+          'consumo / hora': hourlyCost,
+          consumo: hourlyCost * (state.currentTime - v[1].startTime),
           cpu: v[1].cpu,
           mem: v[1].mem,
           hdd: v[1].hdd,
@@ -271,6 +337,16 @@ function addHandlers() {
     events: [
       {
         name: 'addArbitraryClient',
+        predicate: () => { }
+      }
+    ]
+  })
+
+  bms.executeEvent({
+    selector: '#ticker',
+    events: [
+      {
+        name: 'tickTimer',
         predicate: () => { }
       }
     ]
@@ -479,7 +555,9 @@ function replaceTable(id, values, headers) {
       const td = document.createElement('td')
       td.id = `${id}-td-${i}-${j}`
       // console.log({ i, val })
-      td.innerText = val[header] || '?'
+      let txt = '?'
+      if (val[header] !== undefined && val[header] !== null) txt = val[header]
+      td.innerText = txt
       tr.appendChild(td)
     })
     return tr
@@ -548,7 +626,7 @@ function executeOperation(operation, predicate) {
     // append it to page
     const queryExecutor = document.createElement('div')
     queryExecutor.id = randomId
-    queryExecutor.setAttribute('style', 'width: 20px;height:20px; background-color:orange')
+    // queryExecutor.setAttribute('style', 'width: 20px;height:20px; background-color:orange')
     group.appendChild(queryExecutor)
 
     // add listener to execute functions on it
@@ -600,7 +678,7 @@ function replaceResourcesTable(data) {
 }
 
 function replaceUserVmsTable(data) {
-  replaceTable('userVmsTable', data, ['id', 'consumo', 'tipo', 'mem', 'cpu', 'hdd'])
+  replaceTable('userVmsTable', data, ['id', 'consumo / hora', 'consumo', 'tipo', 'mem', 'cpu', 'hdd'])
 }
 
 //===================================
