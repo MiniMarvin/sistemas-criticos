@@ -349,8 +349,8 @@ OPERATIONS
         & vm : dom(virtualMachineProperties)
         & currentUser : admins \/ {(virtualMachineProperties(vm))'owner}
         & (virtualMachineProperties(vm))'owner : USERS
-        & (virtualMachineProperties(vm))'owner : dom(finishedInstanceCost) 
-        & finishedInstanceCost((virtualMachineProperties(vm))'owner) > 0
+        //& (virtualMachineProperties(vm))'owner : dom(finishedInstanceCost) 
+        //& finishedInstanceCost((virtualMachineProperties(vm))'owner) > 0
         & (virtualMachineProperties(vm))'category : dom(instanceRating)
         &  ((instanceRating((virtualMachineProperties(vm))'category))'cpu)  > 0
         &  ((virtualMachineProperties(vm))'cpu)  > 0

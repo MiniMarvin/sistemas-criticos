@@ -111,7 +111,7 @@ function addObservers() {
     formulas: ["instanceRating"],
     translate: true,
     trigger: function (_, values) {
-      console.log('[instanceRating] update:', { values })
+      // console.log('[instanceRating] update:', { values })
       const ratings = {}
       values[0].forEach(g => {
         ratings[g[0]] = g[1]
@@ -133,7 +133,7 @@ function addObservers() {
     selector: '#ticker',
     formulas: ["currentTime"],
     trigger: function (_, values) {
-      console.log('[currentTime] update:', { values })
+      // console.log('[currentTime] update:', { values })
       state.currentTime = values[0]
       document.getElementById('ticker').innerText = `+ ${state.currentTime}`
     }
@@ -166,7 +166,7 @@ function addObservers() {
       })
 
       state.clientsData = [...keepData, ...newData]
-      console.log(`[update clients]`, { clientsData: state.clientsData })
+      // console.log(`[update clients]`, { clientsData: state.clientsData })
       replaceUsersTable(state.clientsData)
     }
   })
@@ -207,7 +207,7 @@ function addObservers() {
           used[vmProp.residentMachine].hdd = 0
         }
 
-        console.log()
+        // console.log()
         if (!clientData[v[1].owner.value]) {
           clientData[v[1].owner.value] = { vms: [] }
         }
@@ -215,9 +215,9 @@ function addObservers() {
         const hourlyCost = state.instanceRatings[v[1].category.value].cpu * v[1].cpu
           + state.instanceRatings[v[1].category.value].mem * v[1].mem
           + state.instanceRatings[v[1].category.value].hdd * v[1].hdd
-        console.log('>>>', {
-          hc: hourlyCost * (state.currentTime - v[1].startTime)
-        })
+        // console.log('>>>', {
+        //   hc: hourlyCost * (state.currentTime - v[1].startTime)
+        // })
         clientData[v[1].owner.value].vms.push({
           id: v[0],
           tipo: v[1].category.value,
@@ -232,7 +232,7 @@ function addObservers() {
       state.clientData = clientData
       state.vmProperties = vmProperties
       state.used = used
-      console.log('[VM_PROPERTIES] ', { used, vmProperties, clientData })
+      // console.log('[VM_PROPERTIES] ', { used, vmProperties, clientData })
       updateUsedMachineResources()
     }
   })
@@ -244,7 +244,7 @@ function addObservers() {
     trigger: (_, values) => {
       const mrProps = {}
       const data = values[0].map(v => {
-        console.log(`[machineResourceProperties]`, { v })
+        // console.log(`[machineResourceProperties]`, { v })
         const mrProp = {
           id: v[0],
           mem: v[1].mem,
@@ -265,7 +265,7 @@ function addObservers() {
       })
 
       state.mrData = mrProps
-      console.log({ mrProps, data })
+      // console.log({ mrProps, data })
       replaceResourcesTable(data)
     }
   })
@@ -275,7 +275,7 @@ function addObservers() {
     selector: '#usernameSelector',
     formulas: ["admins \\/ clients"],
     trigger: function (_, values) {
-      console.log('[user pool] update:', { values })
+      // console.log('[user pool] update:', { values })
       const users = parseSet(values[0])
       updateUserPool(users)
     }
@@ -286,7 +286,7 @@ function addObservers() {
     formulas: ["currentUser"],
     trigger: function (_, values) {
       const currentUser = values[0]
-      console.log('[currentUser] updated:', { currentUser })
+      // console.log('[currentUser] updated:', { currentUser })
       if (!currentUser || currentUser === 'none') {
         setPage('loginScreen')
       } else {
@@ -311,6 +311,19 @@ function addObservers() {
 function addHandlers() {
   bms.executeEvent({
     selector: '#loginBtn',
+    events: [
+      {
+        name: 'login',
+        predicate: (origin) => {
+          const p = "user=" + document.getElementById('usernameSelector').value
+          return p
+        }
+      }
+    ]
+  })
+
+  bms.executeEvent({
+    selector: '.loginBtn',
     events: [
       {
         name: 'login',
@@ -358,18 +371,18 @@ function addHandlers() {
       {
         name: 'addResource',
         predicate: () => {
-          console.log(`[addResource] trying predicate...`)
+          // console.log(`[addResource] trying predicate...`)
           const mem = document.getElementById('addResourceMem').value
           const hdd = document.getElementById('addResourceHdd').value
           const cpu = document.getElementById('addResourceCpu').value
           const myPredicate = `mem=${mem}&hdd=${hdd}&cpu=${cpu}`
-          console.log(`[addResource]${myPredicate}`)
+          // console.log(`[addResource]${myPredicate}`)
           return myPredicate
         }
       }
     ],
     callback: () => {
-      console.log(`[addResource_CALLBACK] executed...`)
+      // console.log(`[addResource_CALLBACK] executed...`)
     }
   })
 
@@ -379,12 +392,12 @@ function addHandlers() {
       {
         name: 'addAllocatedVirtualMachine',
         predicate: () => {
-          console.log(`[addAllocatedVirtualMachine] trying predicate...`)
+          // console.log(`[addAllocatedVirtualMachine] trying predicate...`)
           const mem = document.getElementById('addVmMem').value
           const hdd = document.getElementById('addVmHdd').value
           const cpu = document.getElementById('addVmCpu').value
           const myPredicate = `mem=${mem}&hdd=${hdd}&cpu=${cpu}&client=${state.currentUser}`
-          console.log(`[addAllocatedVirtualMachine]${myPredicate}`)
+          // console.log(`[addAllocatedVirtualMachine]${myPredicate}`)
           return myPredicate
         }
       }
@@ -397,12 +410,12 @@ function addHandlers() {
       {
         name: 'addSpotVirtualMachine',
         predicate: () => {
-          console.log(`[addSpotVirtualMachine] trying predicate...`)
+          // console.log(`[addSpotVirtualMachine] trying predicate...`)
           const mem = document.getElementById('addVmMem').value
           const hdd = document.getElementById('addVmHdd').value
           const cpu = document.getElementById('addVmCpu').value
           const myPredicate = `mem=${mem}&hdd=${hdd}&cpu=${cpu}&client=${state.currentUser}`
-          console.log(`[addSpotVirtualMachine]${myPredicate}`)
+          // console.log(`[addSpotVirtualMachine]${myPredicate}`)
           return myPredicate
         }
       }
@@ -416,17 +429,17 @@ function addHtmlEventHandlers() {
       return executeOperation('getBillingForUser', `user=${client.id}`)
     })
     Promise.all(billingPromises).then(billings => {
-      console.log('[reload billing]', { billings })
+      // console.log('[reload billing]', { billings })
       state.clientsData.forEach((client, idx) => {
         client['consumo (R$)'] = billings[idx][0]
       })
     }).catch(err => {
-      console.log('[reload billing ERROR]', { err })
+      console.error('[reload billing ERROR]', { err })
     })
   }
 
   document.getElementById('reloadUserVmsView').onclick = () => {
-    console.log(`[reloadUserVmsView]`, { state })
+    // console.log(`[reloadUserVmsView]`, { state })
     if (state.clientData[state.currentUser]) {
       replaceUserVmsTable(state.clientData[state.currentUser].vms)
     }
@@ -463,7 +476,7 @@ function updateUserPool(users) {
 }
 
 function updateUsedMachineResources() {
-  console.log('>>>>', { used: state.used, mrData: state.mrData })
+  // console.log('>>>>', { used: state.used, mrData: state.mrData })
   if (Object.keys(state.mrData).length === 0) {
     return
   }
@@ -479,7 +492,7 @@ function updateUsedMachineResources() {
       hdd_livre: state.mrData[key].hdd - ((state.used[key] || {}).hdd || 0),
     }
   })
-  console.log({ computedTable })
+  // console.log({ computedTable })
   replaceResourcesTable(computedTable)
 }
 
@@ -488,10 +501,10 @@ function updateUsedMachineResources() {
  * @param {string} pageId 
  */
 function setPage(pageId) {
-  console.log(`[setPage] setting page ${pageId}`)
+  // console.log(`[setPage] setting page ${pageId}`)
   if (state.pages.size === 0) {
     const pages = document.getElementsByTagName('main')
-    console.log(`page count: ${pages.length}`)
+    // console.log(`page count: ${pages.length}`)
     for (let i = 0; i < pages.length; i++) {
       state.pages.add(pages[i].getAttribute('id'))
       pages[i].classList.add('hidden')
@@ -554,7 +567,9 @@ function replaceTable(id, values, headers) {
     headers.forEach((header, j) => {
       const td = document.createElement('td')
       td.id = `${id}-td-${i}-${j}`
-      // console.log({ i, val })
+      const colClass = `${id}_${headers[j].replace(/[#()\\/\.]/g, '').replace(' ', '')}`.replace(' ', '')
+      console.log({ colClass })
+      td.classList.add(colClass)
       let txt = '?'
       if (val[header] !== undefined && val[header] !== null) txt = val[header]
       td.innerText = txt
@@ -642,7 +657,7 @@ function executeOperation(operation, predicate) {
       ],
       callback: (_, value) => {
         const returnValues = value.returnValues
-        console.log(`[OPERATION_CALLBACK|${operation}|${randomId}]`, returnValues)
+        // console.log(`[OPERATION_CALLBACK|${operation}|${randomId}]`, returnValues)
         freeGroup[operation].push(randomId)
         operationGroup[operation][randomId].callback(returnValues)
       }
@@ -653,7 +668,7 @@ function executeOperation(operation, predicate) {
       }, 100)
     })
   } else {
-    console.log('[freeGroup /= 0]', { operationGroup, freeGroup })
+    // console.log('[freeGroup /= 0]', { operationGroup, freeGroup })
     usedExecutor = Promise.resolve(freeGroup[operation].pop())
   }
 
@@ -671,14 +686,62 @@ function executeOperation(operation, predicate) {
 
 function replaceUsersTable(data) {
   replaceTable('usersTable', data, ['id', 'consumo (R$)', '# EC2', '# spots'])
+
+  bms.executeEvent({
+    selector: '.usersTable_id',
+    events: [
+      {
+        name: 'removeClient',
+        predicate: (nodes) => {
+          const node = nodes[0]
+          // console.log(`node:`, node, node.innerText)
+          const toRemove = node.innerText
+          const myPredicate = `user=${toRemove}`
+          return myPredicate
+        }
+      }
+    ],
+  })
 }
 
 function replaceResourcesTable(data) {
-  replaceTable('resourcesTable', data, ['id', 'hdd', 'hdd_livre', 'cpu', 'cpu_livre', 'mem', 'mem_livre', 'vms'])
+  replaceTable('resourcesTable', data, ['id', 'hdd', 'hdd_livre', 'cpu', 'cpu_livre', 'mem', 'mem_livre'])
+
+  bms.executeEvent({
+    selector: '.resourcesTable_id',
+    events: [
+      {
+        name: 'removeResource',
+        predicate: (nodes) => {
+          const node = nodes[0]
+          console.log(`node:`, node, node.innerText)
+          const toRemove = node.innerText
+          const myPredicate = `resource=${toRemove}`
+          return myPredicate
+        }
+      }
+    ],
+  })
 }
 
 function replaceUserVmsTable(data) {
   replaceTable('userVmsTable', data, ['id', 'consumo / hora', 'consumo', 'tipo', 'mem', 'cpu', 'hdd'])
+
+  bms.executeEvent({
+    selector: '.userVmsTable_id',
+    events: [
+      {
+        name: 'removeVirtualMachine',
+        predicate: (nodes) => {
+          const node = nodes[0]
+          console.log(`node:`, node, node.innerText)
+          const toRemove = node.innerText
+          const myPredicate = `vm=${toRemove}`
+          return myPredicate
+        }
+      }
+    ],
+  })
 }
 
 //===================================
