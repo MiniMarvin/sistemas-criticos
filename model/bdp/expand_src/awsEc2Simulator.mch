@@ -256,35 +256,58 @@ OPERATIONS
                         )
             )
         THEN
-            virtualMachines :=
-                ( virtualMachines \/ { vm } )
-                - {
-                    vm | vm : dom ( virtualMachineProperties )
-                    & ( virtualMachineProperties ( vm ) ) ' category = spot
-                    & ( virtualMachineProperties ( vm ) ) ' residentMachine = machine
-                }
-            || allocatedVirtualMachines := allocatedVirtualMachines \/ { vm }
-            || virtualMachineProperties :=
-                {
-                    vm | vm : dom ( virtualMachineProperties )
-                    & ( virtualMachineProperties ( vm ) ) ' category = spot
-                    & ( virtualMachineProperties ( vm ) ) ' residentMachine = machine }
-                <<| (
-                            virtualMachineProperties
-                            \/ { vm |-> rec (
-                                    residentMachine : machine ,
-                                    owner : client ,
-                                    category : allocated ,
-                                    startTime : currentTime ,
-                                    cpu : cpu ,
-                                    hdd : hdd ,
-                                    mem : mem
-                                ) }
-                        )
-            || spotVirtualMachines := spotVirtualMachines - {
-                vm | vm : dom ( virtualMachineProperties )
-                & ( virtualMachineProperties ( vm ) ) ' category = spot
-                & ( virtualMachineProperties ( vm ) ) ' residentMachine = machine }
+            ANY pset
+            WHERE
+                pset <: virtualMachineProperties
+                & cpu <= SIGMA vm1 . (
+                    vm1 : dom ( pset )
+                    & ( pset ( vm1 ) ) ' residentMachine = machine
+                    & ( pset ( vm1 ) ) ' category = spot
+                    | ( pset ( vm1 ) ) ' cpu
+                )
+                & mem <= SIGMA vm1 . (
+                    vm1 : dom ( pset )
+                    & ( pset ( vm1 ) ) ' residentMachine = machine
+                    & ( pset ( vm1 ) ) ' category = spot
+                    | ( pset ( vm1 ) ) ' mem
+                )
+                & hdd <= SIGMA vm1 . (
+                    vm1 : dom ( pset )
+                    & ( pset ( vm1 ) ) ' residentMachine = machine
+                    & ( pset ( vm1 ) ) ' category = spot
+                    | ( pset ( vm1 ) ) ' hdd
+                )
+            THEN
+                virtualMachines :=
+                    ( virtualMachines \/ { vm } )
+                    - {
+                        vm | vm : dom ( pset )
+                        & ( pset ( vm ) ) ' category = spot
+                        & ( pset ( vm ) ) ' residentMachine = machine
+                    }
+                || allocatedVirtualMachines := allocatedVirtualMachines \/ { vm }
+                || virtualMachineProperties :=
+                    {
+                        vm | vm : dom ( pset )
+                        & ( pset ( vm ) ) ' category = spot
+                        & ( pset ( vm ) ) ' residentMachine = machine }
+                    <<| (
+                                virtualMachineProperties
+                                \/ { vm |-> rec (
+                                        residentMachine : machine ,
+                                        owner : client ,
+                                        category : allocated ,
+                                        startTime : currentTime ,
+                                        cpu : cpu ,
+                                        hdd : hdd ,
+                                        mem : mem
+                                    ) }
+                            )
+                || spotVirtualMachines := spotVirtualMachines - {
+                    vm | vm : dom ( pset )
+                    & ( pset ( vm ) ) ' category = spot
+                    & ( pset ( vm ) ) ' residentMachine = machine }
+            END
         END
     END ;
 
