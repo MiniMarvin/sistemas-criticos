@@ -33,6 +33,14 @@
  *    cpu: number,
  *    hdd: number,
  *    mem: number
+ *  }},
+ *  clientData: {[key:string]: {
+ *    vms: [{
+ *      id: string,
+ *      cpu: number,
+ *      mem: number,
+ *      hdd: number
+ *    }]
  *  }}
  * }}
  */
@@ -45,7 +53,8 @@ const state = {
   currentPage: '',
   mrData: {},
   vmProperties: {},
-  used: {}
+  used: {},
+  clientData: {}
 }
 
 function main() {
@@ -65,6 +74,7 @@ function addObservers() {
     console.log('did init')
     replaceUsersTable([])
     replaceResourcesTable([])
+    replaceUserVmsTable([])
   })
 
   bms.observe("formula", {
@@ -110,12 +120,14 @@ function addObservers() {
     trigger: (_, values) => {
       const vmProperties = {}
       const used = {}
+      const clientData = {}
+
       values[0].forEach(v => {
         const vmProp = {
           vm: v[0],
-          residentMachine: v[1].residentMachine,
-          owner: v[1].owner,
-          category: v[1].category,
+          residentMachine: v[1].residentMachine.value,
+          owner: v[1].owner.value,
+          category: v[1].category.value,
           startTime: v[1].startTime,
           cpu: v[1].cpu,
           hdd: v[1].hdd,
@@ -124,6 +136,9 @@ function addObservers() {
 
         vmProperties[vmProp.vm] = vmProp
 
+        if (!used[vmProp.residentMachine]) {
+          used[vmProp.residentMachine] = { mem: 0, cpu: 0, hdd: 0 }
+        }
         if (used[vmProp.residentMachine]) {
           used[vmProp.residentMachine].mem += vmProp.mem
           used[vmProp.residentMachine].cpu += vmProp.cpu
@@ -133,11 +148,25 @@ function addObservers() {
           used[vmProp.residentMachine].cpu = 0
           used[vmProp.residentMachine].hdd = 0
         }
+
+        console.log()
+        if (!clientData[v[1].owner.value]) {
+          clientData[v[1].owner.value] = { vms: [] }
+        }
+
+        clientData[v[1].owner.value].vms.push({
+          id: v[0],
+          tipo: v[1].category.value,
+          cpu: v[1].cpu,
+          mem: v[1].mem,
+          hdd: v[1].hdd,
+        })
       })
 
+      state.clientData = clientData
       state.vmProperties = vmProperties
       state.used = used
-      console.log('[VM_PROPERTIES] ', { used })
+      console.log('[VM_PROPERTIES] ', { used, vmProperties, clientData })
       updateUsedMachineResources()
     }
   })
@@ -149,7 +178,7 @@ function addObservers() {
     trigger: (_, values) => {
       const mrProps = {}
       const data = values[0].map(v => {
-        console.log(`[machineResourceProperties]`, {v})
+        console.log(`[machineResourceProperties]`, { v })
         const mrProp = {
           id: v[0],
           mem: v[1].mem,
@@ -204,6 +233,9 @@ function addObservers() {
           setPage('adminScreen')
         } else {
           setPage('userScreen')
+          if (state.clientData[currentUser]) {
+            replaceUserVmsTable(state.clientData[currentUser].vms)
+          }
         }
       }
     }
@@ -264,6 +296,42 @@ function addHandlers() {
       console.log(`[addResource_CALLBACK] executed...`)
     }
   })
+
+  bms.executeEvent({
+    selector: '#addUserVmAllocated',
+    events: [
+      {
+        name: 'addAllocatedVirtualMachine',
+        predicate: () => {
+          console.log(`[addAllocatedVirtualMachine] trying predicate...`)
+          const mem = document.getElementById('addVmMem').value
+          const hdd = document.getElementById('addVmHdd').value
+          const cpu = document.getElementById('addVmCpu').value
+          const myPredicate = `mem=${mem}&hdd=${hdd}&cpu=${cpu}&client=${state.currentUser}`
+          console.log(`[addAllocatedVirtualMachine]${myPredicate}`)
+          return myPredicate
+        }
+      }
+    ],
+  })
+
+  bms.executeEvent({
+    selector: '#addUserVmSpot',
+    events: [
+      {
+        name: 'addSpotVirtualMachine',
+        predicate: () => {
+          console.log(`[addSpotVirtualMachine] trying predicate...`)
+          const mem = document.getElementById('addVmMem').value
+          const hdd = document.getElementById('addVmHdd').value
+          const cpu = document.getElementById('addVmCpu').value
+          const myPredicate = `mem=${mem}&hdd=${hdd}&cpu=${cpu}&client=${state.currentUser}`
+          console.log(`[addSpotVirtualMachine]${myPredicate}`)
+          return myPredicate
+        }
+      }
+    ],
+  })
 }
 
 function addHtmlEventHandlers() {
@@ -281,8 +349,11 @@ function addHtmlEventHandlers() {
     })
   }
 
-  document.getElementById('reloadResourcesView').onclick = () => {
-
+  document.getElementById('reloadUserVmsView').onclick = () => {
+    console.log(`[reloadUserVmsView]`, { state })
+    if (state.clientData[state.currentUser]) {
+      replaceUserVmsTable(state.clientData[state.currentUser].vms)
+    }
   }
 
   document.getElementById('resources-view').onclick = () => {
@@ -526,6 +597,10 @@ function replaceUsersTable(data) {
 
 function replaceResourcesTable(data) {
   replaceTable('resourcesTable', data, ['id', 'hdd', 'hdd_livre', 'cpu', 'cpu_livre', 'mem', 'mem_livre', 'vms'])
+}
+
+function replaceUserVmsTable(data) {
+  replaceTable('userVmsTable', data, ['id', 'consumo', 'tipo', 'mem', 'cpu', 'hdd'])
 }
 
 //===================================

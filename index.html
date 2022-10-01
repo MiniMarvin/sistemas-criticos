@@ -131,6 +131,7 @@
     .input-bar {
       display: flex;
       flex-direction: column;
+      width: 50px;
     }
 
     .input-bar span {
@@ -191,7 +192,7 @@
     <section class="header">
       <h1>Administração</h1>
       <div style="width:100px">
-        <button class="full-btn logoutBtn" id="logoutBtnAdmin">sair</button>
+        <button class="full-btn logoutBtn" id="logoutBtnAdmin1">sair</button>
       </div>
     </section>
     <section class="header">
@@ -225,7 +226,43 @@
   </main>
 
   <main id="userScreen" class="template hidden">
-    <h1>User</h1>
+    <section class="header">
+      <h1>Usuário</h1>
+      <div style="width:100px">
+        <button class="full-btn logoutBtn" id="logoutBtnUser">sair</button>
+      </div>
+    </section>
+    <section class="header">
+      <div class="row-block">
+        <h3 style="margin-right: 20px">Máquinas Virtuais</h3>
+        <div class="input-bar">
+          <span>mem:</span>
+          <input type="number" id="addVmMem" />
+        </div>
+        <div class="input-bar">
+          <span>hdd:</span>
+          <input type="number" id="addVmHdd" />
+        </div>
+        <div class="input-bar">
+          <span>cpu:</span>
+          <input type="number" id="addVmCpu" />
+        </div>
+        <div style="width:50px">
+          <button class="full-btn" id="addUserVmAllocated" title="adicionar VM">+ ec2</button>
+        </div>
+        <div style="width: 20px"></div>
+        <div style="width:50px">
+          <button class="full-btn" id="addUserVmSpot" title="adicionar VM">+ spot</button>
+        </div>
+      </div>
+      <button class="text-btn" id="vms-view">ver billing</button>
+    </section>
+    <section class="header">
+      <button class="text-btn" id="reloadUserVmsView">recarregar lista de recursos</button>
+    </section>
+    <section class="list-elements margin-v-10">
+      <table id="userVmsTable"></table>
+    </section>
   </main>
   <div id="shadow"></div>
 </body>

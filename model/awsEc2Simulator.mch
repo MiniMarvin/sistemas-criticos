@@ -256,18 +256,35 @@ OPERATIONS
                         )
             )
         THEN
-            virtualMachines := virtualMachines \/ {vm}
+            virtualMachines := 
+                (virtualMachines \/ {vm})
+                - { 
+                    vm | vm : dom(virtualMachineProperties) 
+                    & (virtualMachineProperties(vm))'category = spot
+                    & (virtualMachineProperties(vm))'residentMachine = machine 
+                } 
             || allocatedVirtualMachines := allocatedVirtualMachines \/ {vm}
-            || virtualMachineProperties(vm) := rec(
-                    residentMachine : machine,
-                    owner : client,
-                    category: allocated,
-                    startTime: currentTime,
-                    cpu : cpu,
-                    hdd : hdd,
-                    mem : mem
-                )
-            // || dealocate all the necessary Spot machines necessary
+            || virtualMachineProperties := 
+                { 
+                    vm | vm : dom(virtualMachineProperties) 
+                    & (virtualMachineProperties(vm))'category = spot
+                    & (virtualMachineProperties(vm))'residentMachine = machine } 
+                <<| (
+                            virtualMachineProperties 
+                            \/ {vm |-> rec(
+                                    residentMachine : machine,
+                                    owner : client,
+                                    category: allocated,
+                                    startTime: currentTime,
+                                    cpu : cpu,
+                                    hdd : hdd,
+                                    mem : mem
+                                )}
+                        )
+            || spotVirtualMachines := spotVirtualMachines - { 
+                vm | vm : dom(virtualMachineProperties) 
+                & (virtualMachineProperties(vm))'category = spot
+                & (virtualMachineProperties(vm))'residentMachine = machine } 
         END
     END;
     
@@ -317,7 +334,7 @@ OPERATIONS
             || virtualMachineProperties(vm) := rec(
                     residentMachine : machine,
                     owner : client,
-                    category: allocated,
+                    category: spot,
                     startTime: currentTime,
                     cpu : cpu,
                     hdd : hdd,
