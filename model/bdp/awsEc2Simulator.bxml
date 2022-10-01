@@ -3468,9 +3468,9 @@
 <Attr>
 <Pos l='264' c='31' s='3'/>
 </Attr>
-<Id value='pset' typref='8'>
+<Id value='virtualMachineProperties' typref='8'>
 <Attr>
-<Pos l='264' c='35' s='4'/>
+<Pos l='264' c='35' s='24'/>
 </Attr>
 </Id>
 </Unary_Exp>
@@ -3744,9 +3744,9 @@
 <Attr>
 <Pos l='278' c='31' s='3'/>
 </Attr>
-<Id value='pset' typref='8'>
+<Id value='virtualMachineProperties' typref='8'>
 <Attr>
-<Pos l='278' c='35' s='4'/>
+<Pos l='278' c='35' s='24'/>
 </Attr>
 </Id>
 </Unary_Exp>
@@ -4020,9 +4020,9 @@
 <Attr>
 <Pos l='292' c='31' s='3'/>
 </Attr>
-<Id value='pset' typref='8'>
+<Id value='virtualMachineProperties' typref='8'>
 <Attr>
-<Pos l='292' c='35' s='4'/>
+<Pos l='292' c='35' s='24'/>
 </Attr>
 </Id>
 </Unary_Exp>

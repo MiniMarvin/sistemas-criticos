@@ -261,7 +261,7 @@ OPERATIONS
                 pset <: virtualMachineProperties
                 & cpu <= ( machineResourceProperties ( machine ) ) ' cpu
                     - SIGMA vm1 . (
-                        vm1 : dom ( pset )
+                        vm1 : dom ( virtualMachineProperties )
                         & ( virtualMachineProperties ( vm1 ) ) ' residentMachine = machine
                         & ( virtualMachineProperties ( vm1 ) ) ' category = allocated
                         | ( virtualMachineProperties ( vm1 ) ) ' cpu
@@ -275,7 +275,7 @@ OPERATIONS
                 & mem <=
                     ( machineResourceProperties ( machine ) ) ' mem
                     - SIGMA vm1 . (
-                        vm1 : dom ( pset )
+                        vm1 : dom ( virtualMachineProperties )
                         & ( virtualMachineProperties ( vm1 ) ) ' residentMachine = machine
                         & ( virtualMachineProperties ( vm1 ) ) ' category = allocated
                         | ( virtualMachineProperties ( vm1 ) ) ' mem
@@ -289,7 +289,7 @@ OPERATIONS
                 & hdd <=
                     ( machineResourceProperties ( machine ) ) ' hdd
                     - SIGMA vm1 . (
-                        vm1 : dom ( pset )
+                        vm1 : dom ( virtualMachineProperties )
                         & ( virtualMachineProperties ( vm1 ) ) ' residentMachine = machine
                         & ( virtualMachineProperties ( vm1 ) ) ' category = allocated
                         | ( virtualMachineProperties ( vm1 ) ) ' hdd

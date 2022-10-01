@@ -256,81 +256,35 @@ OPERATIONS
                         )
             )
         THEN
-            ANY pset
-            WHERE
-                pset <: virtualMachineProperties
-                & cpu <= (machineResourceProperties(machine))'cpu
-                    - SIGMA vm1 . (
-                        vm1 : dom(pset)
-                        & (virtualMachineProperties(vm1))'residentMachine = machine
-                        & (virtualMachineProperties(vm1))'category = allocated
-                        | (virtualMachineProperties(vm1))'cpu
-                    )
-                    + SIGMA vm2 . (
-                        vm2 : dom(pset)
-                        & (pset(vm2))'residentMachine = machine
-                        & (pset(vm2))'category = spot
-                        | (pset(vm2))'cpu
-                    )
-                & mem <= 
-                    (machineResourceProperties(machine))'mem
-                    - SIGMA vm1 . (
-                        vm1 : dom(pset)
-                        & (virtualMachineProperties(vm1))'residentMachine = machine
-                        & (virtualMachineProperties(vm1))'category = allocated
-                        | (virtualMachineProperties(vm1))'mem
-                    )
-                    + SIGMA vm2 . (
-                        vm2 : dom(pset)
-                        & (pset(vm2))'residentMachine = machine
-                        & (pset(vm2))'category = spot
-                        | (pset(vm2))'mem
-                    )
-                & hdd <= 
-                    (machineResourceProperties(machine))'hdd
-                    - SIGMA vm1 . (
-                        vm1 : dom(pset)
-                        & (virtualMachineProperties(vm1))'residentMachine = machine
-                        & (virtualMachineProperties(vm1))'category = allocated
-                        | (virtualMachineProperties(vm1))'hdd
-                    )
-                    + SIGMA vm2 . (
-                        vm2 : dom(pset)
-                        & (pset(vm2))'residentMachine = machine
-                        & (pset(vm2))'category = spot
-                        | (pset(vm2))'hdd
-                    )
-            THEN
-                virtualMachines := 
-                    (virtualMachines \/ {vm})
-                    - { 
-                        vm | vm : dom(pset) 
-                        & (pset(vm))'category = spot
-                        & (pset(vm))'residentMachine = machine 
-                    } 
-                || allocatedVirtualMachines := allocatedVirtualMachines \/ {vm}
-                || virtualMachineProperties := 
-                    { 
-                        vm | vm : dom(pset) 
-                        & (pset(vm))'category = spot
-                        & (pset(vm))'residentMachine = machine } 
-                    <<| (
-                                virtualMachineProperties 
-                                \/ {vm |-> rec(
-                                        residentMachine : machine,
-                                        owner : client,
-                                        category: allocated,
-                                        startTime: currentTime,
-                                        cpu : cpu,
-                                        hdd : hdd,
-                                        mem : mem
-                                    )}
-                            )
-                || spotVirtualMachines := spotVirtualMachines - { 
-                    vm | vm : dom(pset) 
-                    & (pset(vm))'category = spot
-                    & (pset(vm))'residentMachine = machine } 
-            END
+            virtualMachines := 
+                (virtualMachines \/ {vm})
+                - { 
+                    vm | vm : dom(virtualMachineProperties) 
+                    & (virtualMachineProperties(vm))'category = spot
+                    & (virtualMachineProperties(vm))'residentMachine = machine 
+                } 
+            || allocatedVirtualMachines := allocatedVirtualMachines \/ {vm}
+            || virtualMachineProperties := 
+                { 
+                    vm | vm : dom(virtualMachineProperties) 
+                    & (virtualMachineProperties(vm))'category = spot
+                    & (virtualMachineProperties(vm))'residentMachine = machine } 
+                <<| (
+                            virtualMachineProperties 
+                            \/ {vm |-> rec(
+                                    residentMachine : machine,
+                                    owner : client,
+                                    category: allocated,
+                                    startTime: currentTime,
+                                    cpu : cpu,
+                                    hdd : hdd,
+                                    mem : mem
+                                )}
+                        )
+            || spotVirtualMachines := spotVirtualMachines - { 
+                vm | vm : dom(virtualMachineProperties) 
+                & (virtualMachineProperties(vm))'category = spot
+                & (virtualMachineProperties(vm))'residentMachine = machine } 
         END
     END;
     
