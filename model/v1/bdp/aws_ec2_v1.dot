@@ -1,0 +1,6 @@
+digraph {
+awsEc2SimulatorCtxImpl [ label=" awsEc2SimulatorCtx\nawsEc2SimulatorCtxImpl " shape= box ]
+awsEc2SimulatorImpl [ label=" awsEc2Simulator\nawsEc2SimulatorImpl " shape= box ]
+
+"awsEc2SimulatorImpl" -> "awsEc2SimulatorCtxImpl" [style= dotted ]
+}

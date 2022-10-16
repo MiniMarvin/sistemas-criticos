@@ -1,0 +1,20 @@
+/* awsEc2SimulatorCtxImpl
+ * Author: 
+ * Creation date: 07/10/2022
+ */
+
+IMPLEMENTATION awsEc2SimulatorCtxImpl
+REFINES awsEc2SimulatorCtx
+
+// Defines huge limits for the applications
+VALUES
+    USERS=0..10000;
+    MACHINE_RESOURCES=0..10000;
+    VIRTUAL_MACHINES=0..100000;
+    VM_CATEGORIES={0,1};
+    allocated=1;
+    spot=0;
+    admin=1;
+    none=0
+    
+ END

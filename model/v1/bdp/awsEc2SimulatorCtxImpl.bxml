@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Machine xmlns='https://www.atelierb.eu/Formats/bxml' version='1.0' name='awsEc2SimulatorCtxImpl' type='implementation' position='true' semantic='true' b0check='false'>
+<Abstraction>awsEc2SimulatorCtx</Abstraction>
+<Values>
+<Attr>
+<Pos l='10' c='1' s='6'/>
+</Attr>
+<Valuation ident='USERS' typref='2'>
+<Attr>
+<Pos l='11' c='5' s='5'/>
+</Attr>
+<Binary_Exp op='..' typref='2'>
+<Attr>
+<Pos l='11' c='12' s='2'/>
+</Attr>
+<Integer_Literal value='0' typref='1'>
+<Attr>
+<Pos l='11' c='11' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='10000' typref='1'>
+<Attr>
+<Pos l='11' c='14' s='5'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Valuation>
+<Valuation ident='MACHINE_RESOURCES' typref='2'>
+<Attr>
+<Pos l='12' c='5' s='17'/>
+</Attr>
+<Binary_Exp op='..' typref='2'>
+<Attr>
+<Pos l='12' c='24' s='2'/>
+</Attr>
+<Integer_Literal value='0' typref='1'>
+<Attr>
+<Pos l='12' c='23' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='10000' typref='1'>
+<Attr>
+<Pos l='12' c='26' s='5'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Valuation>
+<Valuation ident='VIRTUAL_MACHINES' typref='2'>
+<Attr>
+<Pos l='13' c='5' s='16'/>
+</Attr>
+<Binary_Exp op='..' typref='2'>
+<Attr>
+<Pos l='13' c='23' s='2'/>
+</Attr>
+<Integer_Literal value='0' typref='1'>
+<Attr>
+<Pos l='13' c='22' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='100000' typref='1'>
+<Attr>
+<Pos l='13' c='25' s='6'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Valuation>
+<Valuation ident='VM_CATEGORIES' typref='2'>
+<Attr>
+<Pos l='14' c='5' s='13'/>
+</Attr>
+<Nary_Exp op='{' typref='2'>
+<Attr>
+<Pos l='14' c='19' s='1'/>
+</Attr>
+<Integer_Literal value='0' typref='1'>
+<Attr>
+<Pos l='14' c='20' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='1' typref='1'>
+<Attr>
+<Pos l='14' c='22' s='1'/>
+</Attr>
+</Integer_Literal>
+</Nary_Exp>
+</Valuation>
+<Valuation ident='allocated' typref='1'>
+<Attr>
+<Pos l='15' c='5' s='9'/>
+</Attr>
+<Integer_Literal value='1' typref='1'>
+<Attr>
+<Pos l='15' c='15' s='1'/>
+</Attr>
+</Integer_Literal>
+</Valuation>
+<Valuation ident='spot' typref='1'>
+<Attr>
+<Pos l='16' c='5' s='4'/>
+</Attr>
+<Integer_Literal value='0' typref='1'>
+<Attr>
+<Pos l='16' c='10' s='1'/>
+</Attr>
+</Integer_Literal>
+</Valuation>
+<Valuation ident='admin' typref='1'>
+<Attr>
+<Pos l='17' c='5' s='5'/>
+</Attr>
+<Integer_Literal value='1' typref='1'>
+<Attr>
+<Pos l='17' c='11' s='1'/>
+</Attr>
+</Integer_Literal>
+</Valuation>
+<Valuation ident='none' typref='1'>
+<Attr>
+<Pos l='18' c='5' s='4'/>
+</Attr>
+<Integer_Literal value='0' typref='1'>
+<Attr>
+<Pos l='18' c='10' s='1'/>
+</Attr>
+</Integer_Literal>
+</Valuation>
+</Values>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<TypeInfos>
+<Type id='0'>
+<Id value='BOOL'/>
+</Type>
+<Type id='1'>
+<Id value='INTEGER'/>
+</Type>
+<Type id='2'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Type>
+<Type id='3'>
+<Unary_Exp op='POW'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+</TypeInfos>
+
+</Machine>

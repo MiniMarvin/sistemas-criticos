@@ -30,10 +30,10 @@ INVARIANT
     & clients <: USERS
     & admins /\ clients = {}
     & admins /= {}
-    & currentTime : NAT
+    & currentTime : NATURAL
     & MACHINE_RESOURCES: FIN(MACHINE_RESOURCES)
     & machineResources <: MACHINE_RESOURCES
-    & machineResourceProperties : machineResources +-> struct(
+    & machineResourceProperties : machineResources --> struct(
             cpu : NAT1, 
             hdd : NAT1, 
             mem : NAT1
@@ -57,7 +57,7 @@ INVARIANT
     & allocatedVirtualMachines <: virtualMachines
     & spotVirtualMachines \/ allocatedVirtualMachines = virtualMachines
     & spotVirtualMachines /\ allocatedVirtualMachines = {}
-    & finishedInstanceCost : USERS +-> NAT1
+    & finishedInstanceCost : USERS +-> NAT
     & instanceRating : {allocated, spot} +-> struct(cpu: NAT, hdd: NAT, mem: NAT)
 
 INITIALISATION
@@ -173,7 +173,7 @@ OPERATIONS
     
     tickTimer = 
     BEGIN
-        currentTime := (currentTime + 1) mod 100
+        currentTime := (currentTime + 1)
     END;
     
     addResource(cpu, hdd, mem) =

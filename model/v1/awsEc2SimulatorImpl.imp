@@ -1,0 +1,432 @@
+/* awsEc2SimulatorImpl
+ * Author: 
+ * Creation date: 07/10/2022
+ */
+
+IMPLEMENTATION awsEc2SimulatorImpl
+REFINES awsEc2Simulator
+
+SEES
+    awsEc2SimulatorCtx
+
+CONCRETE_VARIABLES
+    machineResources,
+    machineResourceProperties,
+    admins,
+    clients,
+    virtualMachines,
+    virtualMachineProperties,
+    vmCategories,
+    spotVirtualMachines,
+    allocatedVirtualMachines,
+    currentTime,
+    instanceRating,
+    finishedInstanceCost,
+    currentUser,
+    userSeq,
+    mrSeq,
+    vmSeq
+    
+INVARIANT
+    currentTime: NAT
+    & userSeq: iseq(USERS)
+    & mrSeq: iseq(MACHINE_RESOURCES)
+    & vmSeq: iseq(VIRTUAL_MACHINES)
+    & ran(userSeq) = (USERS - clients) - admins
+    & ran(mrSeq) = MACHINE_RESOURCES - machineResources
+    & ran(vmSeq) = VIRTUAL_MACHINES - virtualMachines
+
+INITIALISATION
+    admins := {admin};
+    currentUser := none;
+    clients := {};
+    machineResources := {};
+    machineResourceProperties := {};
+    virtualMachines := {};
+    virtualMachineProperties := {};
+    vmCategories := {allocated, spot};
+    spotVirtualMachines := {};
+    allocatedVirtualMachines := {};
+    currentTime := 0;
+    instanceRating := {allocated |-> rec(cpu: 2, hdd: 2, mem: 2), spot |-> rec(cpu: 1, hdd: 1, mem: 1)};
+    finishedInstanceCost := {};
+    userSeq := % ss . (ss : 1..card(USERS) | ((1..card(USERS)) * USERS)((ss - 1)*card(USERS) + ss));
+    mrSeq := % ss . (
+        ss : 1..card(MACHINE_RESOURCES) 
+        | ((1..card(MACHINE_RESOURCES)) * MACHINE_RESOURCES)((ss - 1)*card(MACHINE_RESOURCES) + ss));
+    vmSeq := % ss . (
+        ss : 1..card(VIRTUAL_MACHINES) 
+        | ((1..card(VIRTUAL_MACHINES)) * VIRTUAL_MACHINES)((ss - 1)*card(VIRTUAL_MACHINES) + ss))
+
+OPERATIONS
+    setInstanceRating(instanceType, cpuRating, hddRating, memRating) =
+    BEGIN
+        IF cpuRating > 0 & hddRating > 0 & memRating > 0
+        THEN
+            instanceRating(instanceType) := rec(cpu: cpuRating, hdd: hddRating, mem: memRating)
+        END
+    END;
+
+    login(user) =
+    BEGIN
+        IF user /= none
+        THEN
+            currentUser := user
+        END
+    END;
+    
+    logout = 
+    BEGIN
+        currentUser := none
+    END;
+
+    addClient(user) =
+    BEGIN
+        IF user /: clients & user /: admins & currentUser : admins & user /= none
+        THEN
+            clients := clients \/ {user};
+            finishedInstanceCost(user) := 0
+        END
+    END;
+
+    addArbitraryClient =
+    BEGIN
+        IF currentUser : admins
+        THEN
+            clients := clients \/ {first(userSeq)};
+            finishedInstanceCost(first(userSeq)) := 0;
+            userSeq := tail(userSeq)
+        END
+    END;
+
+    addAdmin(user) =
+    BEGIN
+        IF user: USERS & user /: clients & user /: admins & user /= none
+        THEN
+            admins := admins \/ {user}
+        END
+    END;
+    
+    removeAdmin(user) =
+    BEGIN
+        IF user: USERS & user: admins & card(admins) > 1 & currentUser: admins
+        THEN
+            admins := admins - {user}
+        END
+    END;
+    
+    removeClient(user) =
+    BEGIN
+        IF user: USERS & user: clients & currentUser: admins & {vmp | vmp : ran(virtualMachineProperties) & vmp'owner = user} = {}
+        THEN
+            clients := clients - {user};
+            finishedInstanceCost := {user} <<| finishedInstanceCost
+        END
+    END;
+    
+    clientList <-- listClients(user) =
+    BEGIN
+        IF user: USERS & currentUser: admins
+        THEN
+            clientList := clients
+        END
+    END;
+    
+    tickTimer = 
+    BEGIN
+        currentTime := (currentTime + 1)
+    END;
+    
+    addResource(cpu, hdd, mem) =
+    BEGIN
+        IF cpu: NAT1 & hdd: NAT1 & mem: NAT1 & currentUser: admins 
+        THEN
+            machineResources := machineResources \/ {first(mrSeq)};
+            machineResourceProperties(first(mrSeq)) := rec(cpu: cpu, hdd: hdd, mem: mem);
+            mrSeq := tail(mrSeq)
+        END
+    END;
+    
+    removeResource(resource) = 
+    BEGIN
+        IF resource : machineResources
+        & resource : machineResources
+        & currentUser : admins
+        & {  vm | 
+                (vm : virtualMachines)
+                & ((virtualMachineProperties(vm))'residentMachine = resource) 
+            } = {}
+        THEN
+            machineResources := machineResources - {resource};
+            machineResourceProperties := {resource} <<| machineResourceProperties 
+        END
+    END;
+    
+    resourceList <-- listResources =
+    BEGIN
+        resourceList := machineResourceProperties
+    END;
+    
+    addAllocatedVirtualMachine(cpu, hdd, mem, client) = 
+    BEGIN
+        IF 
+            cpu: NAT1 & hdd : NAT1 & mem : NAT1& client : clients
+        THEN
+            // Pick a MACHINE_RESOURCE with available resources
+            // update the resources with a next id for VM
+            VAR machine, machineSeq IN
+                machineSeq := iseq(dom(machineResources));
+                machine := first(machineSeq);
+                WHILE
+                    machineSeq /= []
+                DO
+                    // Extract the comparison with the total resources
+                    VAR cpuTotal, hddTotal, memTotal, vm IN
+                        cpuTotal := SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & (virtualMachineProperties(virtualMachine))'residentMachine = machine
+                            & (virtualMachineProperties(virtualMachine))'category = allocated
+                            | (virtualMachineProperties(virtualMachine))'cpu
+                        );
+                        hddTotal := SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & (virtualMachineProperties(virtualMachine))'residentMachine = machine
+                            & (virtualMachineProperties(virtualMachine))'category = allocated
+                            | (virtualMachineProperties(virtualMachine))'hdd
+                        );
+                        memTotal := SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & (virtualMachineProperties(virtualMachine))'residentMachine = machine
+                            & (virtualMachineProperties(virtualMachine))'category = allocated
+                            | (virtualMachineProperties(virtualMachine))'mem
+                        );
+                        vm := first(vmSeq);
+                        IF 
+                            (machineResourceProperties(first(machineSeq)))'cpu > cpuTotal
+                            & (machineResourceProperties(first(machineSeq)))'mem > memTotal
+                            & (machineResourceProperties(first(machineSeq)))'hdd > hddTotal
+                        THEN
+                            vmSeq := tail(vmSeq);
+                            virtualMachines := 
+                                (virtualMachines \/ {vm}) - { 
+                                    vm | vm : dom(virtualMachineProperties) 
+                                    & (virtualMachineProperties(vm))'category = spot
+                                    & (virtualMachineProperties(vm))'residentMachine = machine 
+                                };
+                            allocatedVirtualMachines := allocatedVirtualMachines \/ {vm};
+                            virtualMachineProperties := { 
+                                    vm | vm : dom(virtualMachineProperties) 
+                                    & (virtualMachineProperties(vm))'category = spot
+                                    & (virtualMachineProperties(vm))'residentMachine = machine } 
+                                            <<| (
+                                            virtualMachineProperties 
+                                            \/ {vm |-> rec(
+                                                    residentMachine : machine,
+                                                    owner : client,
+                                                    category: allocated,
+                                                    startTime: currentTime,
+                                                    cpu : cpu,
+                                                    hdd : hdd,
+                                                    mem : mem
+                                                )}
+                                        );
+                            spotVirtualMachines := spotVirtualMachines - { 
+                                vm | vm : dom(virtualMachineProperties) 
+                                & (virtualMachineProperties(vm))'category = spot
+                                & (virtualMachineProperties(vm))'residentMachine = machine };
+                            machineSeq := []
+                        ELSE
+                            machineSeq := tail(machineSeq)
+                        END
+                    END
+                INVARIANT
+                    machine : machineResources
+                VARIANT
+                    card(machineResources) - size(machineSeq)
+                END
+            END
+        END
+    END;
+    
+    addSpotVirtualMachine(cpu, hdd, mem, client) = 
+    BEGIN
+        IF 
+            cpu: NAT1 & hdd : NAT1 & mem : NAT1& client : clients
+        THEN
+            // Pick a MACHINE_RESOURCE with available resources
+            // update the resources with a next id for VM
+            VAR machine, machineSeq IN
+                machineSeq := iseq(dom(machineResources));
+                machine := first(machineSeq);
+                WHILE
+                    machineSeq /= []
+                DO
+                    // Extract the comparison with the total resources
+                    VAR cpuTotal, hddTotal, memTotal, vm IN
+                        cpuTotal := SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & (virtualMachineProperties(virtualMachine))'residentMachine = machine
+                            | (virtualMachineProperties(virtualMachine))'cpu
+                        );
+                        hddTotal := SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & (virtualMachineProperties(virtualMachine))'residentMachine = machine
+                            | (virtualMachineProperties(virtualMachine))'hdd
+                        );
+                        memTotal := SIGMA virtualMachine . (
+                            virtualMachine : virtualMachines
+                            & (virtualMachineProperties(virtualMachine))'residentMachine = machine
+                            | (virtualMachineProperties(virtualMachine))'mem
+                        );
+                        vm := first(vmSeq);
+                        IF 
+                            (machineResourceProperties(first(machineSeq)))'cpu > cpuTotal
+                            & (machineResourceProperties(first(machineSeq)))'mem > memTotal
+                            & (machineResourceProperties(first(machineSeq)))'hdd > hddTotal
+                        THEN
+                            vmSeq := tail(vmSeq);
+                            virtualMachines := virtualMachines \/ {vm};
+                            spotVirtualMachines := spotVirtualMachines \/ {vm};
+                            virtualMachineProperties(vm) := rec(
+                                residentMachine : machine,
+                                owner : client,
+                                category: spot,
+                                startTime: currentTime,
+                                cpu : cpu,
+                                hdd : hdd,
+                                mem : mem
+                            );
+                            machineSeq := []
+                        ELSE
+                            machineSeq := tail(machineSeq)
+                        END
+                    END
+                INVARIANT
+                    machine : machineResources
+                VARIANT
+                    card(machineResources) - size(machineSeq)
+                END
+            END
+        END
+    END;
+
+    removeVirtualMachine(vm) =
+    BEGIN 
+        IF
+            vm : virtualMachines
+            & vm : dom(virtualMachineProperties)
+            & currentUser : admins \/ {(virtualMachineProperties(vm))'owner}
+            & (virtualMachineProperties(vm))'owner : USERS
+            & (virtualMachineProperties(vm))'owner : dom(finishedInstanceCost) 
+            & (virtualMachineProperties(vm))'category : dom(instanceRating)
+            &  ((instanceRating((virtualMachineProperties(vm))'category))'cpu)  > 0
+            &  ((virtualMachineProperties(vm))'cpu)  > 0
+            & currentTime >= (virtualMachineProperties(vm))'startTime
+        THEN
+            virtualMachines := virtualMachines - {vm};
+            virtualMachineProperties := {vm} <<| virtualMachineProperties;
+            allocatedVirtualMachines := allocatedVirtualMachines - {vm};
+            spotVirtualMachines := spotVirtualMachines - {vm};
+            finishedInstanceCost((virtualMachineProperties(vm))'owner) := 
+                finishedInstanceCost((virtualMachineProperties(vm))'owner)
+                + (((instanceRating((virtualMachineProperties(vm))'category))'cpu) 
+                    * ((virtualMachineProperties(vm))'cpu) 
+                    * (currentTime -  (virtualMachineProperties(vm))'startTime))
+                + (((instanceRating((virtualMachineProperties(vm))'category))'hdd) 
+                    * ((virtualMachineProperties(vm))'hdd) 
+                    * (currentTime -  (virtualMachineProperties(vm))'startTime))
+                + (((instanceRating((virtualMachineProperties(vm))'category))'mem) 
+                    * ((virtualMachineProperties(vm))'mem) 
+                    * (currentTime -  (virtualMachineProperties(vm))'startTime))
+        END
+    END;
+    
+    vms <-- getAllocatedVmsOnMachine(machine) =
+    BEGIN
+        IF 
+            machine : machineResources
+            & machine : dom(machineResourceProperties)
+        THEN
+            vms := {  vm | 
+                (vm : virtualMachines)
+                & ((virtualMachineProperties(vm))'residentMachine = machine) 
+            }
+        END       
+    END;
+    
+    totalCpu <-- getAllocatedCpuOnMachine(machine) =
+    BEGIN
+        IF
+            machine : machineResources
+            & machine : dom(machineResourceProperties)
+        THEN
+            totalCpu := SIGMA vm . (
+                (
+                    vm : dom(virtualMachineProperties)
+                    & ((virtualMachineProperties(vm))'residentMachine = machine)
+                ) | (virtualMachineProperties(vm))'cpu
+            )
+        END
+    END;
+
+
+    vmList <-- listVmsForUser(resourceTypes, user) =
+    BEGIN
+        IF
+            resourceTypes <: VM_CATEGORIES
+            & user : USERS
+            & currentUser : admins \/ {user}
+        THEN
+            vmList := 
+                {  vm | 
+                    (vm : dom(virtualMachineProperties))
+                    & ((virtualMachineProperties(vm))'owner = user) 
+                }
+        END
+    END;
+    
+    billing <-- getBillingForRunningVM(vm) =
+    BEGIN
+        IF
+            vm : virtualMachines
+            & currentUser : admins \/ {(virtualMachineProperties(vm))'owner}
+            & ((virtualMachineProperties(vm))'category) : dom(instanceRating)
+        THEN
+            billing := (((instanceRating((virtualMachineProperties(vm))'category))'cpu) 
+                                * ((virtualMachineProperties(vm))'cpu) 
+                                * (currentTime -  (virtualMachineProperties(vm))'startTime))
+                            + (((instanceRating((virtualMachineProperties(vm))'category))'hdd) 
+                                * ((virtualMachineProperties(vm))'hdd) 
+                                * (currentTime -  (virtualMachineProperties(vm))'startTime))
+                            + (((instanceRating((virtualMachineProperties(vm))'category))'mem) 
+                                * ((virtualMachineProperties(vm))'mem) 
+                                * (currentTime -  (virtualMachineProperties(vm))'startTime))
+        END
+    END;
+    
+    billing <-- getBillingForUser(user) =
+    BEGIN
+        IF
+            user : clients
+            & user : dom(finishedInstanceCost)
+            & currentUser : admins \/ {user}
+        THEN
+            billing := SIGMA vm . (
+                                vm : dom(virtualMachineProperties)
+                                & (virtualMachineProperties(vm))'owner = user
+                                & (virtualMachineProperties(vm))'category : dom(instanceRating)
+                                | 
+                                (virtualMachineProperties(vm))'cpu 
+                                    * ((instanceRating((virtualMachineProperties(vm))'category))'cpu) 
+                                    * (currentTime - ((virtualMachineProperties(vm))'startTime))
+                                + (virtualMachineProperties(vm))'hdd 
+                                    * ((instanceRating((virtualMachineProperties(vm))'category))'hdd) 
+                                    * (currentTime - ((virtualMachineProperties(vm))'startTime))
+                                + (virtualMachineProperties(vm))'mem 
+                                    * ((instanceRating((virtualMachineProperties(vm))'category))'mem) 
+                                    * (currentTime - ((virtualMachineProperties(vm))'startTime))
+                            ) + finishedInstanceCost(user)
+        END
+    END
+
+ END
