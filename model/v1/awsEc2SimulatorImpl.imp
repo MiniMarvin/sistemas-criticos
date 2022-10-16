@@ -175,7 +175,10 @@ OPERATIONS
             // Pick a MACHINE_RESOURCE with available resources
             // update the resources with a next id for VM
             VAR machine, machineSeq IN
-                machineSeq := iseq(dom(machineResources));
+                machineSeq := % ss . (
+                    ss : 1..card(MACHINE_RESOURCES) 
+                    | ((1..card(MACHINE_RESOURCES)) * MACHINE_RESOURCES)((ss - 1)*card(MACHINE_RESOURCES) + ss));
+//                machineSeq := iseq(dom(machineResources));
                 machine := first(machineSeq);
                 WHILE
                     machineSeq /= []
@@ -256,7 +259,9 @@ OPERATIONS
             // Pick a MACHINE_RESOURCE with available resources
             // update the resources with a next id for VM
             VAR machine, machineSeq IN
-                machineSeq := iseq(dom(machineResources));
+                machineSeq := % ss . (
+                    ss : 1..card(MACHINE_RESOURCES) 
+                    | ((1..card(MACHINE_RESOURCES)) * MACHINE_RESOURCES)((ss - 1)*card(MACHINE_RESOURCES) + ss));
                 machine := first(machineSeq);
                 WHILE
                     machineSeq /= []
