@@ -1,0 +1,1 @@
+﻿Flag(FileOn("awsEc2SimulatorImpl.pmi.res")) & Set(toto | none: USERS => #client.(client: USERS & not(client: admins$1) & clients$1\/{client} = clients$1\/{first(userSeq$1)} & not(client: clients$1) & not(client = none) & finishedInstanceCost$1<+{client|->0} = finishedInstanceCost$1<+{first(userSeq$1)|->0}))

@@ -1,1 +1,0 @@
-﻿Flag(FileOn("awsEc2Simulator.pmi.res")) & Set(toto | dom(virtualMachineProperties) = virtualMachines & pset: POW(virtualMachineProperties) & pset: POW(virtualMachineProperties) & vm2$1: dom(pset) & dom(pset) +-> ran(pset): POW(dom(pset) <-> ran(pset)) => pset: dom(pset) +-> ran(pset))

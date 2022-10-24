@@ -1,6 +1,0 @@
-digraph {
-awsEc2Simulator [ label=" awsEc2Simulator " shape= box ]
-awsEc2SimulatorCtx [ label=" awsEc2SimulatorCtx " shape= box ]
-
-"awsEc2Simulator" -> "awsEc2SimulatorCtx" [style= dotted ]
-}

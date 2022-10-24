@@ -32,9 +32,10 @@ INVARIANT
     & userSeq : iseq ( USERS )
     & mrSeq : iseq ( MACHINE_RESOURCES )
     & vmSeq : iseq ( VIRTUAL_MACHINES )
-    & ran ( userSeq ) = ( USERS - clients ) - admins
-    & ran ( mrSeq ) = MACHINE_RESOURCES - machineResources
-    & ran ( vmSeq ) = VIRTUAL_MACHINES - virtualMachines
+    & admins : FIN ( admins )
+//    & ran(userSeq) = (USERS - clients)
+//    & ran(mrSeq) = MACHINE_RESOURCES - machineResources
+//    & ran(vmSeq) = VIRTUAL_MACHINES - virtualMachines
 
 INITIALISATION
     admins := { admin } ;
@@ -50,7 +51,7 @@ INITIALISATION
     currentTime := 0 ;
     instanceRating := { allocated |-> rec ( cpu : 2 , hdd : 2 , mem : 2 ) , spot |-> rec ( cpu : 1 , hdd : 1 , mem : 1 ) } ;
     finishedInstanceCost := {} ;
-    userSeq := % ss . ( ss : 1 .. card ( USERS ) | ( ( 1 .. card ( USERS ) ) * USERS ) ( ( ss - 1 ) * card ( USERS ) + ss ) ) ;
+    userSeq := % ss . ( ss : 1 .. card ( USERS - { admin , none } ) | ( ( 1 .. card ( USERS - { admin , none } ) ) * ( USERS - { admin , none } ) ) ( ( ss - 1 ) * card ( USERS - { admin , none } ) + ss ) ) ;
     mrSeq := % ss . (
         ss : 1 .. card ( MACHINE_RESOURCES )
         | ( ( 1 .. card ( MACHINE_RESOURCES ) ) * MACHINE_RESOURCES ) ( ( ss - 1 ) * card ( MACHINE_RESOURCES ) + ss ) ) ;
@@ -134,7 +135,10 @@ OPERATIONS
 
     tickTimer =
     BEGIN
-        currentTime := ( currentTime + 1 )
+        IF currentTime < 10000
+        THEN
+            currentTime := ( currentTime + 1 )
+        END
     END ;
 
     addResource ( cpu , hdd , mem ) =
